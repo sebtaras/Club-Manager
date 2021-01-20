@@ -1,0 +1,16 @@
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.exe
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.deps.json
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.runtimeconfig.json
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.runtimeconfig.dev.json
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.pdb
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.csprojAssemblyReference.cache
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.AssemblyInfoInputs.cache
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.AssemblyInfo.cs
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.pdb
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.LoginForm.resources
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.RegisterForm.resources
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.csproj.GenerateResource.cache
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.csproj.CoreCompileInputs.cache
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.genruntimeconfig.cache
