@@ -17,7 +17,7 @@ namespace ClubManager
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new RegisterForm().Show();
+            new LoginForm().Show();
             Application.Run();
         }
     }

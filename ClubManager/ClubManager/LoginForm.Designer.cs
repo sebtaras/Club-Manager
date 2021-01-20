@@ -96,6 +96,7 @@
             this.LoginButton.TabIndex = 5;
             this.LoginButton.Text = "Log in";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // JumpToRegister
             // 
