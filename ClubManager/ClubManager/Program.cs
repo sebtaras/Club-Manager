@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using ClubManager.DAL_File;
+using ClubManager.PresentationLayer;
+using ClubManager.BaseLib;
+using ClubManager.Contrllers;
 
 namespace ClubManager
 {
@@ -14,11 +19,22 @@ namespace ClubManager
         [STAThread]
         static void Main()
         {
+            IWindowFormsFactory _formsFactory = new WindowFormsFactory();
+
+            PlayerRepository playerRepository = new PlayerRepository();
+            TrainerRepository trainerRepository = new TrainerRepository();
+            AdminRepository adminRepository = new AdminRepository();
+            TrainingRepository trainingRepository = new TrainingRepository();
+            TeamRepository teamRepository = new TeamRepository();
+
+            MainController mainController = new MainController(_formsFactory, playerRepository, trainerRepository, adminRepository, trainingRepository, teamRepository);
+            mainController.LoadDefaultModel();
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new LoginForm().Show();
-            Application.Run();
+            //new LoginForm().Show();
+            Application.Run(new formLogIn(mainController));
         }
     }
 }

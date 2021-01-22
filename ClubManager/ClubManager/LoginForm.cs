@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using ClubManager.BaseLib;
 
 namespace ClubManager
 {
@@ -28,30 +30,18 @@ namespace ClubManager
             var email = EmailInput.Text;
             var password = PasswordInput.Text;
 
-            if (!IsValidEmail(email))
+            if (!ValidationFunctions.IsValidEmail(email))
             {
                 MessageBox.Show("Enter a valid email");
             }
             // Validate login in db
-            else if (true)
+            else
             {
                 MessageBox.Show("Going to homepage");
-                //=> go to user's homepage
+                // => go to user's homepage
             }
 
         }
 
-        // Check valid email
-        private bool IsValidEmail(string email)
-        {
-            try {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
     }
 }

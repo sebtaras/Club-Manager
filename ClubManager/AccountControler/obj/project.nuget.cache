@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "AtvBbOZWdg8Ni9yvDhVOvX3m8ypeKyVRNJ3RK4Vw4YBwabdCXKE6u+hUpbYHWOU5wnS9haXs3E4h0im7vpYQxQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sebo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\sebo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

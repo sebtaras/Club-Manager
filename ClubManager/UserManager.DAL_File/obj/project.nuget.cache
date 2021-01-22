@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "E1wGM+IyVuzaHU1FJQtsrx179LpxeDfy8zzcf7mdMRfnPzk6JjbC6egkcHgNpTn8DrsO21xcgW9azMVQUmyHMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sebo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\sebo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -47,6 +47,10 @@ namespace ClubManager
             this.TrainerRadioButton = new System.Windows.Forms.RadioButton();
             this.AgeLabel = new System.Windows.Forms.Label();
             this.AgeInput = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LastNameInput = new System.Windows.Forms.TextBox();
+            this.FirstNameInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label4
@@ -81,13 +85,14 @@ namespace ClubManager
             this.RegisterButton.TabIndex = 13;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = false;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(261, 149);
+            this.label3.Location = new System.Drawing.Point(101, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 19);
             this.label3.TabIndex = 12;
@@ -98,7 +103,7 @@ namespace ClubManager
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(261, 95);
+            this.label2.Location = new System.Drawing.Point(101, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 19);
             this.label2.TabIndex = 11;
@@ -107,15 +112,16 @@ namespace ClubManager
             // PasswordInput
             // 
             this.PasswordInput.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PasswordInput.Location = new System.Drawing.Point(261, 171);
+            this.PasswordInput.Location = new System.Drawing.Point(101, 171);
             this.PasswordInput.Name = "PasswordInput";
+            this.PasswordInput.PasswordChar = '*';
             this.PasswordInput.Size = new System.Drawing.Size(263, 24);
             this.PasswordInput.TabIndex = 10;
             // 
             // EmailInput
             // 
             this.EmailInput.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmailInput.Location = new System.Drawing.Point(261, 117);
+            this.EmailInput.Location = new System.Drawing.Point(101, 117);
             this.EmailInput.Name = "EmailInput";
             this.EmailInput.Size = new System.Drawing.Size(263, 24);
             this.EmailInput.TabIndex = 9;
@@ -136,7 +142,7 @@ namespace ClubManager
             this.RoleLabel.AutoSize = true;
             this.RoleLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.RoleLabel.ForeColor = System.Drawing.Color.White;
-            this.RoleLabel.Location = new System.Drawing.Point(261, 214);
+            this.RoleLabel.Location = new System.Drawing.Point(261, 212);
             this.RoleLabel.Name = "RoleLabel";
             this.RoleLabel.Size = new System.Drawing.Size(42, 19);
             this.RoleLabel.TabIndex = 17;
@@ -147,7 +153,7 @@ namespace ClubManager
             this.PlayerRadioButton.AutoSize = true;
             this.PlayerRadioButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PlayerRadioButton.ForeColor = System.Drawing.Color.White;
-            this.PlayerRadioButton.Location = new System.Drawing.Point(352, 214);
+            this.PlayerRadioButton.Location = new System.Drawing.Point(352, 212);
             this.PlayerRadioButton.Name = "PlayerRadioButton";
             this.PlayerRadioButton.Size = new System.Drawing.Size(69, 23);
             this.PlayerRadioButton.TabIndex = 18;
@@ -161,7 +167,7 @@ namespace ClubManager
             this.TrainerRadioButton.AutoSize = true;
             this.TrainerRadioButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TrainerRadioButton.ForeColor = System.Drawing.Color.White;
-            this.TrainerRadioButton.Location = new System.Drawing.Point(453, 214);
+            this.TrainerRadioButton.Location = new System.Drawing.Point(453, 212);
             this.TrainerRadioButton.Name = "TrainerRadioButton";
             this.TrainerRadioButton.Size = new System.Drawing.Size(71, 23);
             this.TrainerRadioButton.TabIndex = 19;
@@ -175,7 +181,7 @@ namespace ClubManager
             this.AgeLabel.AutoSize = true;
             this.AgeLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AgeLabel.ForeColor = System.Drawing.Color.White;
-            this.AgeLabel.Location = new System.Drawing.Point(261, 246);
+            this.AgeLabel.Location = new System.Drawing.Point(261, 244);
             this.AgeLabel.Name = "AgeLabel";
             this.AgeLabel.Size = new System.Drawing.Size(42, 19);
             this.AgeLabel.TabIndex = 20;
@@ -185,11 +191,49 @@ namespace ClubManager
             // AgeInput
             // 
             this.AgeInput.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AgeInput.Location = new System.Drawing.Point(261, 268);
+            this.AgeInput.Location = new System.Drawing.Point(261, 266);
             this.AgeInput.Name = "AgeInput";
             this.AgeInput.Size = new System.Drawing.Size(263, 24);
             this.AgeInput.TabIndex = 21;
             this.AgeInput.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(433, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 19);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Last name";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(433, 95);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 19);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "First name";
+            // 
+            // LastNameInput
+            // 
+            this.LastNameInput.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LastNameInput.Location = new System.Drawing.Point(433, 171);
+            this.LastNameInput.Name = "LastNameInput";
+            this.LastNameInput.Size = new System.Drawing.Size(263, 24);
+            this.LastNameInput.TabIndex = 23;
+            // 
+            // FirstNameInput
+            // 
+            this.FirstNameInput.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FirstNameInput.Location = new System.Drawing.Point(433, 117);
+            this.FirstNameInput.Name = "FirstNameInput";
+            this.FirstNameInput.Size = new System.Drawing.Size(263, 24);
+            this.FirstNameInput.TabIndex = 22;
             // 
             // RegisterForm
             // 
@@ -197,6 +241,10 @@ namespace ClubManager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.LastNameInput);
+            this.Controls.Add(this.FirstNameInput);
             this.Controls.Add(this.AgeInput);
             this.Controls.Add(this.AgeLabel);
             this.Controls.Add(this.TrainerRadioButton);
@@ -233,5 +281,9 @@ namespace ClubManager
         private System.Windows.Forms.RadioButton TrainerRadioButton;
         private System.Windows.Forms.Label AgeLabel;
         private System.Windows.Forms.TextBox AgeInput;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox LastNameInput;
+        private System.Windows.Forms.TextBox FirstNameInput;
     }
 }
