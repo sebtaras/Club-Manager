@@ -36,8 +36,11 @@ namespace ClubManager.DAL_File
 
         public bool CheckTrainerExists(Trainer trainer)
         {
-            if (_listTrainers.IndexOf(trainer) > -1)
-                return true;
+            foreach(Trainer t in _listTrainers)
+            {
+                if (t.Email == trainer.Email)
+                    return true;
+            }
             return false;
         }
     }

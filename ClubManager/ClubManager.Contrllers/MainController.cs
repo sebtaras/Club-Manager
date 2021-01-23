@@ -52,6 +52,13 @@ namespace ClubManager.Contrllers
             
             
         }
+        public bool RegisterUser(string email, string password, string firstName, string lastName, string role, string age)
+        {
+            var authController = new AuthController();
+            if(authController.VerifyRegisterInput(email, password, firstName, lastName, role, age, _playerRepository, _trainerRepository))
+                return true;
+            return false;
+        }
 
         public bool LogInUser(string email, string password)
         {
@@ -110,5 +117,17 @@ namespace ClubManager.Contrllers
             var form = _formsFactory.RegisterView();
             form.ShowViewModaless(this);
         }
+
+        public void HideAgeInput(IRegisterView form)
+        {
+            form.HideAgeOption();
+        }
+
+        public void ShowAgeInput(IRegisterView form)
+        {
+            form.ShowAgeOption();
+        }
+
+        
     }
 }

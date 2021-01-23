@@ -35,7 +35,9 @@ namespace ClubManager.PresentationLayer
 
         public string LastName => LastNameInput.Text;
 
-        public string Role => PlayerRB.Checked ? "Player" : TrainerRB.Checked ? "Trainer" : null;
+        public string Role => PlayerRB.Checked ? "Player" : TrainerRB.Checked ? "Trainer" : "";
+
+        public string Age => AgeInput.Text;
 
         private void SwitchToLogin(object sender, EventArgs e)
         {
@@ -53,5 +55,36 @@ namespace ClubManager.PresentationLayer
             this.Hide();
         }
 
+        private void SelectedPlayerRole(object sender, EventArgs e)
+        {
+            _controller.ShowAgeInput(this);
+        }
+
+        private void SelectedTrainerRole(object sender, EventArgs e)
+        {
+            _controller.HideAgeInput(this);
+        }
+
+        public void HideAgeOption()
+        {
+            AgeInput.Visible = false;
+            AgeLabel.Visible = false;
+        }
+
+        public void ShowAgeOption()
+        {
+            AgeInput.Visible = true;
+            AgeLabel.Visible = true;
+        }
+
+        private void RegisterUser(object sender, EventArgs e)
+        {
+            if (!_controller.RegisterUser(Email, Password, FirstName, LastName, Role, Age))
+                MessageBox.Show("Incorrect register input or email already in use.");
+            else
+            {
+                MessageBox.Show("Registering");
+            }
+        }
     }
 }

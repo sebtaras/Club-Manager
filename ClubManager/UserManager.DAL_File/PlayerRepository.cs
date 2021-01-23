@@ -41,8 +41,13 @@ namespace ClubManager.DAL_File
 
         public bool CheckPlayerExists(Player player)
         {
-            if (_listPlayers.IndexOf(player) > -1)
-                return true;
+            foreach(Player p in _listPlayers)
+            {
+                if (p.Email == player.Email)
+                    return true;
+            }
+            /*if (_listPlayers.IndexOf(player) > -1)
+                return true;*/
             return false;
         }
 

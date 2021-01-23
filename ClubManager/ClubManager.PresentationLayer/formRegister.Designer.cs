@@ -45,7 +45,7 @@ namespace ClubManager.PresentationLayer
             this.TrainerRB = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.AgeInput = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.AgeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label4
@@ -88,6 +88,7 @@ namespace ClubManager.PresentationLayer
             this.RegisterButton.TabIndex = 12;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterUser);
             // 
             // PasswordInput
             // 
@@ -173,6 +174,7 @@ namespace ClubManager.PresentationLayer
             this.PlayerRB.TabStop = true;
             this.PlayerRB.Text = "Player";
             this.PlayerRB.UseVisualStyleBackColor = true;
+            this.PlayerRB.CheckedChanged += new System.EventHandler(this.SelectedPlayerRole);
             // 
             // TrainerRB
             // 
@@ -185,6 +187,7 @@ namespace ClubManager.PresentationLayer
             this.TrainerRB.TabStop = true;
             this.TrainerRB.Text = "Trainer";
             this.TrainerRB.UseVisualStyleBackColor = true;
+            this.TrainerRB.CheckedChanged += new System.EventHandler(this.SelectedTrainerRole);
             // 
             // label7
             // 
@@ -204,15 +207,15 @@ namespace ClubManager.PresentationLayer
             this.AgeInput.Size = new System.Drawing.Size(241, 27);
             this.AgeInput.TabIndex = 24;
             // 
-            // label8
+            // AgeLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(276, 243);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 19);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Age";
+            this.AgeLabel.AutoSize = true;
+            this.AgeLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.AgeLabel.Location = new System.Drawing.Point(276, 243);
+            this.AgeLabel.Name = "AgeLabel";
+            this.AgeLabel.Size = new System.Drawing.Size(42, 19);
+            this.AgeLabel.TabIndex = 23;
+            this.AgeLabel.Text = "Age";
             // 
             // formRegister
             // 
@@ -220,7 +223,7 @@ namespace ClubManager.PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.AgeInput);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.AgeLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TrainerRB);
             this.Controls.Add(this.PlayerRB);
@@ -262,6 +265,6 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.RadioButton TrainerRB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox AgeInput;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label AgeLabel;
     }
 }

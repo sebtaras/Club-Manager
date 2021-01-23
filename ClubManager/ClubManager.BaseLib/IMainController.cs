@@ -11,5 +11,8 @@ namespace ClubManager.BaseLib
         void LogOut();
         void SwitchToLogin(IRegisterView form);
         void SwitchToRegister(ILogInView form);
+        void ShowAgeInput(IRegisterView form);
+        void HideAgeInput(IRegisterView form);
+        bool RegisterUser(string email, string password, string firstName, string lastName, string role, string age);
     }
 }
