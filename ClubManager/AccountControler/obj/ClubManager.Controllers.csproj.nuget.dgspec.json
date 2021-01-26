@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj": {}
+    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj": {
+    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj",
         "projectName": "ClubManager.Controllers",
-        "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj",
-        "packagesPath": "C:\\Users\\sebo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\obj\\",
+        "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj",
+        "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\AccountControler\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,17 +31,17 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj"
               },
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj"
               },
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj"
               },
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
               }
             }
           }
@@ -74,17 +77,20 @@
         }
       }
     },
-    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
+    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj",
         "projectName": "ClubManager.BaseLib",
-        "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj",
-        "packagesPath": "C:\\Users\\sebo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\obj\\",
+        "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj",
+        "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,8 +104,11 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj"
+              },
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
               }
             }
           }
@@ -135,22 +144,22 @@
         }
       }
     },
-    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj": {
+    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj",
         "projectName": "ClubManager.Contrllers",
-        "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj",
+        "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj"
               },
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj"
               },
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
               }
             }
           }
@@ -160,17 +169,20 @@
         "net472": {}
       }
     },
-    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
+    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj",
         "projectName": "ClubManager.Models",
-        "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj",
-        "packagesPath": "C:\\Users\\sebo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\obj\\",
+        "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj",
+        "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -217,17 +229,20 @@
         }
       }
     },
-    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
+    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj",
         "projectName": "ClubManager.DAL_File",
-        "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj",
-        "packagesPath": "C:\\Users\\sebo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\UserManager.DAL_File\\obj\\",
+        "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj",
+        "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\UserManager.DAL_File\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -241,8 +256,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
-                "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\Models1\\ClubManager.Models.csproj"
+              "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj": {
+                "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\Models1\\ClubManager.Models.csproj"
               }
             }
           }

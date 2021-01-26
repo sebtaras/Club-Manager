@@ -33,5 +33,10 @@ namespace ClubManager.PresentationLayer
         {
             return new formUITrainer();
         }
+
+        public IVerifyUserView VerifyUserView()
+        {
+            return new formVerifyUser();
+        }
     }
 }

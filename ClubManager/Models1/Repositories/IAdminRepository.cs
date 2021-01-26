@@ -7,5 +7,6 @@ namespace ClubManager.Models.Repositories
     public interface IAdminRepository
     {
         bool Add(Admin admin);
+        Admin GetAdminByEmail(string email);
     }
 }

@@ -13,9 +13,8 @@ namespace ClubManager.DAL_File
 
         public bool Add(Team team)
         {
-            if (_teamList.IndexOf(team) < 0)
-                return false;
-
+            team.Id = next_ID;
+            next_ID++;
             _teamList.Add(team);
             return true;
         }

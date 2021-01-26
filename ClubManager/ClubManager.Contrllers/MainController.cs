@@ -11,18 +11,18 @@ namespace ClubManager.Contrllers
     public class MainController : IMainController
     {
         private IWindowFormsFactory _formsFactory;
-        private PlayerRepository _playerRepository;
-        private TrainerRepository _trainerRepository;
+        public PlayerRepository _playerRepository;
+        public TrainerRepository _trainerRepository;
         private AdminRepository _adminRepository;
         private ITrainingRepository _trainingRepository;
-        private ITeamRepository _teamRepository;
+        private TeamRepository _teamRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
             PlayerRepository playerRepository, 
             TrainerRepository trainerRepository, 
             AdminRepository adminRepository, 
             ITrainingRepository trainingRepository,
-            ITeamRepository teamRepository)
+            TeamRepository teamRepository)
         {
             _formsFactory = formsFactory;
             _playerRepository = playerRepository;
@@ -35,6 +35,7 @@ namespace ClubManager.Contrllers
         public void LoadDefaultModel()
         {
             _adminRepository.Add(new Admin(1, "admin", "admin", "admin@mail", "password"));
+
             Trainer trainerPionir = new Trainer(1, "gospon", "trener", "gt@mail", "password", false);
             _trainerRepository.Add(trainerPionir);
 
@@ -48,8 +49,8 @@ namespace ClubManager.Contrllers
             DateTime time = DateTime.Now;
             Transaction bd_t1 = new Transaction(1, (decimal)200.00, time);
             Transaction bd_t2 = new Transaction(2, (decimal)200.00, time.AddDays(31));
-            player_bd.AddTransaction(bd_t1);
-            player_bd.AddTransaction(bd_t2);
+            player_bd.transactions.Add(bd_t1);
+            player_bd.transactions.Add(bd_t2);
 
             List<Player> playersPionir = new List<Player>() { player_bd, player_mp };
             Team teamPioniri = new Team(1, "Pioniri", 13, 15, trainerPionir, playersPionir);
@@ -58,6 +59,7 @@ namespace ClubManager.Contrllers
             
             
         }
+
         public bool RegisterUser(string email, string password, string firstName, string lastName, string role, string age)
         {
             var authController = new AuthController();
@@ -68,7 +70,6 @@ namespace ClubManager.Contrllers
 
         public bool LogInUser(string email, string password)
         {
-
             var authController = new AuthController();
 
             if (authController.VerifyLoginInput(email, password))
@@ -94,7 +95,7 @@ namespace ClubManager.Contrllers
                         {
                             var form = _formsFactory.AdminView();
                             var adminController = new AdminController();
-                            adminController.Homepage(form, this);
+                            adminController.Homepage(form, this, _playerRepository, _trainerRepository, _teamRepository);
                             break;
                         }
                     case "": loginSuccess = false; break;
@@ -132,6 +133,12 @@ namespace ClubManager.Contrllers
         public void ShowAgeInput(IRegisterView form)
         {
             form.ShowAgeOption();
+        }
+
+        public void ShowVerifyUserForm(Player p, Trainer t)
+        {
+            var form = _formsFactory.VerifyUserView();
+            form.ShowModal(p, t);
         }
     }
 }

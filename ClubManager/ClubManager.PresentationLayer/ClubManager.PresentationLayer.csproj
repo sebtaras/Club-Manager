@@ -73,6 +73,12 @@
     <Compile Include="formUITrainer.Designer.cs">
       <DependentUpon>formUITrainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="formVerifyUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formVerifyUser.Designer.cs">
+      <DependentUpon>formVerifyUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowFormsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +94,10 @@
     <ProjectReference Include="..\Models1\ClubManager.Models.csproj">
       <Project>{C71CA14B-44D9-44AE-A3DF-D16885D1B40E}</Project>
       <Name>ClubManager.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserManager.DAL_File\ClubManager.DAL_File.csproj">
+      <Project>{a5566e7a-7d38-41a9-9dd3-06aee9602fe0}</Project>
+      <Name>ClubManager.DAL_File</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formUITrainer.resx">
       <DependentUpon>formUITrainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formVerifyUser.resx">
+      <DependentUpon>formVerifyUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

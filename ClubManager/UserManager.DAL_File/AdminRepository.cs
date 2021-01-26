@@ -16,5 +16,15 @@ namespace ClubManager.DAL_File
             _listAdmins.Add(admin);
             return true;
         }
+
+        public Admin GetAdminByEmail(string email)
+        {
+            foreach(Admin a in _listAdmins)
+            {
+                if (a.Email == email)
+                    return a;
+            }
+            return null;
+        }
     }
 }

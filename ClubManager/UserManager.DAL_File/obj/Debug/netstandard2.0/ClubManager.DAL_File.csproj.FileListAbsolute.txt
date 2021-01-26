@@ -10,3 +10,15 @@ C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\UserManager.DAL_File
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.csproj.CopyComplete
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.dll
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\bin\Debug\netstandard2.0\ClubManager.DAL_File.deps.json
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\bin\Debug\netstandard2.0\ClubManager.DAL_File.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\bin\Debug\netstandard2.0\ClubManager.DAL_File.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\bin\Debug\netstandard2.0\ClubManager.Models.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\bin\Debug\netstandard2.0\ClubManager.Models.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.csprojAssemblyReference.cache
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.csproj.CopyComplete
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\UserManager.DAL_File\obj\Debug\netstandard2.0\ClubManager.DAL_File.pdb

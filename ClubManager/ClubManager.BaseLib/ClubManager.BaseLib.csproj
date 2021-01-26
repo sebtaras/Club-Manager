@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models1\ClubManager.Models.csproj" />
+    <ProjectReference Include="..\UserManager.DAL_File\ClubManager.DAL_File.csproj" />
   </ItemGroup>
 
 </Project>

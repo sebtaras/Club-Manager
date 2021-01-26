@@ -11,5 +11,6 @@ namespace ClubManager.BaseLib
         IPlayerView PlayerView();
         ITrainerView TrainerView();
         IAdminView AdminView();
+        IVerifyUserView VerifyUserView();
     }
 }

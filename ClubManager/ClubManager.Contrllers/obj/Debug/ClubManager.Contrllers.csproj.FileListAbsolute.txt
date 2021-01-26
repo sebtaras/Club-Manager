@@ -11,3 +11,16 @@ C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.Contrlle
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.csproj.CopyComplete
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.dll
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Contrllers.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Contrllers.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.BaseLib.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.DAL_File.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Models.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.BaseLib.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Models.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.DAL_File.pdb
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.csprojAssemblyReference.cache
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.csproj.CopyComplete
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.pdb
