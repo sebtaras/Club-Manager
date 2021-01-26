@@ -37,6 +37,7 @@ namespace ClubManager.PresentationLayer
             this.Email = new System.Windows.Forms.Label();
             this.Cancel = new System.Windows.Forms.Button();
             this.ConfirmButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -101,15 +102,14 @@ namespace ClubManager.PresentationLayer
             // 
             // Cancel
             // 
-            this.Cancel.BackColor = System.Drawing.Color.Red;
+            this.Cancel.BackColor = System.Drawing.SystemColors.Control;
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.FlatAppearance.BorderSize = 0;
-            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.Cancel.ForeColor = System.Drawing.Color.White;
-            this.Cancel.Location = new System.Drawing.Point(153, 167);
+            this.Cancel.ForeColor = System.Drawing.Color.Black;
+            this.Cancel.Location = new System.Drawing.Point(204, 167);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(132, 38);
+            this.Cancel.Size = new System.Drawing.Size(80, 38);
             this.Cancel.TabIndex = 7;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = false;
@@ -120,16 +120,31 @@ namespace ClubManager.PresentationLayer
             this.ConfirmButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.ConfirmButton.Location = new System.Drawing.Point(12, 167);
             this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(132, 38);
+            this.ConfirmButton.Size = new System.Drawing.Size(100, 38);
             this.ConfirmButton.TabIndex = 8;
             this.ConfirmButton.Text = "Confirm";
             this.ConfirmButton.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(117, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 38);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Deny";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // formVerifyUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 217);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Email);
@@ -155,5 +170,6 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button ConfirmButton;
+        private System.Windows.Forms.Button button1;
     }
 }
