@@ -48,6 +48,7 @@ namespace ClubManager.PresentationLayer
 
         public void DisplayRegisterRequests(PlayerRepository playerRepository, TrainerRepository trainerRepository)
         {
+            RegisterRequests.Items.Clear();
             foreach(Player p in playerRepository._listPlayers)
             {
                 if(!p.Verified)

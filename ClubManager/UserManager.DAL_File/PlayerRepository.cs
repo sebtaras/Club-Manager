@@ -40,13 +40,13 @@ namespace ClubManager.DAL_File
 
         public void Verify(Player player)
         {
-            /*foreach(Player p in _listPlayers)
+            foreach (Player p in _listPlayers)
             {
-                if(p.Email == player.Email)
+                if (p.Email == player.Email)
                 {
                     p.Verified = true;
                 }
-            }*/
+            }
         }
 
         public bool CheckPlayerExists(Player player)

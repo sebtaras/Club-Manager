@@ -41,3 +41,4 @@ C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.Pres
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.dll
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.pdb
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formVerifyUser.resources
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formVerifyUser.resources

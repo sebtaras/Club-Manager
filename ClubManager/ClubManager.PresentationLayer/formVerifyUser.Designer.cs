@@ -102,6 +102,7 @@ namespace ClubManager.PresentationLayer
             // Cancel
             // 
             this.Cancel.BackColor = System.Drawing.Color.Red;
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.FlatAppearance.BorderSize = 0;
             this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);

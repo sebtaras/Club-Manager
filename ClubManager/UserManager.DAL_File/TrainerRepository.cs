@@ -41,7 +41,13 @@ namespace ClubManager.DAL_File
 
         public void Verify(Trainer trainer)
         {
-            throw new NotImplementedException();
+            foreach(Trainer t in _listTrainers)
+            {
+                if(t.Email == trainer.Email)
+                {
+                    t.Verified = true;
+                }
+            }
         }
 
         public bool CheckTrainerExists(Trainer trainer)

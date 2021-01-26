@@ -4,6 +4,8 @@ namespace ClubManager.BaseLib
 {
     public interface IVerifyUserView
     {
-        bool ShowModal(Player player, Trainer trainer);
+        bool ShowViewModal();
+        void SetPlayerValues(Player player);
+        void SetTrainerValues(Trainer trainer);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +12,6 @@ namespace ClubManager.BaseLib
         IPlayerView PlayerView();
         ITrainerView TrainerView();
         IAdminView AdminView();
-        IVerifyUserView VerifyUserView();
+        IVerifyUserView VerifyUserView(Player p, Trainer t);
     }
 }

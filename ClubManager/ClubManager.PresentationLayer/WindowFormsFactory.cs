@@ -1,4 +1,5 @@
 ﻿using ClubManager.BaseLib;
+using ClubManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +35,9 @@ namespace ClubManager.PresentationLayer
             return new formUITrainer();
         }
 
-        public IVerifyUserView VerifyUserView()
+        public IVerifyUserView VerifyUserView(Player p, Trainer t)
         {
-            return new formVerifyUser();
+            return new formVerifyUser(p, t);
         }
     }
 }

@@ -19,28 +19,17 @@ namespace ClubManager.PresentationLayer
             InitializeComponent();
         }
 
-        public bool ShowModal(Player player, Trainer trainer)
+        public formVerifyUser(Player p, Trainer t)
         {
-            if (player != null)
-            {
-                FirstName.Text += ": " + player.FirstName;
-                LastName.Text += ": " + player.LastName;
-                Email.Text += ": " + player.Email;
-                Role.Text += ": " + "Player";
-                Age.Text += ": " + player.Age.ToString();
-            }
-            else
-            {
-                FirstName.Text += ": " + trainer.FirstName;
-                LastName.Text += ": " + trainer.LastName;
-                Email.Text += ": " + trainer.Email;
-                Role.Text += ": " + "Trainer";
-                Age.Visible = false;
-            }
+            InitializeComponent();
+            if (p != null) SetPlayerValues(p);
+            else SetTrainerValues(t);
+        }
 
+        public bool ShowViewModal()
+        {
             if (this.ShowDialog() == DialogResult.OK)
             {
-                VerifyUser();
                 return true;
             }
             else
@@ -49,9 +38,22 @@ namespace ClubManager.PresentationLayer
             }
         }
 
-        public void VerifyUser()
+        public void SetPlayerValues(Player player)
         {
+            FirstName.Text += ": " + player.FirstName;
+            LastName.Text += ": " + player.LastName;
+            Email.Text += ": " + player.Email;
+            Role.Text += ": " + "Player";
+            Age.Text += ": " + player.Age.ToString();
+        }
 
+        public void SetTrainerValues(Trainer trainer)
+        {
+            FirstName.Text += ": " + trainer.FirstName;
+            LastName.Text += ": " + trainer.LastName;
+            Email.Text += ": " + trainer.Email;
+            Role.Text += ": " + "Trainer";
+            Age.Visible = false;
         }
     }
 }

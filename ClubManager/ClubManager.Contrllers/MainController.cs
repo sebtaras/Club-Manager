@@ -14,14 +14,15 @@ namespace ClubManager.Contrllers
         public PlayerRepository _playerRepository;
         public TrainerRepository _trainerRepository;
         private AdminRepository _adminRepository;
-        private ITrainingRepository _trainingRepository;
+        private TrainingRepository _trainingRepository;
         private TeamRepository _teamRepository;
+        private AdminController _adminController;
         
         public MainController(IWindowFormsFactory formsFactory, 
             PlayerRepository playerRepository, 
             TrainerRepository trainerRepository, 
             AdminRepository adminRepository, 
-            ITrainingRepository trainingRepository,
+            TrainingRepository trainingRepository,
             TeamRepository teamRepository)
         {
             _formsFactory = formsFactory;
@@ -30,6 +31,7 @@ namespace ClubManager.Contrllers
             _adminRepository = adminRepository;
             _trainingRepository = trainingRepository;
             _teamRepository = teamRepository;
+            _adminController = new AdminController();
         }
 
         public void LoadDefaultModel()
@@ -94,8 +96,8 @@ namespace ClubManager.Contrllers
                     case "admin":
                         {
                             var form = _formsFactory.AdminView();
-                            var adminController = new AdminController();
-                            adminController.Homepage(form, this, _playerRepository, _trainerRepository, _teamRepository);
+                            //var adminController = new AdminController();
+                            _adminController.Homepage(form, this, _playerRepository, _trainerRepository, _teamRepository);
                             break;
                         }
                     case "": loginSuccess = false; break;
@@ -137,8 +139,12 @@ namespace ClubManager.Contrllers
 
         public void ShowVerifyUserForm(Player p, Trainer t)
         {
-            var form = _formsFactory.VerifyUserView();
-            form.ShowModal(p, t);
+            //var adminController = new AdminController();
+            var form = _formsFactory.VerifyUserView(p, t);
+            if (p != null) _adminController.VerifyPlayer(form, p, _playerRepository);
+            else _adminController.VerifyTrainer(form, t, _trainerRepository);
+
+            _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);
         }
     }
 }
