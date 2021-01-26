@@ -23,6 +23,16 @@ namespace ClubManager.DAL_File
             _listPlayers.Remove(player);
         }
 
+        public Player GetPlayerByEmail(string email)
+        {
+            foreach(Player p in _listPlayers)
+            {
+                if (p.Email == email)
+                    return p;
+            }
+            return null;
+        }
+
         public List<Player> GetAll()
         {
             return _listPlayers;
@@ -50,6 +60,7 @@ namespace ClubManager.DAL_File
                 return true;*/
             return false;
         }
+
 
     }
 }

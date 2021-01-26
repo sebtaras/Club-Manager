@@ -36,9 +36,12 @@ namespace ClubManager.PresentationLayer
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.MonthYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Month = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Paid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
+            this.Year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.VerificationLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -98,8 +101,10 @@ namespace ClubManager.PresentationLayer
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.MonthYear,
-            this.Paid});
+            this.Year,
+            this.Month,
+            this.Paid,
+            this.Amount});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(543, 31);
             this.listView1.Name = "listView1";
@@ -108,15 +113,14 @@ namespace ClubManager.PresentationLayer
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // MonthYear
+            // Month
             // 
-            this.MonthYear.Text = "Month | Year";
-            this.MonthYear.Width = 112;
+            this.Month.Text = "Month";
             // 
             // Paid
             // 
-            this.Paid.Text = "Paid status";
-            this.Paid.Width = 113;
+            this.Paid.Text = "Paid ";
+            this.Paid.Width = 50;
             // 
             // label2
             // 
@@ -128,11 +132,30 @@ namespace ClubManager.PresentationLayer
             this.label2.TabIndex = 5;
             this.label2.Text = "Membership fees";
             // 
+            // Year
+            // 
+            this.Year.Text = "Year";
+            // 
+            // Amount
+            // 
+            this.Amount.Text = "Amount";
+            // 
+            // VerificationLabel
+            // 
+            this.VerificationLabel.AutoSize = true;
+            this.VerificationLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.VerificationLabel.Location = new System.Drawing.Point(288, 419);
+            this.VerificationLabel.Name = "VerificationLabel";
+            this.VerificationLabel.Size = new System.Drawing.Size(249, 19);
+            this.VerificationLabel.TabIndex = 6;
+            this.VerificationLabel.Text = "Account is pending verification";
+            // 
             // formUIPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
+            this.Controls.Add(this.VerificationLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
@@ -154,8 +177,11 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ColumnHeader EndDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader MonthYear;
+        private System.Windows.Forms.ColumnHeader Month;
         private System.Windows.Forms.ColumnHeader Paid;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader Year;
+        private System.Windows.Forms.ColumnHeader Amount;
+        private System.Windows.Forms.Label VerificationLabel;
     }
 }

@@ -35,7 +35,7 @@ namespace ClubManager.Contrllers
         public void LoadDefaultModel()
         {
             _adminRepository.Add(new Admin(1, "admin", "admin", "admin@mail", "password"));
-            Trainer trainerPionir = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
+            Trainer trainerPionir = new Trainer(1, "gospon", "trener", "gt@mail", "password", false);
             _trainerRepository.Add(trainerPionir);
 
             Player player_bd = new Player(1, "bob", "dasilva", "bd@mail", "password", 15, true);
@@ -44,6 +44,12 @@ namespace ClubManager.Contrllers
             _playerRepository.Add(player_bd);
             _playerRepository.Add(player_mp);
             _playerRepository.Add(player_mz);
+
+            DateTime time = DateTime.Now;
+            Transaction bd_t1 = new Transaction(1, (decimal)200.00, time);
+            Transaction bd_t2 = new Transaction(2, (decimal)200.00, time.AddDays(31));
+            player_bd.AddTransaction(bd_t1);
+            player_bd.AddTransaction(bd_t2);
 
             List<Player> playersPionir = new List<Player>() { player_bd, player_mp };
             Team teamPioniri = new Team(1, "Pioniri", 13, 15, trainerPionir, playersPionir);
@@ -74,14 +80,14 @@ namespace ClubManager.Contrllers
                         {
                             var form = _formsFactory.PlayerView();
                             var playerController = new PlayerController();
-                            playerController.Homepage(form, this);
+                            playerController.Homepage(form, this, _playerRepository.GetPlayerByEmail(email));
                             break;
                         }
                     case "trainer":
                         {
                             var form = _formsFactory.TrainerView();
                             var trainerController = new TrainerController();
-                            trainerController.Homepage(form, this);
+                            trainerController.Homepage(form, this, _trainerRepository.GetTrainerByEmail(email));
                             break;
                         }
                     case "admin":
@@ -127,7 +133,5 @@ namespace ClubManager.Contrllers
         {
             form.ShowAgeOption();
         }
-
-        
     }
 }

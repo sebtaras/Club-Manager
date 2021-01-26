@@ -8,6 +8,7 @@ namespace ClubManager.Models
     {
         public string _name { get; set; }
         public List<Player> _listPlayers { get; set; }
+        public List<Training> _trainings { get; set; }
         public Trainer _trainer { get; set; }
         public List<int> _ageRange { get; set; }
 

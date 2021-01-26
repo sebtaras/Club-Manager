@@ -39,7 +39,8 @@ namespace ClubManager.PresentationLayer
             this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CreateNewTrainingButton = new System.Windows.Forms.Button();
+            this.VerificationLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -128,26 +129,38 @@ namespace ClubManager.PresentationLayer
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.LogOut);
             // 
-            // button2
+            // CreateNewTrainingButton
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(525, 42);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Create new training";
-            this.button2.UseVisualStyleBackColor = false;
+            this.CreateNewTrainingButton.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.CreateNewTrainingButton.FlatAppearance.BorderSize = 0;
+            this.CreateNewTrainingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateNewTrainingButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateNewTrainingButton.ForeColor = System.Drawing.Color.White;
+            this.CreateNewTrainingButton.Location = new System.Drawing.Point(12, 408);
+            this.CreateNewTrainingButton.Name = "CreateNewTrainingButton";
+            this.CreateNewTrainingButton.Size = new System.Drawing.Size(525, 42);
+            this.CreateNewTrainingButton.TabIndex = 11;
+            this.CreateNewTrainingButton.Text = "Create new training";
+            this.CreateNewTrainingButton.UseVisualStyleBackColor = false;
+            this.CreateNewTrainingButton.Visible = false;
+            // 
+            // VerificationLabel
+            // 
+            this.VerificationLabel.AutoSize = true;
+            this.VerificationLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.VerificationLabel.Location = new System.Drawing.Point(288, 420);
+            this.VerificationLabel.Name = "VerificationLabel";
+            this.VerificationLabel.Size = new System.Drawing.Size(249, 19);
+            this.VerificationLabel.TabIndex = 12;
+            this.VerificationLabel.Text = "Account is pending verification";
             // 
             // formUITrainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.VerificationLabel);
+            this.Controls.Add(this.CreateNewTrainingButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
@@ -173,6 +186,7 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ColumnHeader StartDate;
         private System.Windows.Forms.ColumnHeader EndDate;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CreateNewTrainingButton;
+        private System.Windows.Forms.Label VerificationLabel;
     }
 }

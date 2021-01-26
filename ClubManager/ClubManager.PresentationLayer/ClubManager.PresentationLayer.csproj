@@ -85,6 +85,10 @@
       <Project>{e927ad63-d10f-4671-b6eb-37d8dc74d783}</Project>
       <Name>ClubManager.Contrllers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Models1\ClubManager.Models.csproj">
+      <Project>{C71CA14B-44D9-44AE-A3DF-D16885D1B40E}</Project>
+      <Name>ClubManager.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="formLogIn.resx">

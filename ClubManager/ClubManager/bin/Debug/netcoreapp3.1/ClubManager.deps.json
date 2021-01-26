@@ -869,7 +869,8 @@
       "ClubManager.PresentationLayer/1.0.0": {
         "dependencies": {
           "ClubManager.BaseLib": "1.0.0",
-          "ClubManager.Contrllers": "1.0.0"
+          "ClubManager.Contrllers": "1.0.0",
+          "ClubManager.Models": "1.0.0"
         },
         "runtime": {
           "ClubManager.PresentationLayer.dll": {}

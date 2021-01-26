@@ -1439,7 +1439,8 @@
         "type": "project",
         "dependencies": {
           "ClubManager.BaseLib": "1.0.0",
-          "ClubManager.Contrllers": "1.0.0"
+          "ClubManager.Contrllers": "1.0.0",
+          "ClubManager.Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ClubManager.PresentationLayer.dll": {}

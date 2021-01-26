@@ -24,6 +24,16 @@ namespace ClubManager.DAL_File
             _listTrainers.Remove(trainer);
         }
 
+        public Trainer GetTrainerByEmail(string email)
+        {
+            foreach (Trainer t in _listTrainers)
+            {
+                if (t.Email == email)
+                    return t;
+            }
+            return null;
+        }
+
         public List<Trainer> GetAll()
         {
             return _listTrainers;
