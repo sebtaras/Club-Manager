@@ -143,5 +143,15 @@ namespace ClubManager.PresentationLayer
                 controller.ShowPlayerInfo(p);
             }
         }
+
+        private void AdminTrainerOptionsForm(object sender, EventArgs e)
+        {
+            if (TrainerList.SelectedItems[0] != null)
+            {
+                string email = TrainerList.SelectedItems[0].SubItems[1].Text;
+                Trainer t = trainerRepository.GetTrainerByEmail(email);
+                controller.ShowTrainerInfo(t);
+            }
+        }
     }
 }

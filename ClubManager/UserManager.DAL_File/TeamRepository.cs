@@ -76,5 +76,20 @@ namespace ClubManager.DAL_File
             }
             playerRepository._listPlayers.Remove(player);
         }
+
+        public void AddTrainerToTeam(Trainer trainer, TrainerRepository trainerRepository)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveTrainerFromTeam(Trainer trainer, TrainerRepository trainerRepository)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTrainer(Trainer trainer, TrainerRepository trainerRepository)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

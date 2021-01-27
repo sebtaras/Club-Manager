@@ -172,5 +172,14 @@ namespace ClubManager.Contrllers
             _adminController.RefreshPlayerList(_playerRepository);
             _adminController.RefreshTeamList(_teamRepository);
         }
+
+        public void ShowTrainerInfo(Trainer t)
+        {
+            var form = _formsFactory.AdminTrainerOptionsView(t);
+            _adminController.ShowTrainerOptions(form, t, _trainerRepository, _teamRepository);
+
+            _adminController.RefreshTrainerList(_trainerRepository);
+            _adminController.RefreshTeamList(_teamRepository);
+        }
     }
 }

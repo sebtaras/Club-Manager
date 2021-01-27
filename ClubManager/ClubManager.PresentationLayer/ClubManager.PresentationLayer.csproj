@@ -49,6 +49,12 @@
     <Compile Include="formAdminPlayerOptions.Designer.cs">
       <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAdminTrainerOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminTrainerOptions.Designer.cs">
+      <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
   <ItemGroup>
     <EmbeddedResource Include="formAdminPlayerOptions.resx">
       <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminTrainerOptions.resx">
+      <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogIn.resx">
       <DependentUpon>formLogIn.cs</DependentUpon>

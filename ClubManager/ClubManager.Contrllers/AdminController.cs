@@ -80,6 +80,21 @@ namespace ClubManager.Contrllers
             }
         }
 
-        
+        internal void ShowTrainerOptions(IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
+        {
+            var result = form.ShowViewModal();
+            if (result == DialogResult.Yes)
+            {
+                teamRepository.AddTrainerToTeam(trainer, trainerRepository);
+            }
+            else if (result == DialogResult.No)
+            {
+                teamRepository.RemoveTrainerFromTeam(trainer, trainerRepository);
+            }
+            else if (result == DialogResult.Abort)
+            {
+                teamRepository.DeleteTrainer(trainer, trainerRepository);
+            }
+        }
     }
 }

@@ -17,5 +17,6 @@ namespace ClubManager.BaseLib
         bool RegisterUser(string email, string password, string firstName, string lastName, string role, string age);
         void ShowVerifyUserForm(Player p, Trainer t);
         void ShowPlayerInfo(Player p);
+        void ShowTrainerInfo(Trainer t);
     }
 }

@@ -44,5 +44,10 @@ namespace ClubManager.PresentationLayer
         {
             return new formAdminPlayerOptions(p);
         }
+
+        public IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t)
+        {
+            return new formAdminTrainerOptions(t);
+        }
     }
 }
