@@ -27,7 +27,13 @@ namespace ClubManager
             TrainingRepository trainingRepository = new TrainingRepository();
             TeamRepository teamRepository = new TeamRepository();
 
-            MainController mainController = new MainController(_formsFactory, playerRepository, trainerRepository, adminRepository, trainingRepository, teamRepository);
+            MainController mainController = new MainController(
+                _formsFactory, 
+                playerRepository, 
+                trainerRepository, 
+                adminRepository, 
+                trainingRepository,
+                teamRepository);
             mainController.LoadDefaultModel();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);

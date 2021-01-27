@@ -5,6 +5,7 @@ using ClubManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ClubManager.Contrllers
 {
@@ -19,17 +20,27 @@ namespace ClubManager.Contrllers
 
         internal void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository)
         {
-            if (form.ShowViewModal() == true)
+            var result = form.ShowViewModal();
+            if (result == DialogResult.OK)
             {
                 playerRepository.Verify(player);
+            }
+            else if (result == DialogResult.No)
+            {
+                playerRepository.Delete(player);
             }
         }
 
         internal void VerifyTrainer(IVerifyUserView form, Trainer trainer, TrainerRepository trainerRepository)
         {
-            if (form.ShowViewModal() == true)
+            var result = form.ShowViewModal();
+            if (result == DialogResult.OK)
             {
-                trainerRepository.Verify(trainer);   
+                trainerRepository.Verify(trainer);
+            }
+            else if (result == DialogResult.No)
+            {
+                trainerRepository.Delete(trainer);
             }
         }
 
@@ -37,5 +48,38 @@ namespace ClubManager.Contrllers
         {
             form.DisplayRegisterRequests(playerRepository, trainerRepository);
         }
+
+        internal void RefreshPlayerList(PlayerRepository playerRepository)
+        {
+            form.DisplayPlayerList(playerRepository);
+        }
+
+        internal void RefreshTrainerList(TrainerRepository trainerRepository)
+        {
+            form.DisplayTrainerList(trainerRepository);
+        }
+        internal void RefreshTeamList(TeamRepository teamRepository)
+        {
+            form.DisplayTeamList(teamRepository);
+        }
+
+        internal void ShowPlayerOptions(IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
+        {
+            var result = form.ShowViewModal();
+            if (result == DialogResult.Yes)
+            {
+                teamRepository.AddPlayerToTeam(player, playerRepository);
+            }
+            else if (result == DialogResult.No)
+            {
+                teamRepository.RemovePlayerFromTeam(player, playerRepository);
+            }
+            else if (result == DialogResult.Abort)
+            {
+                teamRepository.DeletePlayer(player, playerRepository);
+            }
+        }
+
+        
     }
 }

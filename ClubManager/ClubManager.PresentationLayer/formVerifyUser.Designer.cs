@@ -35,9 +35,9 @@ namespace ClubManager.PresentationLayer
             this.Role = new System.Windows.Forms.Label();
             this.Age = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
-            this.Cancel = new System.Windows.Forms.Button();
             this.ConfirmButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -100,27 +100,13 @@ namespace ClubManager.PresentationLayer
             this.Email.TabIndex = 5;
             this.Email.Text = "Email";
             // 
-            // Cancel
-            // 
-            this.Cancel.BackColor = System.Drawing.SystemColors.Control;
-            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.FlatAppearance.BorderSize = 0;
-            this.Cancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.Cancel.ForeColor = System.Drawing.Color.Black;
-            this.Cancel.Location = new System.Drawing.Point(204, 167);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(80, 38);
-            this.Cancel.TabIndex = 7;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = false;
-            // 
             // ConfirmButton
             // 
             this.ConfirmButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ConfirmButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.ConfirmButton.Location = new System.Drawing.Point(12, 167);
+            this.ConfirmButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.ConfirmButton.Location = new System.Drawing.Point(12, 171);
             this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(100, 38);
+            this.ConfirmButton.Size = new System.Drawing.Size(100, 34);
             this.ConfirmButton.TabIndex = 8;
             this.ConfirmButton.Text = "Confirm";
             this.ConfirmButton.UseVisualStyleBackColor = true;
@@ -131,22 +117,34 @@ namespace ClubManager.PresentationLayer
             this.button1.DialogResult = System.Windows.Forms.DialogResult.No;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(117, 167);
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(118, 171);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 38);
+            this.button1.Size = new System.Drawing.Size(81, 34);
             this.button1.TabIndex = 9;
             this.button1.Text = "Deny";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.button2.Location = new System.Drawing.Point(205, 171);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 34);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // formVerifyUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(297, 217);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ConfirmButton);
-            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Age);
             this.Controls.Add(this.Role);
@@ -168,8 +166,8 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.Label Role;
         private System.Windows.Forms.Label Age;
         private System.Windows.Forms.Label Email;
-        private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button ConfirmButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -26,16 +26,9 @@ namespace ClubManager.PresentationLayer
             else SetTrainerValues(t);
         }
 
-        public bool ShowViewModal()
+        public DialogResult ShowViewModal()
         {
-            if (this.ShowDialog() == DialogResult.OK)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.ShowDialog();
         }
 
         public void SetPlayerValues(Player player)

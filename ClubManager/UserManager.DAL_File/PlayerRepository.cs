@@ -61,6 +61,14 @@ namespace ClubManager.DAL_File
             return false;
         }
 
-
+        public void AddTeamToPlayer(Player player, Team team)
+        {
+            foreach(Player p in _listPlayers){
+                if(p.Email == player.Email)
+                {
+                    p.team = team;
+                }
+            }
+        }
     }
 }

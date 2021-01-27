@@ -18,6 +18,7 @@ namespace ClubManager.Models
             Verified = verified;
             trainings = new List<Training>();
             transactions = new List<Transaction>();
+            team = null;
         }
     }
 }

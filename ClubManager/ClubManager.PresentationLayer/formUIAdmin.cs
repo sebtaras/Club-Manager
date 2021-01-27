@@ -34,15 +34,31 @@ namespace ClubManager.PresentationLayer
             teamRepository = inTeamRepository;
             DisplayRegisterRequests(playerRepository, trainerRepository);
             DisplayTeamList(teamRepository);
+            DisplayPlayerList(playerRepository);
+            DisplayTrainerList(trainerRepository);
             this.Show();
             return true;
         }
 
-        private void DisplayTeamList(TeamRepository teamRepository)
+        public void DisplayTeamList(TeamRepository teamRepository)
         {
-            foreach(Team t in teamRepository._teamList)
+            TeamList.Items.Clear();
+            foreach (Team t in teamRepository._teamList)
             {
-                TeamList.Items.Add(new ListViewItem(new string[] { t._name, t._ageRange[0] + "-" + t._ageRange[t._ageRange.Count-1], t._trainer.FirstName + " " + t._trainer.LastName }));
+                string trainers = "";
+                if (t._trainers.Count > 1)
+                {
+                    foreach (Trainer trainer in t._trainers)
+                    {
+                        trainers +=  trainer.FirstName + " " + trainer.LastName + ", ";
+                    }
+                    trainers = trainers.Substring(0, trainers.Length - 2);
+                }
+                if (t._trainers.Count == 0)
+                    trainers = t._trainers[0].FirstName + " " + t._trainers[0].LastName;
+                TeamList.Items.Add(new ListViewItem(new string[] { 
+                    t._name, t._ageRange[0] + "-" + t._ageRange[t._ageRange.Count-1],
+                    trainers }));
             }
         }
 
@@ -58,6 +74,37 @@ namespace ClubManager.PresentationLayer
             {
                 if (!t.Verified)
                     RegisterRequests.Items.Add(new ListViewItem(new string[] { t.FirstName + " " + t.LastName, t.Email, "Trainer", "" }));
+            }
+        }
+
+        public void DisplayPlayerList(PlayerRepository playerRepository)
+        {
+            PlayerList.Items.Clear();
+            foreach (Player p in playerRepository._listPlayers)
+            {
+                if (p.Verified)
+                    PlayerList.Items.Add(new ListViewItem(new string[] { p.FirstName + " " + p.LastName, p.Email, p.team != null ? p.team._name : "", p.Age.ToString() }));
+            }
+        }
+
+        public void DisplayTrainerList(TrainerRepository trainerRepository)
+        {
+            TrainerList.Items.Clear();
+            foreach (Trainer t in trainerRepository._listTrainers)
+            {
+                string teams = "";
+                if (t._teams.Count > 1)
+                {
+                    foreach (Team team in t._teams)
+                    {
+                        teams += team._name + ", ";
+                    }
+                    teams = teams.Substring(0, teams.Length - 2);
+                }
+                else if (t._teams.Count == 1)
+                    teams = t._teams[0]._name;
+                if (t.Verified)
+                    TrainerList.Items.Add(new ListViewItem(new string[] { t.FirstName + " " + t.LastName, t.Email, teams }));
             }
         }
 
@@ -84,6 +131,16 @@ namespace ClubManager.PresentationLayer
                     controller.ShowVerifyUserForm(p, null);
                 else
                     controller.ShowVerifyUserForm(null, t);
+            }
+        }
+
+        private void AdminPlayerOptionsForm(object sender, EventArgs e)
+        {
+            if(PlayerList.SelectedItems[0] != null)
+            {
+                string email = PlayerList.SelectedItems[0].SubItems[1].Text;
+                Player p = playerRepository.GetPlayerByEmail(email);
+                controller.ShowPlayerInfo(p);
             }
         }
     }

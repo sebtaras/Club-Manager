@@ -13,6 +13,14 @@ namespace ClubManager.Models
             : base(id, firstName, lastName, email, password, 2)
         {
             Verified = verified;
+            _teams = new List<Team>();
+        }
+
+        public Trainer(int id, string firstName, string lastName, string email, string password, Team team, bool verified = true)
+            : base(id, firstName, lastName, email, password, 2)
+        {
+            Verified = verified;
+            _teams = new List<Team>() { team };
         }
     }
 }

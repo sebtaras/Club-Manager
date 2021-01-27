@@ -23,5 +23,58 @@ namespace ClubManager.DAL_File
         {
             throw new NotImplementedException();
         }
+
+        public void AddPlayerToTeam(Player player, PlayerRepository playerRepository)
+        {
+            Team newTeam = null;
+            foreach (Team team in _teamList)
+            {
+                if (team._ageRange.IndexOf(player.Age) > -1)
+                {
+                    team._listPlayers.Add(player);
+                    newTeam = team;
+                }
+            }
+            if (newTeam != null)
+            {
+                foreach (Player p in playerRepository._listPlayers)
+                {
+                    if (p.Email == player.Email)
+                    {
+                        p.team = newTeam;
+                    }
+                }
+            }
+        }
+
+        public void RemovePlayerFromTeam(Player player, PlayerRepository playerRepository)
+        {
+            foreach (Team team in _teamList)
+            {
+                if (team._ageRange.IndexOf(player.Age) > -1)
+                {
+                    team._listPlayers.Remove(player);
+                }
+            }
+            foreach (Player p in playerRepository._listPlayers)
+            {
+                if (p.Email == player.Email)
+                {
+                    p.team = null;
+                }
+            }
+        }
+
+        public void DeletePlayer(Player player, PlayerRepository playerRepository)
+        {
+            foreach (Team team in _teamList)
+            {
+                if (team._ageRange.IndexOf(player.Age) > -1)
+                {
+                    team._listPlayers.Remove(player);
+                }
+            }
+            playerRepository._listPlayers.Remove(player);
+        }
     }
 }

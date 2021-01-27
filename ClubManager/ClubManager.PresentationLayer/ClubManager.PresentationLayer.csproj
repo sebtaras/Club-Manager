@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formAdminPlayerOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminPlayerOptions.Designer.cs">
+      <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="formAdminPlayerOptions.resx">
+      <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formLogIn.resx">
       <DependentUpon>formLogIn.cs</DependentUpon>
     </EmbeddedResource>
