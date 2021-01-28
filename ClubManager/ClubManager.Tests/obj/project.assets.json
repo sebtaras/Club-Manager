@@ -1868,22 +1868,6 @@
           "bin/placeholder/ClubManager.Contrllers.dll": {}
         }
       },
-      "ClubManager.Controllers/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "ClubManager.BaseLib": "1.0.0",
-          "ClubManager.Contrllers": "1.0.0",
-          "ClubManager.DAL_File": "1.0.0",
-          "ClubManager.Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ClubManager.Controllers.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ClubManager.Controllers.dll": {}
-        }
-      },
       "ClubManager.DAL_File/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -6336,11 +6320,6 @@
       "path": "../ClubManager.Contrllers/ClubManager.Contrllers.csproj",
       "msbuildProject": "../ClubManager.Contrllers/ClubManager.Contrllers.csproj"
     },
-    "ClubManager.Controllers/1.0.0": {
-      "type": "project",
-      "path": "../AccountControler/ClubManager.Controllers.csproj",
-      "msbuildProject": "../AccountControler/ClubManager.Controllers.csproj"
-    },
     "ClubManager.DAL_File/1.0.0": {
       "type": "project",
       "path": "../UserManager.DAL_File/ClubManager.DAL_File.csproj",
@@ -6360,7 +6339,6 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ClubManager >= 1.0.0",
-      "ClubManager.Controllers >= 1.0.0",
       "ClubManager.DAL_File >= 1.0.0",
       "ClubManager.Models >= 1.0.0",
       "MSTest.TestAdapter >= 2.1.1",
@@ -6396,9 +6374,6 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj": {
-              "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\AccountControler\\ClubManager.Controllers.csproj"
-            },
             "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager\\ClubManager.csproj": {
               "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager\\ClubManager.csproj"
             },

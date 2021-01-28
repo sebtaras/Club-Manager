@@ -9,17 +9,17 @@ using System.Windows.Forms;
 
 namespace ClubManager.Contrllers
 {
-    class AdminController
+    public class AdminController : IAdminController
     {
         IAdminView form;
         private decimal MEMBERSHIP_FEE = (decimal)200.00;
-        internal void Homepage(IAdminView form, IMainController inController, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
+        public void Homepage(IAdminView form, IMainController inController, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
             this.form = form;
             form.ShowViewModaless(inController, playerRepository, trainerRepository, teamRepository, transactionRepository);
         }
 
-        internal void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository)
+        public void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.OK)
@@ -32,7 +32,7 @@ namespace ClubManager.Contrllers
             }
         }
 
-        internal void VerifyTrainer(IVerifyUserView form, Trainer trainer, TrainerRepository trainerRepository)
+        public void VerifyTrainer(IVerifyUserView form, Trainer trainer, TrainerRepository trainerRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.OK)
@@ -45,26 +45,26 @@ namespace ClubManager.Contrllers
             }
         }
 
-        internal void RefreshRegisterRequestsList(PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public void RefreshRegisterRequestsList(PlayerRepository playerRepository, TrainerRepository trainerRepository)
         {
             form.DisplayRegisterRequests(playerRepository, trainerRepository);
         }
 
-        internal void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
+        public void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
         {
             form.DisplayPlayerList(playerRepository, teamRepository);
         }
 
-        internal void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
+        public void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
             form.DisplayTrainerList(trainerRepository,teamRepository);
         }
-        internal void RefreshTeamList(TeamRepository teamRepository)
+        public void RefreshTeamList(TeamRepository teamRepository)
         {
             form.DisplayTeamList(teamRepository);
         }
 
-        internal void ShowPlayerOptions(IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
+        public void ShowPlayerOptions(IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
@@ -81,7 +81,7 @@ namespace ClubManager.Contrllers
             }
         }
 
-        internal void ShowTrainerOptions(IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
+        public void ShowTrainerOptions(IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
@@ -100,12 +100,12 @@ namespace ClubManager.Contrllers
             }
         }
 
-        internal void ShowTeam(IAdminShowTeamView form)
+        public void ShowTeam(IAdminShowTeamView form)
         {
             form.ShowViewModal();
         }
 
-        internal void CreateTransactionsView(IAdminCreateTransactionsView form, PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        public void CreateTransactionsView(IAdminCreateTransactionsView form, PlayerRepository playerRepository, TransactionRepository transactionRepository)
         {
             var result = form.ShowViewModal();
             if(result == DialogResult.OK)
@@ -136,6 +136,20 @@ namespace ClubManager.Contrllers
                 }
             }
 
+        }
+
+        public void AdminTransactionOptions(IAdminTransactionOptionsView inForm, Player p, Transaction t, PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        {
+            var result = inForm.ShowViewModal();
+            if(result == DialogResult.OK)
+            {
+                transactionRepository.ChangeTransactionStatus(t, playerRepository);
+            }
+            else if(result == DialogResult.Abort)
+            {
+                transactionRepository.Delete(t);
+                playerRepository.DeleteTransaction(p, t);
+            }
         }
     }
 }

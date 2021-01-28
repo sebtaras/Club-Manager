@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formAdminCreateTransactionsView : Form, IAdminCreateTransactionsView
+    public partial class formAdminCreateTransactions : Form, IAdminCreateTransactionsView
     {
         private int YEAR_NUM = 5;
         private int YEAR_START = 2021;
@@ -21,7 +21,7 @@ namespace ClubManager.PresentationLayer
         public string Month => MonthCombo.SelectedValue.ToString();
 
 
-        public formAdminCreateTransactionsView()
+        public formAdminCreateTransactions()
         {
             InitializeComponent();
             LoadData();

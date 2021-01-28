@@ -1,7 +1,7 @@
 ﻿
 namespace ClubManager.PresentationLayer
 {
-    partial class formAdminCreateTransactionsView
+    partial class formAdminCreateTransactions
     {
         /// <summary>
         /// Required designer variable.

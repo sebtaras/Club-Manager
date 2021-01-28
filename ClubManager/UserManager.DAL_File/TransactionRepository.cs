@@ -19,6 +19,11 @@ namespace ClubManager.DAL_File
             return true;
         }
 
+        public void Delete(Transaction transaction)
+        {
+            _listTransactions.Remove(transaction);
+        }
+
         public void ChangeTransactionStatus(int id)
         {
             foreach (Transaction t in _listTransactions)
@@ -34,6 +39,18 @@ namespace ClubManager.DAL_File
         public Transaction GetTransactionById(int id)
         {
             return _listTransactions.Find(t => t.Id == id);
+        }
+
+        public void ChangeTransactionStatus(Transaction transaction, PlayerRepository playerRepository)
+        {
+            foreach(Transaction t in _listTransactions)
+            {
+                if(t.Id == transaction.Id)
+                {
+                    t._paid = !t._paid;
+                    return;
+                }
+            }
         }
     }
 }

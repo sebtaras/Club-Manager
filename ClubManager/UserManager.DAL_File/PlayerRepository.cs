@@ -63,5 +63,20 @@ namespace ClubManager.DAL_File
             }
             return false;
         }
+
+        public void DeleteTransaction(Player player, Transaction t)
+        {
+            foreach(Player p in _listPlayers)
+            {
+                foreach(int id in p._transactionIds)
+                {
+                    if(id == t.Id)
+                    {
+                        p._transactionIds.Remove(id);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

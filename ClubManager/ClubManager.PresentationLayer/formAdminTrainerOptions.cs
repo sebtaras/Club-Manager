@@ -15,7 +15,6 @@ namespace ClubManager.PresentationLayer
 {
     public partial class formAdminTrainerOptions : Form, IAdminTrainerOptionsView
     {
-
         public string NameAddTeam()
         {
             var value = this.TeamNameAdd.SelectedValue;
@@ -74,8 +73,6 @@ namespace ClubManager.PresentationLayer
             }
             TeamNameAdd.DataSource = dataAddCombo;
             TeamNameRemove.DataSource = dataRemoveCombo;
-
-
         }
     }
 }

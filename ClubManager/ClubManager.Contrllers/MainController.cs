@@ -16,7 +16,7 @@ namespace ClubManager.Contrllers
         private AdminRepository _adminRepository;
         private TrainingRepository _trainingRepository;
         private TeamRepository _teamRepository;
-        private AdminController _adminController;
+        private IAdminController _adminController;
         private TransactionRepository _transactionRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
@@ -176,7 +176,7 @@ namespace ClubManager.Contrllers
 
         public void ShowPlayerInfo(Player p)
         {
-            var form = _formsFactory.AdminPlayerOptionsView(p, _teamRepository, _transactionRepository);
+            var form = _formsFactory.AdminPlayerOptionsView(p, _formsFactory, _adminController, _playerRepository, _teamRepository, _transactionRepository);
             _adminController.ShowPlayerOptions(form, p, _playerRepository ,_teamRepository);
 
             _adminController.RefreshPlayerList(_playerRepository, _teamRepository);

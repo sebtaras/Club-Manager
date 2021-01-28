@@ -159,6 +159,7 @@ namespace ClubManager.PresentationLayer
             this.TransactionList.TabIndex = 13;
             this.TransactionList.UseCompatibleStateImageBehavior = false;
             this.TransactionList.View = System.Windows.Forms.View.Details;
+            this.TransactionList.DoubleClick += new System.EventHandler(this.AdminTransactionOptions);
             // 
             // transactionID
             // 
@@ -202,6 +203,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.FullName);
             this.Name = "formAdminPlayerOptions";
             this.Text = "formAdminPlayerOptions";
+            this.DoubleClick += new System.EventHandler(this.AdminTransactionOptions);
             this.ResumeLayout(false);
             this.PerformLayout();
 

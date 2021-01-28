@@ -1,4 +1,5 @@
 ﻿using ClubManager.BaseLib;
+using ClubManager.Contrllers;
 using ClubManager.DAL_File;
 using ClubManager.Models;
 using System;
@@ -41,9 +42,9 @@ namespace ClubManager.PresentationLayer
             return new formVerifyUser(p, t);
         }
 
-        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, TeamRepository teamRepository, TransactionRepository transactionRepository)
+        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, IWindowFormsFactory windowFormsFactory, IAdminController adminController, PlayerRepository playerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
-            return new formAdminPlayerOptions(p, teamRepository, transactionRepository);
+            return new formAdminPlayerOptions(p, windowFormsFactory, adminController, playerRepository, teamRepository, transactionRepository);
         }
 
         public IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t, TeamRepository teamRepository)
@@ -58,8 +59,12 @@ namespace ClubManager.PresentationLayer
 
         public IAdminCreateTransactionsView CreateTransactionsView()
         {
-            return new formAdminCreateTransactionsView();
+            return new formAdminCreateTransactions();
         }
 
+        public IAdminTransactionOptionsView AdminTransactionOptions(Player p, Transaction t)
+        {
+            return new formAdminTransactionOptions(p, t);
+        }
     }
 }
