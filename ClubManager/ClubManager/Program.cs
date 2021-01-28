@@ -26,6 +26,7 @@ namespace ClubManager
             AdminRepository adminRepository = new AdminRepository();
             TrainingRepository trainingRepository = new TrainingRepository();
             TeamRepository teamRepository = new TeamRepository();
+            TransactionRepository transactionRepository = new TransactionRepository();
 
             MainController mainController = new MainController(
                 _formsFactory, 
@@ -33,13 +34,13 @@ namespace ClubManager
                 trainerRepository, 
                 adminRepository, 
                 trainingRepository,
-                teamRepository);
+                teamRepository,
+                transactionRepository);
             mainController.LoadDefaultModel();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //new LoginForm().Show();
             Application.Run(new formLogIn(mainController));
         }
     }

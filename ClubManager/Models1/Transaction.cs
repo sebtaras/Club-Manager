@@ -16,10 +16,5 @@ namespace ClubManager.Models
             this.createdOn = createdOn;
             paid = false;
         }
-
-        public void ChangePaidStatus()
-        {
-            paid = !paid;
-        }
     }
 }

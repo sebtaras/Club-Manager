@@ -31,35 +31,39 @@ namespace ClubManager.PresentationLayer
         {
             this.label2 = new System.Windows.Forms.Label();
             this.TeamList = new System.Windows.Forms.ListView();
+            this.teamId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TeamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AgeRange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Trainers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NumOfPlayers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.RegisterRequests = new System.Windows.Forms.ListView();
+            this.userId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BOLAN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Age = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CreateTransactionsButon = new System.Windows.Forms.Button();
             this.PlayerList = new System.Windows.Forms.ListView();
+            this.playerId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Player = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Team = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
             this.playerEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Team = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PlayerAge = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
             this.TrainerList = new System.Windows.Forms.ListView();
+            this.trainerId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
-            this.PlayerAge = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NumOfTrainers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(1049, 10);
+            this.label2.Location = new System.Drawing.Point(1009, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 19);
             this.label2.TabIndex = 10;
@@ -68,31 +72,39 @@ namespace ClubManager.PresentationLayer
             // TeamList
             // 
             this.TeamList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.teamId,
             this.TeamName,
             this.AgeRange,
-            this.Trainers});
+            this.NumOfPlayers,
+            this.NumOfTrainers});
             this.TeamList.HideSelection = false;
-            this.TeamList.Location = new System.Drawing.Point(1049, 32);
+            this.TeamList.Location = new System.Drawing.Point(1009, 32);
             this.TeamList.Name = "TeamList";
-            this.TeamList.Size = new System.Drawing.Size(338, 450);
+            this.TeamList.Size = new System.Drawing.Size(252, 450);
             this.TeamList.TabIndex = 9;
             this.TeamList.UseCompatibleStateImageBehavior = false;
             this.TeamList.View = System.Windows.Forms.View.Details;
+            this.TeamList.DoubleClick += new System.EventHandler(this.ShowTeam);
+            // 
+            // teamId
+            // 
+            this.teamId.Text = "ID";
+            this.teamId.Width = 30;
             // 
             // TeamName
             // 
-            this.TeamName.Text = "Team Name";
-            this.TeamName.Width = 100;
+            this.TeamName.Text = "Name";
+            this.TeamName.Width = 80;
             // 
             // AgeRange
             // 
             this.AgeRange.Text = "Age range";
             this.AgeRange.Width = 70;
             // 
-            // Trainers
+            // NumOfPlayers
             // 
-            this.Trainers.Text = "Trainers";
-            this.Trainers.Width = 150;
+            this.NumOfPlayers.Text = "N";
+            this.NumOfPlayers.Width = 30;
             // 
             // label1
             // 
@@ -111,7 +123,7 @@ namespace ClubManager.PresentationLayer
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1223, 488);
+            this.button1.Location = new System.Drawing.Point(1097, 488);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 42);
             this.button1.TabIndex = 6;
@@ -122,18 +134,23 @@ namespace ClubManager.PresentationLayer
             // RegisterRequests
             // 
             this.RegisterRequests.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.userId,
             this.BOLAN,
             this.Email,
-            this.Role,
-            this.Age});
+            this.Role});
             this.RegisterRequests.HideSelection = false;
             this.RegisterRequests.Location = new System.Drawing.Point(12, 32);
             this.RegisterRequests.Name = "RegisterRequests";
-            this.RegisterRequests.Size = new System.Drawing.Size(352, 450);
+            this.RegisterRequests.Size = new System.Drawing.Size(311, 450);
             this.RegisterRequests.TabIndex = 11;
             this.RegisterRequests.UseCompatibleStateImageBehavior = false;
             this.RegisterRequests.View = System.Windows.Forms.View.Details;
             this.RegisterRequests.DoubleClick += new System.EventHandler(this.VerifyUser);
+            // 
+            // userId
+            // 
+            this.userId.Text = "ID";
+            this.userId.Width = 30;
             // 
             // BOLAN
             // 
@@ -144,21 +161,16 @@ namespace ClubManager.PresentationLayer
             // Email
             // 
             this.Email.Text = "Email";
-            this.Email.Width = 140;
+            this.Email.Width = 100;
             // 
             // Role
             // 
             this.Role.Text = "Role";
             // 
-            // Age
-            // 
-            this.Age.Text = "Age";
-            this.Age.Width = 40;
-            // 
             // CreateTransactionsButon
             // 
             this.CreateTransactionsButon.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.CreateTransactionsButon.Location = new System.Drawing.Point(1049, 488);
+            this.CreateTransactionsButon.Location = new System.Drawing.Point(923, 488);
             this.CreateTransactionsButon.Name = "CreateTransactionsButon";
             this.CreateTransactionsButon.Size = new System.Drawing.Size(168, 42);
             this.CreateTransactionsButon.TabIndex = 14;
@@ -168,12 +180,13 @@ namespace ClubManager.PresentationLayer
             // PlayerList
             // 
             this.PlayerList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.playerId,
             this.Player,
             this.playerEmail,
             this.Team,
             this.PlayerAge});
             this.PlayerList.HideSelection = false;
-            this.PlayerList.Location = new System.Drawing.Point(369, 32);
+            this.PlayerList.Location = new System.Drawing.Point(329, 32);
             this.PlayerList.Name = "PlayerList";
             this.PlayerList.Size = new System.Drawing.Size(350, 450);
             this.PlayerList.TabIndex = 15;
@@ -181,38 +194,49 @@ namespace ClubManager.PresentationLayer
             this.PlayerList.View = System.Windows.Forms.View.Details;
             this.PlayerList.DoubleClick += new System.EventHandler(this.AdminPlayerOptionsForm);
             // 
+            // playerId
+            // 
+            this.playerId.Text = "ID";
+            this.playerId.Width = 30;
+            // 
             // Player
             // 
             this.Player.Text = "Name";
-            this.Player.Width = 120;
-            // 
-            // Team
-            // 
-            this.Team.Text = "Team";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(365, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 19);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Players";
+            this.Player.Width = 100;
             // 
             // playerEmail
             // 
             this.playerEmail.Text = "Email";
             this.playerEmail.Width = 100;
             // 
+            // Team
+            // 
+            this.Team.Text = "Team";
+            // 
+            // PlayerAge
+            // 
+            this.PlayerAge.Text = "Age";
+            this.PlayerAge.Width = 40;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(325, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 19);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Players";
+            // 
             // TrainerList
             // 
             this.TrainerList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.trainerId,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
             this.TrainerList.HideSelection = false;
-            this.TrainerList.Location = new System.Drawing.Point(725, 32);
+            this.TrainerList.Location = new System.Drawing.Point(685, 32);
             this.TrainerList.Name = "TrainerList";
             this.TrainerList.Size = new System.Drawing.Size(318, 450);
             this.TrainerList.TabIndex = 17;
@@ -220,10 +244,15 @@ namespace ClubManager.PresentationLayer
             this.TrainerList.View = System.Windows.Forms.View.Details;
             this.TrainerList.DoubleClick += new System.EventHandler(this.AdminTrainerOptionsForm);
             // 
+            // trainerId
+            // 
+            this.trainerId.Text = "ID";
+            this.trainerId.Width = 30;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 120;
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
@@ -233,27 +262,28 @@ namespace ClubManager.PresentationLayer
             // columnHeader3
             // 
             this.columnHeader3.Text = "Team";
-            this.columnHeader3.Width = 93;
+            this.columnHeader3.Width = 80;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(721, 10);
+            this.label4.Location = new System.Drawing.Point(681, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 19);
             this.label4.TabIndex = 18;
             this.label4.Text = "Trainers";
             // 
-            // PlayerAge
+            // NumOfTrainers
             // 
-            this.PlayerAge.Text = "Age";
+            this.NumOfTrainers.Text = "T";
+            this.NumOfTrainers.Width = 30;
             // 
             // formUIAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 537);
+            this.ClientSize = new System.Drawing.Size(1273, 537);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TrainerList);
             this.Controls.Add(this.label3);
@@ -283,12 +313,10 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ListView RegisterRequests;
         private System.Windows.Forms.ColumnHeader FullName;
         private System.Windows.Forms.ColumnHeader Role;
-        private System.Windows.Forms.ColumnHeader Age;
-        private System.Windows.Forms.ColumnHeader Trainers;
         private System.Windows.Forms.ColumnHeader Info;
         private System.Windows.Forms.ColumnHeader Person;
         private System.Windows.Forms.ColumnHeader Email;
-        private System.Windows.Forms.ColumnHeader BOLAN;
+        private System.Windows.Forms.ColumnHeader userName;
         private System.Windows.Forms.Button CreateTransactionsButon;
         private System.Windows.Forms.ListView PlayerList;
         private System.Windows.Forms.ColumnHeader Player;
@@ -301,5 +329,12 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader playerId;
+        private System.Windows.Forms.ColumnHeader trainerId;
+        private System.Windows.Forms.ColumnHeader teamId;
+        private System.Windows.Forms.ColumnHeader userId;
+        private System.Windows.Forms.ColumnHeader NumOfPlayers;
+        private System.Windows.Forms.ColumnHeader BOLAN;
+        private System.Windows.Forms.ColumnHeader NumOfTrainers;
     }
 }

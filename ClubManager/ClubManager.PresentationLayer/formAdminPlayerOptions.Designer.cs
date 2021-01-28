@@ -57,7 +57,7 @@ namespace ClubManager.PresentationLayer
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(241, 34);
             this.AddButton.TabIndex = 5;
-            this.AddButton.Text = "Add to team ";
+            this.AddButton.Text = "Add player to team ";
             this.AddButton.UseVisualStyleBackColor = true;
             // 
             // Age
@@ -88,7 +88,7 @@ namespace ClubManager.PresentationLayer
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(241, 34);
             this.RemoveButton.TabIndex = 8;
-            this.RemoveButton.Text = "Remove from team";
+            this.RemoveButton.Text = "Remove player from team";
             this.RemoveButton.UseVisualStyleBackColor = true;
             // 
             // DeleteButton
@@ -99,7 +99,7 @@ namespace ClubManager.PresentationLayer
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(12, 224);
+            this.DeleteButton.Location = new System.Drawing.Point(12, 198);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(241, 34);
             this.DeleteButton.TabIndex = 9;
@@ -110,9 +110,9 @@ namespace ClubManager.PresentationLayer
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(297, 224);
+            this.CancelButton.Location = new System.Drawing.Point(259, 198);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(122, 34);
+            this.CancelButton.Size = new System.Drawing.Size(135, 34);
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 270);
+            this.ClientSize = new System.Drawing.Size(401, 239);
             this.Controls.Add(this.CurrentTeam);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.DeleteButton);

@@ -1,4 +1,5 @@
 ﻿using ClubManager.BaseLib;
+using ClubManager.DAL_File;
 using ClubManager.Models;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace ClubManager.PresentationLayer
 {
     public partial class formAdminPlayerOptions : Form, IAdminPlayerOptionsView
     {
-        public formAdminPlayerOptions(Player p)
+        public formAdminPlayerOptions(Player p, TeamRepository teamRepository)
         {
             InitializeComponent();
-            SetPlayerValues(p);
+            SetPlayerValues(p, teamRepository);
         }
 
         public DialogResult ShowViewModal()
@@ -25,12 +26,12 @@ namespace ClubManager.PresentationLayer
             return this.ShowDialog();
         }
 
-        public void SetPlayerValues(Player player)
+        public void SetPlayerValues(Player player, TeamRepository teamRepository)
         {
             FullName.Text = "Full name: " + player.FirstName + " " + player.LastName;
             Age.Text = "Age: " + player.Age.ToString();
-            if (player.team != null)
-                CurrentTeam.Text = "Team: " + player.team._name;
+            if (player.teamId != -1)
+                CurrentTeam.Text = "Team: " + teamRepository.GetTeamById(player.teamId)._name;
             else
                 CurrentTeam.Visible = false;
         }

@@ -23,6 +23,11 @@ namespace ClubManager.DAL_File
             _listPlayers.Remove(player);
         }
 
+        public Player GetPlayerById(int id)
+        {
+            return _listPlayers.Find(p => p.Id == id);
+        }
+
         public Player GetPlayerByEmail(string email)
         {
             foreach(Player p in _listPlayers)
@@ -56,19 +61,7 @@ namespace ClubManager.DAL_File
                 if (p.Email == player.Email)
                     return true;
             }
-            /*if (_listPlayers.IndexOf(player) > -1)
-                return true;*/
             return false;
-        }
-
-        public void AddTeamToPlayer(Player player, Team team)
-        {
-            foreach(Player p in _listPlayers){
-                if(p.Email == player.Email)
-                {
-                    p.team = team;
-                }
-            }
         }
     }
 }

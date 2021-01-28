@@ -11,7 +11,7 @@ namespace ClubManager.DAL_File
         public int next_ID = 1;
         public List<Training> _trainings = new List<Training>();
 
-        bool ITrainingRepository.Add(Training training)
+        public bool Add(Training training)
         {
             int overlaps = 0;
 
@@ -31,7 +31,7 @@ namespace ClubManager.DAL_File
             return true;
         }
 
-        void ITrainingRepository.Delete(Training training)
+        public void Delete(Training training)
         {
             _trainings.Remove(training);
         }

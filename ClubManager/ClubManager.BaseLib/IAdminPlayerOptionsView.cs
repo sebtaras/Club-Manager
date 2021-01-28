@@ -1,4 +1,5 @@
-﻿using ClubManager.Models;
+﻿using ClubManager.DAL_File;
+using ClubManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,6 @@ namespace ClubManager.BaseLib
     public interface IAdminPlayerOptionsView
     {
         DialogResult ShowViewModal();
-        void SetPlayerValues(Player player);
+        void SetPlayerValues(Player player, TeamRepository teamRepository);
     }
 }

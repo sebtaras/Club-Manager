@@ -49,6 +49,12 @@
     <Compile Include="formAdminPlayerOptions.Designer.cs">
       <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAdminShowTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminShowTeam.Designer.cs">
+      <DependentUpon>formAdminShowTeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAdminTrainerOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <EmbeddedResource Include="formAdminPlayerOptions.resx">
       <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formAdminShowTeam.resx">
+      <DependentUpon>formAdminShowTeam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAdminTrainerOptions.resx">
       <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,9 @@
     <EmbeddedResource Include="formVerifyUser.resx">
       <DependentUpon>formVerifyUser.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\ClubManager.BaseLib.ComboItem.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

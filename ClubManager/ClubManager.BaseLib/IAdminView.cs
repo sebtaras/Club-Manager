@@ -11,8 +11,8 @@ namespace ClubManager.BaseLib
     {
         bool ShowViewModaless(IMainController inController, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository);
         void DisplayRegisterRequests(PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository);
-        void DisplayTrainerList(TrainerRepository trainerRepository);
-        void DisplayPlayerList(PlayerRepository playerRepository);
+        void DisplayTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository);
+        void DisplayPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository);
         void DisplayTeamList(TeamRepository teamRepository);
     }
 }

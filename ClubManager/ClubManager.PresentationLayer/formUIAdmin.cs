@@ -34,8 +34,8 @@ namespace ClubManager.PresentationLayer
             teamRepository = inTeamRepository;
             DisplayRegisterRequests(playerRepository, trainerRepository);
             DisplayTeamList(teamRepository);
-            DisplayPlayerList(playerRepository);
-            DisplayTrainerList(trainerRepository);
+            DisplayPlayerList(playerRepository, teamRepository);
+            DisplayTrainerList(trainerRepository, teamRepository);
             this.Show();
             return true;
         }
@@ -45,20 +45,7 @@ namespace ClubManager.PresentationLayer
             TeamList.Items.Clear();
             foreach (Team t in teamRepository._teamList)
             {
-                string trainers = "";
-                if (t._trainers.Count > 1)
-                {
-                    foreach (Trainer trainer in t._trainers)
-                    {
-                        trainers +=  trainer.FirstName + " " + trainer.LastName + ", ";
-                    }
-                    trainers = trainers.Substring(0, trainers.Length - 2);
-                }
-                if (t._trainers.Count == 0)
-                    trainers = t._trainers[0].FirstName + " " + t._trainers[0].LastName;
-                TeamList.Items.Add(new ListViewItem(new string[] { 
-                    t._name, t._ageRange[0] + "-" + t._ageRange[t._ageRange.Count-1],
-                    trainers }));
+                TeamList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._name, t._ages[0] + "-" + t._ages[t._ages.Count-1], t._listPlayerIds.Count.ToString(), t._listTrainerIds.Count.ToString() }));
             }
         }
 
@@ -68,43 +55,47 @@ namespace ClubManager.PresentationLayer
             foreach(Player p in playerRepository._listPlayers)
             {
                 if(!p.Verified)
-                    RegisterRequests.Items.Add(new ListViewItem(new string[] { p.FirstName + " " + p.LastName, p.Email, "Player", p.Age.ToString() }));
+                    RegisterRequests.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Email, "Player" }));
             }
             foreach (Trainer t in trainerRepository._listTrainers)
             {
                 if (!t.Verified)
-                    RegisterRequests.Items.Add(new ListViewItem(new string[] { t.FirstName + " " + t.LastName, t.Email, "Trainer", "" }));
+                    RegisterRequests.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.FirstName + " " + t.LastName, t.Email, "Trainer"}));
             }
         }
 
-        public void DisplayPlayerList(PlayerRepository playerRepository)
+        public void DisplayPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
         {
+            
             PlayerList.Items.Clear();
             foreach (Player p in playerRepository._listPlayers)
             {
                 if (p.Verified)
-                    PlayerList.Items.Add(new ListViewItem(new string[] { p.FirstName + " " + p.LastName, p.Email, p.team != null ? p.team._name : "", p.Age.ToString() }));
+                {
+                    string teamName = p.teamId != -1 ? teamRepository.GetTeamById(p.teamId)._name : "";
+                    PlayerList.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Email, teamName, p.Age.ToString() }));
+                }
             }
         }
 
-        public void DisplayTrainerList(TrainerRepository trainerRepository)
+        public void DisplayTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
             TrainerList.Items.Clear();
             foreach (Trainer t in trainerRepository._listTrainers)
             {
-                string teams = "";
-                if (t._teams.Count > 1)
+                string teamNames = "";
+                if (t._teamIds.Count > 1)
                 {
-                    foreach (Team team in t._teams)
+                    foreach(int id in t._teamIds)
                     {
-                        teams += team._name + ", ";
+                        teamNames += teamRepository.GetTeamById(id)._name + ", ";
                     }
-                    teams = teams.Substring(0, teams.Length - 2);
+                    teamNames = teamNames.Substring(0, teamNames.Length - 2);
                 }
-                else if (t._teams.Count == 1)
-                    teams = t._teams[0]._name;
+                else if (t._teamIds.Count == 1) teamNames = teamRepository.GetTeamById(t._teamIds[0])._name;
+
                 if (t.Verified)
-                    TrainerList.Items.Add(new ListViewItem(new string[] { t.FirstName + " " + t.LastName, t.Email, teams }));
+                    TrainerList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.FirstName + " " + t.LastName, t.Email, teamNames }));
             }
         }
 
@@ -118,19 +109,16 @@ namespace ClubManager.PresentationLayer
         {
             if (RegisterRequests.SelectedItems[0] != null)
             {
-                int ind = RegisterRequests.SelectedItems[0].Index;
-                string email = RegisterRequests.SelectedItems[0].SubItems[1].Text;
+                string id = RegisterRequests.SelectedItems[0].SubItems[0].Text;
                 Player p = null;
                 Trainer t = null;
-                if (RegisterRequests.SelectedItems[0].SubItems[2].Text == "Player")
-                    p = playerRepository.GetPlayerByEmail(email);
-                else
-                    t = trainerRepository.GetTrainerByEmail(email);
+                if (RegisterRequests.SelectedItems[0].SubItems[3].Text == "Player") 
+                    p = playerRepository.GetPlayerById(int.Parse(id));
+                else 
+                    t = trainerRepository.GetTrainerById(int.Parse(id));
 
-                if (p != null)
-                    controller.ShowVerifyUserForm(p, null);
-                else
-                    controller.ShowVerifyUserForm(null, t);
+                if (p != null) controller.ShowVerifyUserForm(p, null);
+                else controller.ShowVerifyUserForm(null, t);
             }
         }
 
@@ -138,8 +126,8 @@ namespace ClubManager.PresentationLayer
         {
             if(PlayerList.SelectedItems[0] != null)
             {
-                string email = PlayerList.SelectedItems[0].SubItems[1].Text;
-                Player p = playerRepository.GetPlayerByEmail(email);
+                string id= PlayerList.SelectedItems[0].SubItems[0].Text;
+                Player p = playerRepository.GetPlayerById(int.Parse(id));
                 controller.ShowPlayerInfo(p);
             }
         }
@@ -148,9 +136,19 @@ namespace ClubManager.PresentationLayer
         {
             if (TrainerList.SelectedItems[0] != null)
             {
-                string email = TrainerList.SelectedItems[0].SubItems[1].Text;
-                Trainer t = trainerRepository.GetTrainerByEmail(email);
+                string id = TrainerList.SelectedItems[0].SubItems[0].Text;
+                Trainer t = trainerRepository.GetTrainerById(int.Parse(id));
                 controller.ShowTrainerInfo(t);
+            }
+        }
+
+        private void ShowTeam(object sender, EventArgs e)
+        {
+            if (TeamList.SelectedItems[0] != null)
+            {
+                string id = TeamList.SelectedItems[0].SubItems[0].Text;
+                Team t = teamRepository.GetTeamById(int.Parse(id));
+                controller.ShowTeamInfo(t);
             }
         }
     }

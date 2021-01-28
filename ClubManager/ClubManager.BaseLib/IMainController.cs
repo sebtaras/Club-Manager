@@ -18,5 +18,6 @@ namespace ClubManager.BaseLib
         void ShowVerifyUserForm(Player p, Trainer t);
         void ShowPlayerInfo(Player p);
         void ShowTrainerInfo(Trainer t);
+        void ShowTeamInfo(Team t);
     }
 }

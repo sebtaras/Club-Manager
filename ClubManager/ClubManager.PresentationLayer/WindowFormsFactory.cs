@@ -1,4 +1,5 @@
 ﻿using ClubManager.BaseLib;
+using ClubManager.DAL_File;
 using ClubManager.Models;
 using System;
 using System.Collections.Generic;
@@ -40,14 +41,20 @@ namespace ClubManager.PresentationLayer
             return new formVerifyUser(p, t);
         }
 
-        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p)
+        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, TeamRepository teamRepository)
         {
-            return new formAdminPlayerOptions(p);
+            return new formAdminPlayerOptions(p, teamRepository);
         }
 
-        public IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t)
+        public IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t, TeamRepository teamRepository)
         {
-            return new formAdminTrainerOptions(t);
+            return new formAdminTrainerOptions(t, teamRepository);
         }
+        
+        public IAdminShowTeamView AdminTeamView(Team team, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        {
+            return new formAdminShowTeam(team, playerRepository, trainerRepository);
+        }
+
     }
 }

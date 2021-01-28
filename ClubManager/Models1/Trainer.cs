@@ -15,6 +15,7 @@ namespace ClubManager.Models
         {
             Verified = verified;
             _teams = new List<Team>();
+            _teamIds = new List<int>();
         }
 
         public Trainer(int id, string firstName, string lastName, string email, string password, Team team, bool verified = true)

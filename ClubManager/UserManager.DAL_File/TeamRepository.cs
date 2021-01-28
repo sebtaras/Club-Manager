@@ -21,27 +21,32 @@ namespace ClubManager.DAL_File
 
         public void Delete(Team team)
         {
-            throw new NotImplementedException();
+            _teamList.Remove(team);
+            
+        }
+        public Team GetTeamById(int id)
+        {
+            return _teamList.Find(t => t.Id == id);
         }
 
         public void AddPlayerToTeam(Player player, PlayerRepository playerRepository)
         {
-            Team newTeam = null;
-            foreach (Team team in _teamList)
+            int newTeamID = -1;
+            foreach (Team t in _teamList)
             {
-                if (team._ageRange.IndexOf(player.Age) > -1)
+                if (t._ages.IndexOf(player.Age) > -1)
                 {
-                    team._listPlayers.Add(player);
-                    newTeam = team;
+                    t._listPlayerIds.Add(player.Id);
+                    newTeamID = t.Id;
                 }
             }
-            if (newTeam != null)
+            if (newTeamID != -1)
             {
                 foreach (Player p in playerRepository._listPlayers)
                 {
                     if (p.Email == player.Email)
                     {
-                        p.team = newTeam;
+                        p.teamId = newTeamID;
                     }
                 }
             }
@@ -49,47 +54,91 @@ namespace ClubManager.DAL_File
 
         public void RemovePlayerFromTeam(Player player, PlayerRepository playerRepository)
         {
-            foreach (Team team in _teamList)
+            foreach (Team t in _teamList)
             {
-                if (team._ageRange.IndexOf(player.Age) > -1)
+                if (t._ages.IndexOf(player.Age) > -1)
                 {
-                    team._listPlayers.Remove(player);
+                    t._listPlayerIds.Remove(player.Id);
                 }
             }
             foreach (Player p in playerRepository._listPlayers)
             {
-                if (p.Email == player.Email)
+                if (p.Id == player.Id)
                 {
-                    p.team = null;
+                    p.teamId = -1;
                 }
             }
         }
 
         public void DeletePlayer(Player player, PlayerRepository playerRepository)
         {
-            foreach (Team team in _teamList)
+            foreach (Team t in _teamList)
             {
-                if (team._ageRange.IndexOf(player.Age) > -1)
+                if (t._ages.Contains(player.Age))
                 {
-                    team._listPlayers.Remove(player);
+                    t._listPlayerIds.Remove(player.Id);
                 }
             }
-            playerRepository._listPlayers.Remove(player);
+            playerRepository.Delete(player);
         }
 
-        public void AddTrainerToTeam(Trainer trainer, TrainerRepository trainerRepository)
+        public void AddTrainerToTeam(Trainer trainer, string teamName, TrainerRepository trainerRepository)
         {
-            throw new NotImplementedException();
+            int newTeamID = -1;
+            foreach (Team t in _teamList)
+            {
+                if (t._name.ToLower() == teamName.ToLower() && !t._listTrainerIds.Contains(trainer.Id))
+                {
+                    t._listTrainerIds.Add(trainer.Id);
+                    newTeamID = t.Id;
+                }
+            }
+            if (newTeamID != -1)
+            {
+                foreach (Trainer t in trainerRepository._listTrainers)
+                {
+                    if (t.Id == trainer.Id)
+                    {
+                        t._teamIds.Add(newTeamID);
+                    }
+                }
+            }
         }
 
-        public void RemoveTrainerFromTeam(Trainer trainer, TrainerRepository trainerRepository)
+        public void RemoveTrainerFromTeam(Trainer trainer, string teamName, TrainerRepository trainerRepository)
         {
-            throw new NotImplementedException();
+            if(teamName == "" && trainer._teamIds.Count == 1)
+            {
+                teamName = GetTeamById(trainer._teamIds[0])._name;
+            }
+            int idToRemove = -1;
+            foreach(Team t in _teamList)
+            {
+                if (t._name.ToLower() == teamName.ToLower())
+                {
+                    t._listTrainerIds.Remove(trainer.Id);
+                    idToRemove = t.Id;
+                }
+            }
+            if (idToRemove != -1)
+            {
+                foreach (Trainer t in trainerRepository._listTrainers)
+                {
+                    if (t._teamIds.Contains(idToRemove))
+                    {
+                        t._teamIds.Remove(idToRemove);
+                    }
+                }
+            }
         }
 
         public void DeleteTrainer(Trainer trainer, TrainerRepository trainerRepository)
         {
-            throw new NotImplementedException();
+            foreach(Team t in _teamList)
+            {
+                t._listTrainerIds.Remove(trainer.Id);
+            }
+            trainerRepository.Delete(trainer);
         }
     }
 }

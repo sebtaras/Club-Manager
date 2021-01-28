@@ -17,13 +17,15 @@ namespace ClubManager.Contrllers
         private TrainingRepository _trainingRepository;
         private TeamRepository _teamRepository;
         private AdminController _adminController;
+        private TransactionRepository _transactionRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
             PlayerRepository playerRepository, 
             TrainerRepository trainerRepository, 
             AdminRepository adminRepository, 
             TrainingRepository trainingRepository,
-            TeamRepository teamRepository)
+            TeamRepository teamRepository,
+            TransactionRepository transactionRepository)
         {
             _formsFactory = formsFactory;
             _playerRepository = playerRepository;
@@ -31,6 +33,7 @@ namespace ClubManager.Contrllers
             _adminRepository = adminRepository;
             _trainingRepository = trainingRepository;
             _teamRepository = teamRepository;
+            _transactionRepository = transactionRepository;
             _adminController = new AdminController();
         }
 
@@ -40,8 +43,9 @@ namespace ClubManager.Contrllers
 
             Player player_bd = new Player(1, "bob", "dasilva", "bd@mail", "password", 15, true);
             Player player_mp = new Player(1, "marko", "perkovic", "mp@mail", "password", 15, true);
-            Player player_mz = new Player(1, "mali", "zugec", "mz@mail", "password", 6, false);
+            Player player_mz = new Player(1, "mali", "zugec", "mz@mail", "password", 6, true);
             Player player_mb = new Player(1, "zugecov", "brat", "mb@mail", "password", 6, false);
+            Player player_it = new Player(1, "ivan", "tarzan", "mb@mail", "password", 7, false);
             Player player_poreg = new Player(1, "poreg", "srbin", "poreg@mail", "password", 17, false);
             _playerRepository.Add(player_bd);
             _playerRepository.Add(player_mp);
@@ -52,25 +56,28 @@ namespace ClubManager.Contrllers
             DateTime time = DateTime.Now;
             Transaction bd_t1 = new Transaction(1, (decimal)200.00, time);
             Transaction bd_t2 = new Transaction(2, (decimal)200.00, time.AddDays(31));
-            player_bd.transactions.Add(bd_t1);
-            player_bd.transactions.Add(bd_t2);
+            _transactionRepository.Add(bd_t1);
+            _transactionRepository.Add(bd_t2);
 
-            Trainer trainerPionir = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
-            Trainer trainerKadeti = new Trainer(1, "drugi", "trener", "dt@mail", "password", false);
-            Trainer trainerPiZ = new Trainer(1, "brkonja", "bradic", "bb@mail", "password", true);
-            List<Player> playersPionir = new List<Player>() { player_bd, player_mp };
-            Team zagici = new Team(1, "Zagici", 6, 7, trainerPiZ, new List<Player> { });
-            Team pioniri = new Team(1, "Pioniri", 13, 15, new List<Trainer> { trainerPionir, trainerPiZ }, playersPionir);
-            _teamRepository.Add(pioniri);
+            Trainer trainer1 = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
+            Trainer trainer2 = new Trainer(1, "brkonja", "bradic", "bb@mail", "password", true);
+            Trainer trainer3 = new Trainer(1, "drugi", "trener", "dt@mail", "password", false);
+            _trainerRepository.Add(trainer1);
+            _trainerRepository.Add(trainer2);
+            _trainerRepository.Add(trainer3);
+
+            Team zagici = new Team(1, "Zagici", 6, 7);
+            Team limaci = new Team(1, "Limaci", 8, 10);
+            Team mladiPioniri = new Team(1, "Mladi Pioniri", 11, 12);
+            Team pioniri = new Team(1, "Pioniri", 13, 15);
+            Team juniori = new Team(1, "Juniori", 16, 18);
+            Team seniori = new Team(1, "Seniori", 19, 30);
             _teamRepository.Add(zagici);
-
-            trainerPionir._teams.Add(pioniri);
-            trainerPiZ._teams.Add(pioniri);
-            trainerPiZ._teams.Add(zagici);
-            _trainerRepository.Add(trainerPionir);
-            _trainerRepository.Add(trainerKadeti);
-            _trainerRepository.Add(trainerPiZ);
-
+            _teamRepository.Add(limaci);
+            _teamRepository.Add(mladiPioniri);
+            _teamRepository.Add(pioniri);
+            _teamRepository.Add(juniori);
+            _teamRepository.Add(seniori);
 
         }
 
@@ -154,32 +161,38 @@ namespace ClubManager.Contrllers
             if (p != null)
             {
                 _adminController.VerifyPlayer(form, p, _playerRepository);
-                _adminController.RefreshPlayerList(_playerRepository);
+                _adminController.RefreshPlayerList(_playerRepository ,_teamRepository);
             }
             else
             {
                 _adminController.VerifyTrainer(form, t, _trainerRepository);
-                _adminController.RefreshTrainerList(_trainerRepository);
+                _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
             }
             _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);
         }
 
         public void ShowPlayerInfo(Player p)
         {
-            var form = _formsFactory.AdminPlayerOptionsView(p);
+            var form = _formsFactory.AdminPlayerOptionsView(p, _teamRepository);
             _adminController.ShowPlayerOptions(form, p, _playerRepository ,_teamRepository);
 
-            _adminController.RefreshPlayerList(_playerRepository);
+            _adminController.RefreshPlayerList(_playerRepository, _teamRepository);
             _adminController.RefreshTeamList(_teamRepository);
         }
 
         public void ShowTrainerInfo(Trainer t)
         {
-            var form = _formsFactory.AdminTrainerOptionsView(t);
+            var form = _formsFactory.AdminTrainerOptionsView(t, _teamRepository);
             _adminController.ShowTrainerOptions(form, t, _trainerRepository, _teamRepository);
 
-            _adminController.RefreshTrainerList(_trainerRepository);
+            _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
             _adminController.RefreshTeamList(_teamRepository);
+        }
+
+        public void ShowTeamInfo(Team t)
+        {
+            var form = _formsFactory.AdminTeamView(t, _playerRepository, _trainerRepository);
+            _adminController.ShowTeam(form);
         }
     }
 }

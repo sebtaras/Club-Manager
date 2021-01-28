@@ -49,14 +49,14 @@ namespace ClubManager.Contrllers
             form.DisplayRegisterRequests(playerRepository, trainerRepository);
         }
 
-        internal void RefreshPlayerList(PlayerRepository playerRepository)
+        internal void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
         {
-            form.DisplayPlayerList(playerRepository);
+            form.DisplayPlayerList(playerRepository, teamRepository);
         }
 
-        internal void RefreshTrainerList(TrainerRepository trainerRepository)
+        internal void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
-            form.DisplayTrainerList(trainerRepository);
+            form.DisplayTrainerList(trainerRepository,teamRepository);
         }
         internal void RefreshTeamList(TeamRepository teamRepository)
         {
@@ -85,16 +85,23 @@ namespace ClubManager.Contrllers
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
             {
-                teamRepository.AddTrainerToTeam(trainer, trainerRepository);
+                string teamAddName = form.NameAddTeam();
+                teamRepository.AddTrainerToTeam(trainer, teamAddName, trainerRepository);
             }
             else if (result == DialogResult.No)
             {
-                teamRepository.RemoveTrainerFromTeam(trainer, trainerRepository);
+                string teamRemoveName = form.NameRemoveTeam();
+                teamRepository.RemoveTrainerFromTeam(trainer, teamRemoveName, trainerRepository);
             }
             else if (result == DialogResult.Abort)
             {
                 teamRepository.DeleteTrainer(trainer, trainerRepository);
             }
+        }
+
+        internal void ShowTeam(IAdminShowTeamView form)
+        {
+            form.ShowViewModal();
         }
     }
 }

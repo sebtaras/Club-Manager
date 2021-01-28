@@ -2,7 +2,6 @@
 using ClubManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ClubManager.DAL_File
 {
@@ -22,6 +21,11 @@ namespace ClubManager.DAL_File
         public void Delete(Trainer trainer)
         {
             _listTrainers.Remove(trainer);
+        }
+
+        public Trainer GetTrainerById(int id)
+        {
+            return _listTrainers.Find(t => t.Id == id);
         }
 
         public Trainer GetTrainerByEmail(string email)
