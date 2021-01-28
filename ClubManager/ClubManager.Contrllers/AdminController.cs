@@ -12,10 +12,11 @@ namespace ClubManager.Contrllers
     class AdminController
     {
         IAdminView form;
-        internal void Homepage(IAdminView form, IMainController inController, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository)
+        private decimal MEMBERSHIP_FEE = (decimal)200.00;
+        internal void Homepage(IAdminView form, IMainController inController, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
             this.form = form;
-            form.ShowViewModaless(inController, playerRepository, trainerRepository, teamRepository);
+            form.ShowViewModaless(inController, playerRepository, trainerRepository, teamRepository, transactionRepository);
         }
 
         internal void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository)
@@ -102,6 +103,39 @@ namespace ClubManager.Contrllers
         internal void ShowTeam(IAdminShowTeamView form)
         {
             form.ShowViewModal();
+        }
+
+        internal void CreateTransactionsView(IAdminCreateTransactionsView form, PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        {
+            var result = form.ShowViewModal();
+            if(result == DialogResult.OK)
+            {
+                int year = int.Parse(form.Year);
+                int month = int.Parse(form.Month);
+                
+                foreach (Player p in playerRepository._listPlayers)
+                {
+                    if (!p.Verified) continue;
+
+                    bool addNew = true;
+                    foreach(int id in p._transactionIds)
+                    {
+                        Transaction t = transactionRepository.GetTransactionById(id);
+                        if (t._month == month && t._year == year)
+                        {
+                            addNew = false;
+                            continue;
+                        }
+                    }
+                    if (addNew)
+                    {
+                        Transaction newTransaction = new Transaction(transactionRepository.next_ID, MEMBERSHIP_FEE, p.Id, year, month);
+                        transactionRepository.Add(newTransaction);
+                        p._transactionIds.Add(transactionRepository.next_ID - 1);
+                    }
+                }
+            }
+
         }
     }
 }

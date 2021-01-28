@@ -50,7 +50,7 @@ namespace ClubManager.PresentationLayer
         public void DisplayTransactionList(List<Transaction> transactions)
         {
             foreach(Transaction t in transactions) {
-                listView1.Items.Add(new ListViewItem(new string[] {t.createdOn.Year.ToString(), t.createdOn.Month.ToString(), t.paid.ToString(),  t.amount.ToString() }));
+                listView1.Items.Add(new ListViewItem(new string[] {t.Id.ToString(), t._year.ToString(), t._month.ToString(), t._paid.ToString(),  t._amount.ToString() }));
             }
         }
 

@@ -25,10 +25,15 @@ namespace ClubManager.DAL_File
             {
                 if (t.Id == id)
                 {
-                    t.paid = !t.paid;
+                    t._paid = !t._paid;
                     return;
                 }
             }
+        }
+
+        public Transaction GetTransactionById(int id)
+        {
+            return _listTransactions.Find(t => t.Id == id);
         }
     }
 }

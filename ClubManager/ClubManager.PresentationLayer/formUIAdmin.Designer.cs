@@ -35,6 +35,7 @@ namespace ClubManager.PresentationLayer
             this.TeamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AgeRange = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NumOfPlayers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NumOfTrainers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.RegisterRequests = new System.Windows.Forms.ListView();
@@ -56,7 +57,6 @@ namespace ClubManager.PresentationLayer
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
-            this.NumOfTrainers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label2
@@ -105,6 +105,11 @@ namespace ClubManager.PresentationLayer
             // 
             this.NumOfPlayers.Text = "N";
             this.NumOfPlayers.Width = 30;
+            // 
+            // NumOfTrainers
+            // 
+            this.NumOfTrainers.Text = "T";
+            this.NumOfTrainers.Width = 30;
             // 
             // label1
             // 
@@ -176,6 +181,7 @@ namespace ClubManager.PresentationLayer
             this.CreateTransactionsButon.TabIndex = 14;
             this.CreateTransactionsButon.Text = "Create Transactions";
             this.CreateTransactionsButon.UseVisualStyleBackColor = true;
+            this.CreateTransactionsButon.Click += new System.EventHandler(this.CreateTransactions);
             // 
             // PlayerList
             // 
@@ -273,11 +279,6 @@ namespace ClubManager.PresentationLayer
             this.label4.Size = new System.Drawing.Size(67, 19);
             this.label4.TabIndex = 18;
             this.label4.Text = "Trainers";
-            // 
-            // NumOfTrainers
-            // 
-            this.NumOfTrainers.Text = "T";
-            this.NumOfTrainers.Width = 30;
             // 
             // formUIAdmin
             // 

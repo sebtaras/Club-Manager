@@ -6,15 +6,19 @@ namespace ClubManager.Models
 {
     public class Transaction : EntityBase<int>
     {
-        public decimal amount { get; set; }
-        public DateTime createdOn {get; set;}
-        public bool paid { get; set; }
+        public decimal _amount { get; set; }
+        public int _year { get; set; }
+        public int _month { get; set; }
+        public int _playerId { get; set; }
+        public bool _paid { get; set; }
 
-        public Transaction(int id, decimal amount, DateTime createdOn) : base(id)
+        public Transaction(int id, decimal amount, int playerId, int year, int month) : base(id)
         {
-            this.amount = amount;
-            this.createdOn = createdOn;
-            paid = false;
+            _amount = amount;
+            _playerId = playerId;
+            _year = year;
+            _month = month;
+            _paid = false;
         }
     }
 }

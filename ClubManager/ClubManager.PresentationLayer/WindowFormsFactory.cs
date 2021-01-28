@@ -41,9 +41,9 @@ namespace ClubManager.PresentationLayer
             return new formVerifyUser(p, t);
         }
 
-        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, TeamRepository teamRepository)
+        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
-            return new formAdminPlayerOptions(p, teamRepository);
+            return new formAdminPlayerOptions(p, teamRepository, transactionRepository);
         }
 
         public IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t, TeamRepository teamRepository)
@@ -54,6 +54,11 @@ namespace ClubManager.PresentationLayer
         public IAdminShowTeamView AdminTeamView(Team team, PlayerRepository playerRepository, TrainerRepository trainerRepository)
         {
             return new formAdminShowTeam(team, playerRepository, trainerRepository);
+        }
+
+        public IAdminCreateTransactionsView CreateTransactionsView()
+        {
+            return new formAdminCreateTransactionsView();
         }
 
     }

@@ -14,8 +14,9 @@ namespace ClubManager.BaseLib
         ITrainerView TrainerView();
         IAdminView AdminView();
         IVerifyUserView VerifyUserView(Player p, Trainer t);
-        IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, TeamRepository teamRepository);
+        IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, TeamRepository teamRepository, TransactionRepository transactionRepository);
         IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t, TeamRepository teamRepository);
         IAdminShowTeamView AdminTeamView(Team t, PlayerRepository playerRepository, TrainerRepository trainerRepository);
+        IAdminCreateTransactionsView CreateTransactionsView();
     }
 }

@@ -61,6 +61,12 @@
     <Compile Include="formAdminTrainerOptions.Designer.cs">
       <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAdminCreateTransactionsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdminCreateTransactionsView.Designer.cs">
+      <DependentUpon>formAdminCreateTransactionsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAdminTrainerOptions.resx">
       <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdminCreateTransactionsView.resx">
+      <DependentUpon>formAdminCreateTransactionsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogIn.resx">
       <DependentUpon>formLogIn.cs</DependentUpon>

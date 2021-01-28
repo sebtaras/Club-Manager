@@ -20,18 +20,20 @@ namespace ClubManager.PresentationLayer
         public PlayerRepository playerRepository;
         public TrainerRepository trainerRepository;
         public TeamRepository teamRepository;
+        public TransactionRepository transactionRepository;
 
         public formUIAdmin()
         {
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository, TeamRepository inTeamRepository)
+        public bool ShowViewModaless(IMainController inController, PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository, TeamRepository inTeamRepository, TransactionRepository inTransactionRepository)
         {
             controller = inController;
             playerRepository = inPlayerRepository;
             trainerRepository = inTrainerRepository;
             teamRepository = inTeamRepository;
+            transactionRepository = inTransactionRepository;
             DisplayRegisterRequests(playerRepository, trainerRepository);
             DisplayTeamList(teamRepository);
             DisplayPlayerList(playerRepository, teamRepository);
@@ -150,6 +152,11 @@ namespace ClubManager.PresentationLayer
                 Team t = teamRepository.GetTeamById(int.Parse(id));
                 controller.ShowTeamInfo(t);
             }
+        }
+
+        private void CreateTransactions(object sender, EventArgs e)
+        {
+            controller.CreateTransactionsView(playerRepository, transactionRepository);
         }
     }
 }

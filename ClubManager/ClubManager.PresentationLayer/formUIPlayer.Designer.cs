@@ -36,12 +36,15 @@ namespace ClubManager.PresentationLayer
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Month = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Paid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.Year = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
             this.VerificationLabel = new System.Windows.Forms.Label();
+            this.transactionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Duration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.trainingID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
@@ -51,9 +54,9 @@ namespace ClubManager.PresentationLayer
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(543, 407);
+            this.button1.Location = new System.Drawing.Point(524, 407);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(229, 42);
+            this.button1.Size = new System.Drawing.Size(248, 42);
             this.button1.TabIndex = 1;
             this.button1.Text = "Log out";
             this.button1.UseVisualStyleBackColor = false;
@@ -62,13 +65,15 @@ namespace ClubManager.PresentationLayer
             // TrainingList
             // 
             this.TrainingList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.trainingID,
             this.Trainer,
             this.StartDate,
-            this.EndDate});
+            this.EndDate,
+            this.Duration});
             this.TrainingList.HideSelection = false;
             this.TrainingList.Location = new System.Drawing.Point(12, 31);
             this.TrainingList.Name = "TrainingList";
-            this.TrainingList.Size = new System.Drawing.Size(525, 370);
+            this.TrainingList.Size = new System.Drawing.Size(506, 370);
             this.TrainingList.TabIndex = 2;
             this.TrainingList.UseCompatibleStateImageBehavior = false;
             this.TrainingList.View = System.Windows.Forms.View.Details;
@@ -81,12 +86,12 @@ namespace ClubManager.PresentationLayer
             // StartDate
             // 
             this.StartDate.Text = "Start Time";
-            this.StartDate.Width = 220;
+            this.StartDate.Width = 140;
             // 
             // EndDate
             // 
             this.EndDate.Text = "End Time";
-            this.EndDate.Width = 220;
+            this.EndDate.Width = 140;
             // 
             // label1
             // 
@@ -101,26 +106,38 @@ namespace ClubManager.PresentationLayer
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.transactionID,
             this.Year,
             this.Month,
-            this.Paid,
-            this.Amount});
+            this.Amount,
+            this.Paid});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(543, 31);
+            this.listView1.Location = new System.Drawing.Point(524, 31);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(229, 370);
+            this.listView1.Size = new System.Drawing.Size(248, 370);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // Year
+            // 
+            this.Year.Text = "Year";
+            this.Year.Width = 50;
+            // 
             // Month
             // 
             this.Month.Text = "Month";
+            this.Month.Width = 50;
             // 
             // Paid
             // 
             this.Paid.Text = "Paid ";
-            this.Paid.Width = 50;
+            this.Paid.Width = 40;
+            // 
+            // Amount
+            // 
+            this.Amount.Text = "Amount";
+            this.Amount.Width = 50;
             // 
             // label2
             // 
@@ -132,23 +149,30 @@ namespace ClubManager.PresentationLayer
             this.label2.TabIndex = 5;
             this.label2.Text = "Membership fees";
             // 
-            // Year
-            // 
-            this.Year.Text = "Year";
-            // 
-            // Amount
-            // 
-            this.Amount.Text = "Amount";
-            // 
             // VerificationLabel
             // 
             this.VerificationLabel.AutoSize = true;
             this.VerificationLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.VerificationLabel.Location = new System.Drawing.Point(288, 419);
+            this.VerificationLabel.Location = new System.Drawing.Point(269, 419);
             this.VerificationLabel.Name = "VerificationLabel";
             this.VerificationLabel.Size = new System.Drawing.Size(249, 19);
             this.VerificationLabel.TabIndex = 6;
             this.VerificationLabel.Text = "Account is pending verification";
+            // 
+            // transactionID
+            // 
+            this.transactionID.Text = "ID";
+            this.transactionID.Width = 30;
+            // 
+            // Duration
+            // 
+            this.Duration.Text = "Duration";
+            this.Duration.Width = 110;
+            // 
+            // trainingID
+            // 
+            this.trainingID.Text = "ID";
+            this.trainingID.Width = 30;
             // 
             // formUIPlayer
             // 
@@ -183,5 +207,8 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ColumnHeader Year;
         private System.Windows.Forms.ColumnHeader Amount;
         private System.Windows.Forms.Label VerificationLabel;
+        private System.Windows.Forms.ColumnHeader trainingID;
+        private System.Windows.Forms.ColumnHeader Duration;
+        private System.Windows.Forms.ColumnHeader transactionID;
     }
 }

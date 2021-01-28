@@ -41,23 +41,26 @@ namespace ClubManager.Contrllers
         {
             _adminRepository.Add(new Admin(1, "admin", "admin", "a@m", "aaaaaa"));
 
+            Transaction bd_t1 = new Transaction(1, (decimal)200.00, 1, 2020, 12);
+            Transaction bd_t2 = new Transaction(2, (decimal)200.00, 1, 2021, 1);
+            _transactionRepository.Add(bd_t1);
+            _transactionRepository.Add(bd_t2);
+
             Player player_bd = new Player(1, "bob", "dasilva", "bd@mail", "password", 15, true);
             Player player_mp = new Player(1, "marko", "perkovic", "mp@mail", "password", 15, true);
             Player player_mz = new Player(1, "mali", "zugec", "mz@mail", "password", 6, true);
             Player player_mb = new Player(1, "zugecov", "brat", "mb@mail", "password", 6, false);
-            Player player_it = new Player(1, "ivan", "tarzan", "mb@mail", "password", 7, false);
             Player player_poreg = new Player(1, "poreg", "srbin", "poreg@mail", "password", 17, false);
+            Player player_it = new Player(1, "ivan", "tarzan", "mb@mail", "password", 7, true);
+            player_bd._transactionIds.Add(1);
+            player_bd._transactionIds.Add(2);
             _playerRepository.Add(player_bd);
             _playerRepository.Add(player_mp);
             _playerRepository.Add(player_mz);
             _playerRepository.Add(player_poreg);
             _playerRepository.Add(player_mb);
+            _playerRepository.Add(player_it);
 
-            DateTime time = DateTime.Now;
-            Transaction bd_t1 = new Transaction(1, (decimal)200.00, time);
-            Transaction bd_t2 = new Transaction(2, (decimal)200.00, time.AddDays(31));
-            _transactionRepository.Add(bd_t1);
-            _transactionRepository.Add(bd_t2);
 
             Trainer trainer1 = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
             Trainer trainer2 = new Trainer(1, "brkonja", "bradic", "bb@mail", "password", true);
@@ -115,7 +118,7 @@ namespace ClubManager.Contrllers
                     case "admin":
                         {
                             var form = _formsFactory.AdminView();
-                            _adminController.Homepage(form, this, _playerRepository, _trainerRepository, _teamRepository);
+                            _adminController.Homepage(form, this, _playerRepository, _trainerRepository, _teamRepository, _transactionRepository);
                             break;
                         }
                     case "": loginSuccess = false; break;
@@ -173,7 +176,7 @@ namespace ClubManager.Contrllers
 
         public void ShowPlayerInfo(Player p)
         {
-            var form = _formsFactory.AdminPlayerOptionsView(p, _teamRepository);
+            var form = _formsFactory.AdminPlayerOptionsView(p, _teamRepository, _transactionRepository);
             _adminController.ShowPlayerOptions(form, p, _playerRepository ,_teamRepository);
 
             _adminController.RefreshPlayerList(_playerRepository, _teamRepository);
@@ -193,6 +196,12 @@ namespace ClubManager.Contrllers
         {
             var form = _formsFactory.AdminTeamView(t, _playerRepository, _trainerRepository);
             _adminController.ShowTeam(form);
+        }
+
+        public void CreateTransactionsView(PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        {
+            var form = _formsFactory.CreateTransactionsView();
+            _adminController.CreateTransactionsView(form, playerRepository, transactionRepository);
         }
     }
 }

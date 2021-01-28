@@ -1,4 +1,5 @@
 ﻿
+using ClubManager.DAL_File;
 using ClubManager.Models;
 using System;
 using System.Collections.Generic;
@@ -19,5 +20,6 @@ namespace ClubManager.BaseLib
         void ShowPlayerInfo(Player p);
         void ShowTrainerInfo(Trainer t);
         void ShowTeamInfo(Team t);
+        void CreateTransactionsView(PlayerRepository playerRepository, TransactionRepository transactionRepository);
     }
 }
