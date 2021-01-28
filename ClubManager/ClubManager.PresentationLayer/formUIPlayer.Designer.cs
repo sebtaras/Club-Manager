@@ -178,7 +178,7 @@ namespace ClubManager.PresentationLayer
             // CreateTransactionsButon
             // 
             this.CreateTransactionsButon.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.CreateTransactionsButon.Location = new System.Drawing.Point(350, 407);
+            this.CreateTransactionsButon.Location = new System.Drawing.Point(12, 409);
             this.CreateTransactionsButon.Name = "CreateTransactionsButon";
             this.CreateTransactionsButon.Size = new System.Drawing.Size(168, 42);
             this.CreateTransactionsButon.TabIndex = 15;

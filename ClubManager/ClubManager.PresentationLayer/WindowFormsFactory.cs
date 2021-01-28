@@ -71,5 +71,11 @@ namespace ClubManager.PresentationLayer
         {
             return new formPlayerSettings(p, playerRepository);
         }
+
+        public ITrainerCreateTrainingView CreateTrainingView(Trainer t, TrainingRepository trainingRepository, TeamRepository teamRepository)
+        {
+            return new formTrainerCreateTraining(t, trainingRepository, teamRepository);
+        }
+
     }
 }

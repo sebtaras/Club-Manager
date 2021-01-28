@@ -18,6 +18,7 @@ namespace ClubManager.Contrllers
         private TeamRepository _teamRepository;
         private IAdminController _adminController;
         private IPlayerController _playerController;
+        private ITrainerController _trainerController;
         private TransactionRepository _transactionRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
@@ -37,6 +38,7 @@ namespace ClubManager.Contrllers
             _transactionRepository = transactionRepository;
             _adminController = new AdminController();
             _playerController = new PlayerController();
+            _trainerController = new TrainerController();
         }
 
         public void LoadDefaultModel()
@@ -67,6 +69,7 @@ namespace ClubManager.Contrllers
             Trainer trainer1 = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
             Trainer trainer2 = new Trainer(1, "brkonja", "bradic", "bb@mail", "password", true);
             Trainer trainer3 = new Trainer(1, "drugi", "trener", "dt@mail", "password", false);
+            trainer1._teamIds.Add(1);
             _trainerRepository.Add(trainer1);
             _trainerRepository.Add(trainer2);
             _trainerRepository.Add(trainer3);
@@ -113,7 +116,7 @@ namespace ClubManager.Contrllers
                         {
                             var form = _formsFactory.TrainerView();
                             var trainerController = new TrainerController();
-                            trainerController.Homepage(form, this, _trainerRepository.GetTrainerByEmail(email));
+                            trainerController.Homepage(form, this, _trainerRepository.GetTrainerByEmail(email), _trainerRepository, _trainingRepository, _teamRepository, _playerRepository);
                             break;
                         }
                     case "admin":
@@ -210,6 +213,17 @@ namespace ClubManager.Contrllers
             return _playerController.ShowPlayerSettings(form, player, playerRepository);
         }
 
+        public bool CreateTrainingView(Trainer trainer)
+        {
+            var form = _formsFactory.CreateTrainingView(trainer, _trainingRepository, _teamRepository);
+            if (_trainerController.ShowCreateTraining(form, trainer, _trainingRepository, _teamRepository))
+                return true;
+            return false;
+        }
 
+        public bool ShowTrainerSettings(Trainer trainer, TrainerRepository trainerRepository)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

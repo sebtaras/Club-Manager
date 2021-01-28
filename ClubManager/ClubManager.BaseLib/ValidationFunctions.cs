@@ -46,5 +46,14 @@ namespace ClubManager.BaseLib
         {
             return password.Length >= 6;
         }
+
+        public static bool IsValidTrainingDuration(string duration)
+        {
+            if (!int.TryParse(duration, out int dur))
+                return false;
+            if (dur < 30 || dur > 120)
+                return false;
+            return true;
+        }
     }
 }

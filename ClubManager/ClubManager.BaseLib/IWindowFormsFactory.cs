@@ -20,5 +20,8 @@ namespace ClubManager.BaseLib
         IAdminCreateTransactionsView CreateTransactionsView();
         IAdminTransactionOptionsView AdminTransactionOptions(Player p, Transaction t);
         IPlayerSettingsView PlayerSettingsView(Player player, PlayerRepository playerRepository);
+        ITrainerCreateTrainingView CreateTrainingView(Trainer t, TrainingRepository trainingRepository, TeamRepository teamRepository);
+
+
     }
 }

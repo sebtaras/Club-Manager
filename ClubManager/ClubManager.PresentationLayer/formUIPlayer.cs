@@ -60,7 +60,7 @@ namespace ClubManager.PresentationLayer
         {
             foreach (Training t in trainingRepository._trainings)
             {
-                TrainingList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._startTime.ToString(), t._endTime.ToString() })) ;
+                TrainingList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.StartTime.ToString(), t.EndTime.ToString() })) ;
             }
         }
 

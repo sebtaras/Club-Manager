@@ -57,6 +57,7 @@ namespace ClubManager.PresentationLayer
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -280,11 +281,22 @@ namespace ClubManager.PresentationLayer
             this.label4.TabIndex = 18;
             this.label4.Text = "Trainers";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.button2.Location = new System.Drawing.Point(12, 488);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(168, 42);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Settings";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // formUIAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 537);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TrainerList);
             this.Controls.Add(this.label3);
@@ -337,5 +349,6 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ColumnHeader NumOfPlayers;
         private System.Windows.Forms.ColumnHeader BOLAN;
         private System.Windows.Forms.ColumnHeader NumOfTrainers;
+        private System.Windows.Forms.Button button2;
     }
 }

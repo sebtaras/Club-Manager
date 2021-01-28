@@ -1,4 +1,5 @@
 ﻿using ClubManager.BaseLib;
+using ClubManager.DAL_File;
 using ClubManager.Models;
 using System;
 using System.Collections.Generic;
@@ -14,47 +15,94 @@ namespace ClubManager.PresentationLayer
 {
     public partial class formUITrainer : Form, ITrainerView
     {
-        public IMainController controller;
-        public Trainer trainer;
+        private IMainController controller;
+        private Trainer trainer;
+        private TeamRepository teamRepository;
+        private TrainingRepository trainingRepository;
+        private PlayerRepository playerRepository;
         public formUITrainer()
         {
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Trainer inTrainer)
+        public bool ShowViewModaless(IMainController inController, Trainer inTrainer, TeamRepository inTeamRepository, TrainingRepository inTrainingRepository, PlayerRepository inPlayerRepository)
         {
             controller = inController;
             trainer = inTrainer;
+            teamRepository = inTeamRepository;
+            trainingRepository = inTrainingRepository;
+            playerRepository = inPlayerRepository;
+
             if (trainer.Verified)
             {
                 HideVerificationLabel();
-                DisplayTrainingList(trainer._teams);
-                DisplayPlayerList(trainer._teams);
+                DisplayTrainingList();
+                DisplayPlayerList();
             }
-            this.Show();
+            Show();
             return true;
         }
 
-        private void DisplayPlayerList(List<Team> teams)
+        private void DisplayPlayerList()
         {
+            if (trainer.Verified == false)
+                return;
 
+            PlayerList.Items.Clear();
+            foreach(int teamId in trainer._teamIds)
+            {
+                Team t = teamRepository.GetTeamById(teamId);
+                foreach(int playerId in t._listPlayerIds)
+                {
+                    Player p = playerRepository.GetPlayerById(playerId);
+                    PlayerList.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Age.ToString(), t._name }));
+                }
+            }
         }
 
-        private void DisplayTrainingList(List<Team> teams)
+        private void DisplayTrainingList()
         {
+            if (trainer.Verified == false)
+                return;
 
+            TrainingList.Items.Clear();
+            foreach(int teamId in trainer._teamIds)
+            {
+                Team t = teamRepository.GetTeamById(teamId);
+                foreach(int trainingId in t._listTrainingIds)
+                {
+                    Training tr = trainingRepository.GetTrainingById(trainingId);
+                    string start = tr.StartTime.ToLongDateString() + "  " + tr.StartTime.ToShortTimeString();
+                    string end = tr.EndTime.ToLongDateString() + "  " +  tr.EndTime.ToShortTimeString();
+                    TrainingList.Items.Add(new ListViewItem(new string[] { tr.Id.ToString(), t._name, start, end }));
+                }
+            }
         }
 
         public void HideVerificationLabel()
         {
-            this.VerificationLabel.Hide();
-            this.CreateNewTrainingButton.Show();
+            VerificationLabel.Hide();
+            CreateTrainingButton.Show();
         }
 
         private void LogOut(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             controller.LogOut();
+        }
+
+        private void ShowUserSettings(object sender, EventArgs e)
+        {
+            /*if (!controller.ShowPlayerSettings(trainer, trainerRepository))
+                MessageBox.Show("Failed to update value");*/
+        }
+
+        private void CreateTraining(object sender, EventArgs e)
+        {
+            if (!controller.CreateTrainingView(trainer))
+                MessageBox.Show("Failed to add training");
+            else
+                DisplayTrainingList();
         }
     }
 }

@@ -37,5 +37,10 @@ namespace ClubManager.DAL_File
         {
             _trainings.Remove(training);
         }
+
+        public Training GetTrainingById(int trainingId)
+        {
+            return _trainings.Find(t => t.Id == trainingId);
+        }
     }
 }
