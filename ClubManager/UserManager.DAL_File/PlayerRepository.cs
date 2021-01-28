@@ -38,6 +38,22 @@ namespace ClubManager.DAL_File
             return null;
         }
 
+        public bool UpdatePlayerValues(Player player, string email, string passwordCurrent, string passwordNew)
+        {
+            foreach(Player p in _listPlayers)
+            {
+                if(p.Id == player.Id)
+                {
+                    if (p.Password != passwordCurrent)
+                        return false;
+                    p.Email = email;
+                    p.Password = passwordNew;
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public List<Player> GetAll()
         {
             return _listPlayers;

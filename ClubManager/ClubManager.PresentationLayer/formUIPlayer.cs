@@ -1,4 +1,5 @@
 ﻿using ClubManager.BaseLib;
+using ClubManager.DAL_File;
 using ClubManager.Models;
 using System;
 using System.Collections.Generic;
@@ -16,22 +17,23 @@ namespace ClubManager.PresentationLayer
     {
         public IMainController controller;
         public Player player;
-        
+        public PlayerRepository playerRepository;
 
         public formUIPlayer()
         {
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Player inPlayer)
+        public bool ShowViewModaless(IMainController inController, Player inPlayer, TransactionRepository transactionRepository, TrainingRepository trainingRepository, PlayerRepository inPlayerRepository)
         {
             controller = inController;
+            playerRepository = inPlayerRepository;
             player = inPlayer;
             if (player.Verified)
             {
                 HideVerificationLabel();
-                DisplayTransactionList(player.transactions);
-                DisplayTrainingList(player.trainings);
+                DisplayTransactionList(transactionRepository);
+                //DisplayTrainingList(player._trainingIds);
             }
             this.Show();
             return true;
@@ -42,15 +44,23 @@ namespace ClubManager.PresentationLayer
             this.VerificationLabel.Hide();
         }
 
-        public void DisplayTrainingList(List<Training> trainings)
+        public void DisplayTransactionList(TransactionRepository transactionRepository)
         {
-
+            TransactionList.Items.Clear();
+            foreach (Transaction t in transactionRepository._listTransactions)
+            {
+                if (t._playerId == player.Id)
+                {
+                    TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._year.ToString(), t._month.ToString(), t._amount.ToString(), t._paid.ToString() }));
+                }
+            }
         }
 
-        public void DisplayTransactionList(List<Transaction> transactions)
+        public void DisplayTrainingList(TrainingRepository trainingRepository)
         {
-            foreach(Transaction t in transactions) {
-                listView1.Items.Add(new ListViewItem(new string[] {t.Id.ToString(), t._year.ToString(), t._month.ToString(), t._paid.ToString(),  t._amount.ToString() }));
+            foreach (Training t in trainingRepository._trainings)
+            {
+                TrainingList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._startTime.ToString(), t._endTime.ToString() })) ;
             }
         }
 
@@ -58,6 +68,14 @@ namespace ClubManager.PresentationLayer
         {
             this.Hide();
             controller.LogOut();
+        }
+
+        private void ShowUserSettings(object sender, EventArgs e)
+        {
+            if(!controller.ShowPlayerSettings(player, playerRepository))
+            {
+                MessageBox.Show("Failed to update values");
+            }
         }
     }
 }

@@ -27,6 +27,8 @@ namespace ClubManager.DAL_File
                 if (overlaps > 2)
                     return false;
             }*/
+            training.Id = next_ID;
+            next_ID++;
             _trainings.Add(training);
             return true;
         }

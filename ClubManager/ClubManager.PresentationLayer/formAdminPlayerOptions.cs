@@ -48,7 +48,7 @@ namespace ClubManager.PresentationLayer
             else
                 CurrentTeam.Visible = false;
 
-            UpdateTransactionList();
+            DisplayTransactionList();
         }
 
         private void AdminTransactionOptions(object sender, EventArgs e)
@@ -59,11 +59,11 @@ namespace ClubManager.PresentationLayer
                 Transaction transaction = transactionRepository.GetTransactionById(int.Parse(id));
                 var form = windowFormsFactory.AdminTransactionOptions(player, transaction);
                 adminController.AdminTransactionOptions(form, player, transaction,  playerRepository, transactionRepository);
-                UpdateTransactionList();
+                DisplayTransactionList();
             }
         }
 
-        private void UpdateTransactionList()
+        private void DisplayTransactionList()
         {
             TransactionList.Items.Clear();
             foreach (Transaction t in transactionRepository._listTransactions)

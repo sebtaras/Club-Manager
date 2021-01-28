@@ -152,6 +152,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.FirstName);
             this.Controls.Add(this.label1);
             this.Name = "formVerifyUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formVerifyUser";
             this.ResumeLayout(false);
             this.PerformLayout();

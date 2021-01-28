@@ -128,6 +128,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
             this.Name = "formAdminTransactionOptions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formAdminTransactionOptions";
             this.ResumeLayout(false);
             this.PerformLayout();

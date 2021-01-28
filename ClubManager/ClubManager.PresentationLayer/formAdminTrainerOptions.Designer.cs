@@ -176,6 +176,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.FullName);
             this.Name = "formAdminTrainerOptions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formAdminTrainerOptions";
             ((System.ComponentModel.ISupportInitialize)(this.comboItemBindingSource)).EndInit();
             this.ResumeLayout(false);

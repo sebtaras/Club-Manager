@@ -202,6 +202,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.FullName);
             this.Name = "formAdminPlayerOptions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formAdminPlayerOptions";
             this.DoubleClick += new System.EventHandler(this.AdminTransactionOptions);
             this.ResumeLayout(false);

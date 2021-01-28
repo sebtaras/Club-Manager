@@ -1,4 +1,5 @@
-﻿using ClubManager.Models;
+﻿using ClubManager.DAL_File;
+using ClubManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,9 @@ namespace ClubManager.BaseLib
 {
     public interface IPlayerView
     {
-        bool ShowViewModaless(IMainController inMainController, Player player);
+        bool ShowViewModaless(IMainController inController, Player inPlayer, TransactionRepository transactionRepository, TrainingRepository trainingRepository, PlayerRepository playerRepository);
         void HideVerificationLabel();
-        void DisplayTransactionList(List<Transaction> transactions);
-        void DisplayTrainingList(List<Training> trainings);
+        void DisplayTransactionList(TransactionRepository transactionRepository);
+        void DisplayTrainingList(TrainingRepository trainingRepository);
     }
 }

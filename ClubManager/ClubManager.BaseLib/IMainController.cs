@@ -21,5 +21,6 @@ namespace ClubManager.BaseLib
         void ShowTrainerInfo(Trainer t);
         void ShowTeamInfo(Team t);
         void CreateTransactionsView(PlayerRepository playerRepository, TransactionRepository transactionRepository);
+        bool ShowPlayerSettings(Player player, PlayerRepository playerRepository);
     }
 }

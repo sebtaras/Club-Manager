@@ -161,6 +161,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.PlayerList);
             this.Name = "formAdminShowTeam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formAdminshowTeam";
             this.ResumeLayout(false);
             this.PerformLayout();

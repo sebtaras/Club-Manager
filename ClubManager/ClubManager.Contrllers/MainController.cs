@@ -17,6 +17,7 @@ namespace ClubManager.Contrllers
         private TrainingRepository _trainingRepository;
         private TeamRepository _teamRepository;
         private IAdminController _adminController;
+        private IPlayerController _playerController;
         private TransactionRepository _transactionRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
@@ -35,6 +36,7 @@ namespace ClubManager.Contrllers
             _teamRepository = teamRepository;
             _transactionRepository = transactionRepository;
             _adminController = new AdminController();
+            _playerController = new PlayerController();
         }
 
         public void LoadDefaultModel()
@@ -104,8 +106,7 @@ namespace ClubManager.Contrllers
                     case "player":
                         {
                             var form = _formsFactory.PlayerView();
-                            var playerController = new PlayerController();
-                            playerController.Homepage(form, this, _playerRepository.GetPlayerByEmail(email));
+                            _playerController.Homepage(form, this, _playerRepository.GetPlayerByEmail(email), _transactionRepository, _trainingRepository, _playerRepository);
                             break;
                         }
                     case "trainer":
@@ -164,13 +165,12 @@ namespace ClubManager.Contrllers
             if (p != null)
             {
                 _adminController.VerifyPlayer(form, p, _playerRepository);
-                _adminController.RefreshPlayerList(_playerRepository ,_teamRepository);
             }
             else
             {
                 _adminController.VerifyTrainer(form, t, _trainerRepository);
-                _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
             }
+            _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
             _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);
         }
 
@@ -203,5 +203,13 @@ namespace ClubManager.Contrllers
             var form = _formsFactory.CreateTransactionsView();
             _adminController.CreateTransactionsView(form, playerRepository, transactionRepository);
         }
+
+        public bool ShowPlayerSettings(Player player, PlayerRepository playerRepository)
+        {
+            var form = _formsFactory.PlayerSettingsView(player, playerRepository);
+            return _playerController.ShowPlayerSettings(form, player, playerRepository);
+        }
+
+
     }
 }

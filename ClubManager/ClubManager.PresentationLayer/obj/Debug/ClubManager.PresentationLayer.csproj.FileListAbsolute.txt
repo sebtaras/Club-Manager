@@ -47,3 +47,4 @@ C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.Presenta
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formAdminShowTeam.resources
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formAdminTransactionOptions.resources
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formAdminCreateTransactions.resources
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formPlayerSettings.resources

@@ -34,9 +34,9 @@ namespace ClubManager.PresentationLayer
             this.FullName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.YearCombo = new System.Windows.Forms.ComboBox();
+            this.comboItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MonthCombo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.comboItemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,10 @@ namespace ClubManager.PresentationLayer
             this.YearCombo.TabIndex = 1;
             this.YearCombo.ValueMember = "value";
             // 
+            // comboItemBindingSource
+            // 
+            this.comboItemBindingSource.DataSource = typeof(ClubManager.BaseLib.ComboItem);
+            // 
             // MonthCombo
             // 
             this.MonthCombo.DataSource = this.comboItemBindingSource;
@@ -106,11 +110,7 @@ namespace ClubManager.PresentationLayer
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboItemBindingSource
-            // 
-            this.comboItemBindingSource.DataSource = typeof(ClubManager.BaseLib.ComboItem);
-            // 
-            // formAdminCreateTransactionsView
+            // formAdminCreateTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,7 +121,8 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FullName);
             this.Controls.Add(this.AddButton);
-            this.Name = "formAdminCreateTransactionsView";
+            this.Name = "formAdminCreateTransactions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formCreateTransactionsView";
             ((System.ComponentModel.ISupportInitialize)(this.comboItemBindingSource)).EndInit();
             this.ResumeLayout(false);

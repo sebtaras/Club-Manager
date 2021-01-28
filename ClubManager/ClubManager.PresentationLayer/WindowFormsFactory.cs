@@ -66,5 +66,10 @@ namespace ClubManager.PresentationLayer
         {
             return new formAdminTransactionOptions(p, t);
         }
+
+        public IPlayerSettingsView PlayerSettingsView(Player p, PlayerRepository playerRepository)
+        {
+            return new formPlayerSettings(p, playerRepository);
+        }
     }
 }
