@@ -91,6 +91,12 @@
     <Compile Include="formTrainerCreateTraining.Designer.cs">
       <DependentUpon>formTrainerCreateTraining.cs</DependentUpon>
     </Compile>
+    <Compile Include="formTrainerDeleteTraining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTrainerDeleteTraining.Designer.cs">
+      <DependentUpon>formTrainerDeleteTraining.cs</DependentUpon>
+    </Compile>
     <Compile Include="formUIAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formTrainerCreateTraining.resx">
       <DependentUpon>formTrainerCreateTraining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTrainerDeleteTraining.resx">
+      <DependentUpon>formTrainerDeleteTraining.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formUIAdmin.resx">
       <DependentUpon>formUIAdmin.cs</DependentUpon>

@@ -77,5 +77,9 @@ namespace ClubManager.PresentationLayer
             return new formTrainerCreateTraining(t, trainingRepository, teamRepository);
         }
 
+        public ITrainerDeleteTrainingView DeleteTrainingView(string teamName, string trainingTime)
+        {
+            return new formTrainerDeleteTraining(teamName, trainingTime);
+        }
     }
 }

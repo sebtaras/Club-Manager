@@ -38,7 +38,24 @@ namespace ClubManager.Contrllers
                     }
                     return true;
                 }
-                return false;
+            }
+            return false;
+        }
+
+        public bool DeleteTraining(ITrainerDeleteTrainingView form, TrainingRepository trainingRepository, TeamRepository teamRepository, int trainingId)
+        {
+            var result = form.ShowViewModal();
+            if(result == DialogResult.OK)
+            {
+                trainingRepository.Delete(trainingId);
+                foreach(Team t in teamRepository._teamList)
+                {
+                    if (t._listTrainingIds.Contains(trainingId))
+                    {
+                        t._listTrainingIds.Remove(trainingId);
+                        return true;
+                    }
+                }
             }
             return false;
         }

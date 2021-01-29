@@ -20,6 +20,7 @@ namespace ClubManager.PresentationLayer
         private TeamRepository teamRepository;
         private TrainingRepository trainingRepository;
         private PlayerRepository playerRepository;
+
         public formUITrainer()
         {
             InitializeComponent();
@@ -60,7 +61,7 @@ namespace ClubManager.PresentationLayer
             }
         }
 
-        private void DisplayTrainingList()
+        public void DisplayTrainingList()
         {
             if (trainer.Verified == false)
                 return;
@@ -103,6 +104,17 @@ namespace ClubManager.PresentationLayer
                 MessageBox.Show("Failed to add training");
             else
                 DisplayTrainingList();
+        }
+
+        private void DeleteTraining(object sender, EventArgs e)
+        {
+            if (TrainingList.SelectedItems[0] != null)
+            {
+                string trainingId = TrainingList.SelectedItems[0].SubItems[0].Text;
+                string teamName = TrainingList.SelectedItems[0].SubItems[1].Text;
+                string trainingTime = TrainingList.SelectedItems[0].SubItems[2].Text;
+                controller.DeleteTraining(this, int.Parse(trainingId), teamName, trainingTime);
+            }
         }
     }
 }

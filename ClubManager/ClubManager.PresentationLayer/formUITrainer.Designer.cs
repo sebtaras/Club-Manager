@@ -106,6 +106,7 @@ namespace ClubManager.PresentationLayer
             this.TrainingList.TabIndex = 7;
             this.TrainingList.UseCompatibleStateImageBehavior = false;
             this.TrainingList.View = System.Windows.Forms.View.Details;
+            this.TrainingList.DoubleClick += new System.EventHandler(this.DeleteTraining);
             // 
             // trainingId
             // 

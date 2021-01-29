@@ -13,34 +13,21 @@ namespace ClubManager.DAL_File
 
         public bool Add(Training training)
         {
-            int overlaps = 0;
-
-            //ova provjera u neki kontroller vjv
-            /*foreach(Training t in _trainings)
-            {
-                if (t._startTime <= training._startTime && t._endTime > training._endTime)
-                    overlaps++;
-                else if (training._endTime > t._startTime && training._endTime < t._endTime)
-                    overlaps++;
-                else if (training._startTime < t._startTime && training._endTime > t._endTime)
-                    overlaps++;
-                if (overlaps > 2)
-                    return false;
-            }*/
             training.Id = next_ID;
             next_ID++;
             _trainings.Add(training);
             return true;
         }
 
-        public void Delete(Training training)
+        public void Delete(int id)
         {
-            _trainings.Remove(training);
+            _trainings.RemoveAll(t => t.Id == id);
         }
 
         public Training GetTrainingById(int trainingId)
         {
             return _trainings.Find(t => t.Id == trainingId);
         }
+
     }
 }

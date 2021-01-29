@@ -10,5 +10,6 @@ namespace ClubManager.BaseLib
     {
         void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository, PlayerRepository playerRepository);
         bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, TrainingRepository trainingRepository, TeamRepository teamRepository);
+        bool DeleteTraining(ITrainerDeleteTrainingView form, TrainingRepository trainingRepository, TeamRepository teamRepository, int trainingId);
     }
 }

@@ -221,9 +221,17 @@ namespace ClubManager.Contrllers
             return false;
         }
 
+        public void DeleteTraining(ITrainerView trainerForm, int trainingId, string teamName, string trainingTime)
+        {
+            var form = _formsFactory.DeleteTrainingView(teamName, trainingTime);
+            if(_trainerController.DeleteTraining(form, _trainingRepository, _teamRepository, trainingId))
+                trainerForm.DisplayTrainingList();
+        }
+
         public bool ShowTrainerSettings(Trainer trainer, TrainerRepository trainerRepository)
         {
             throw new NotImplementedException();
         }
+
     }
 }

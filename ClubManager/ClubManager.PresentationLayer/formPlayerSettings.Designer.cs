@@ -42,7 +42,7 @@ namespace ClubManager.PresentationLayer
             // PasswordInputCurrent
             // 
             this.PasswordInputCurrent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.PasswordInputCurrent.Location = new System.Drawing.Point(12, 88);
+            this.PasswordInputCurrent.Location = new System.Drawing.Point(11, 83);
             this.PasswordInputCurrent.Name = "PasswordInputCurrent";
             this.PasswordInputCurrent.Size = new System.Drawing.Size(305, 27);
             this.PasswordInputCurrent.TabIndex = 7;
@@ -51,7 +51,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(8, 66);
+            this.label2.Location = new System.Drawing.Point(7, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 19);
             this.label2.TabIndex = 6;
@@ -78,7 +78,7 @@ namespace ClubManager.PresentationLayer
             // PasswordInputNew
             // 
             this.PasswordInputNew.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.PasswordInputNew.Location = new System.Drawing.Point(12, 149);
+            this.PasswordInputNew.Location = new System.Drawing.Point(12, 135);
             this.PasswordInputNew.Name = "PasswordInputNew";
             this.PasswordInputNew.Size = new System.Drawing.Size(305, 27);
             this.PasswordInputNew.TabIndex = 8;
@@ -87,7 +87,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(8, 127);
+            this.label3.Location = new System.Drawing.Point(8, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 19);
             this.label3.TabIndex = 9;
@@ -97,7 +97,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.LogInButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.LogInButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.LogInButton.Location = new System.Drawing.Point(11, 221);
+            this.LogInButton.Location = new System.Drawing.Point(11, 182);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(152, 34);
             this.LogInButton.TabIndex = 10;
@@ -108,7 +108,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Cancel.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.Cancel.Location = new System.Drawing.Point(169, 221);
+            this.Cancel.Location = new System.Drawing.Point(169, 182);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(148, 34);
             this.Cancel.TabIndex = 11;
@@ -119,7 +119,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 264);
+            this.ClientSize = new System.Drawing.Size(329, 226);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.label3);
