@@ -9,9 +9,9 @@ namespace ClubManager.BaseLib
 {
     public interface ITrainerController
     {
-        void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository, PlayerRepository playerRepository);
-        bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, TrainingRepository trainingRepository, TeamRepository teamRepository);
-        bool DeleteTraining(ITrainerDeleteTrainingView form, TrainingRepository trainingRepository, TeamRepository teamRepository, int trainingId);
+        void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, ITrainerRepository trainerRepository, ITrainingRepository trainingRepository, ITeamRepository teamRepository, IPlayerRepository playerRepository);
+        bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, ITrainingRepository trainingRepository, ITeamRepository teamRepository);
+        bool DeleteTraining(ITrainerDeleteTrainingView form, ITrainingRepository trainingRepository, ITeamRepository teamRepository, int trainingId);
         bool ShowTrainerSettings(ISettingsTrainerView form, Trainer trainer, ITrainerRepository trainerRepository, IAuthController authController);
     }
 }

@@ -23,6 +23,10 @@ namespace ClubManager.DAL_File
         {
             return _trainings;
         }
+        public int GetNextID()
+        {
+            return next_ID;
+        }
 
         public void Delete(int id)
         {

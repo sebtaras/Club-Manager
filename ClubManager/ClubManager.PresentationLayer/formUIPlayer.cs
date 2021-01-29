@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formUIPlayer : Form, IPlayerView
+    public partial class FormUIPlayer : Form, IPlayerView
     {
         public IMainController controller;
         private Player player;
 
-        public formUIPlayer()
+        public FormUIPlayer()
         {
             InitializeComponent();
         }

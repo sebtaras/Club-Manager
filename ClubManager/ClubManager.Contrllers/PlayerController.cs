@@ -11,7 +11,7 @@ namespace ClubManager.Contrllers
 {
     public class PlayerController : IPlayerController
     {
-        public void Homepage(IPlayerView form, IMainController inController, Player player, TransactionRepository transactionRepository, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository)
+        public void Homepage(IPlayerView form, IMainController inController, Player player, ITransactionRepository transactionRepository, ITrainerRepository trainerRepository, ITrainingRepository trainingRepository, ITeamRepository teamRepository)
         {
             ITransactionRepository transRep = transactionRepository;
             ITrainingRepository trainRep = trainingRepository;

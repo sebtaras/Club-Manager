@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formVerifyUser : Form, IVerifyUserView
+    public partial class FormVerifyUser : Form, IVerifyUserView
     {
-        public formVerifyUser()
+        public FormVerifyUser()
         {
             InitializeComponent();
         }

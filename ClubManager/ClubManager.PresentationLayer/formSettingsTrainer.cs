@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formSettingsTrainer : Form, ISettingsTrainerView
+    public partial class FormSettingsTrainer : Form, ISettingsTrainerView
     {
-        public formSettingsTrainer(Trainer trainer)
+        public FormSettingsTrainer(Trainer trainer)
         {
             InitializeComponent();
             ShowValues(trainer);

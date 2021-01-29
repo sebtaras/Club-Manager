@@ -1,7 +1,7 @@
 ﻿
 namespace ClubManager.PresentationLayer
 {
-    partial class formVerifyUser
+    partial class FormVerifyUser
     {
         /// <summary>
         /// Required designer variable.

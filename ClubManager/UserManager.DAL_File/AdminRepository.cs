@@ -27,6 +27,11 @@ namespace ClubManager.DAL_File
             return null;
         }
 
+        public List<Admin> GetAll()
+        {
+            return _listAdmins;
+        }
+
         public Admin GetAdminById(int adminId)
         {
             return _listAdmins.Find(a => a.Id == adminId);

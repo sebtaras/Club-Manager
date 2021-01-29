@@ -10,6 +10,7 @@ namespace ClubManager.BaseLib
     public interface IAdminPlayerOptionsView
     {
         DialogResult ShowViewModal();
-        void SetPlayerValues(Player player, TeamRepository teamRepository, TransactionRepository transactionRepository);
+        void SetPlayerValues(Player player, List<Team> teams);
+        void DisplayTransactionList(List<Transaction> transaction);
     }
 }

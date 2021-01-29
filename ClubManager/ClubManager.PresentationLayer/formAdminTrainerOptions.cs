@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formAdminTrainerOptions : Form, IAdminTrainerOptionsView
+    public partial class FormAdminTrainerOptions : Form, IAdminTrainerOptionsView
     {
         public string NameAddTeam()
         {
@@ -32,7 +32,7 @@ namespace ClubManager.PresentationLayer
                 return "";
         }
 
-        public formAdminTrainerOptions()
+        public FormAdminTrainerOptions()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace ClubManager.PresentationLayer
         {
             List<string> nameList = new List<string>();
 
-            if (trainer.TeamIds.Count > 1)
+            if (trainer.TeamIds.Count > 0)
             {
                 foreach (Team team in teams)
                 {
@@ -74,6 +74,8 @@ namespace ClubManager.PresentationLayer
             TeamNameRemove.DataSource = dataRemoveCombo;
             FullName.Text = "Name: " + trainer.FirstName + " " + trainer.LastName;
             Teams.Text = "Teams: " + string.Join(", ", nameList);
+            if (nameList.Count == 0)
+                Teams.Visible = false;
         }
     }
 }

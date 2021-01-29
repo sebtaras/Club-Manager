@@ -39,7 +39,7 @@ namespace ClubManager.DAL_File
             return _listTransactions.Find(t => t.Id == id);
         }
 
-        public void ChangeTransactionStatus(Transaction transaction, PlayerRepository playerRepository)
+        public void ChangeTransactionStatus(Transaction transaction)
         {
             foreach(Transaction t in _listTransactions)
             {

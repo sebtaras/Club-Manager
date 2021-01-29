@@ -12,7 +12,7 @@ namespace ClubManager.Models.Repositories
         void Delete(Trainer trainer);
         void Verify(Trainer trainer);
         List<Trainer> GetAll();
-        //Trainer getTrainer();
+        Trainer GetTrainerById(int id);
         bool CheckTrainerExists(Trainer trainer);
         bool UpdatePlayerValues(Trainer trainer, string email, string passwordCurrent, string passwordNew);
     }

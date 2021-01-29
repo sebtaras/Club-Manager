@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formAdminShowTeam : Form, IAdminShowTeamView
+    public partial class FormAdminShowTeam : Form, IAdminShowTeamView
     {
-        public formAdminShowTeam()
+        public FormAdminShowTeam()
         {
             InitializeComponent();
         }

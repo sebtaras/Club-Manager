@@ -11,6 +11,6 @@ namespace ClubManager.Models.Repositories
         int GetNextId();
         void Delete(Transaction transaction);
         Transaction GetTransactionById(int id);
-
+        void ChangeTransactionStatus(Transaction transaction);
     }
 }

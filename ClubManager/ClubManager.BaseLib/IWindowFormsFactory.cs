@@ -14,15 +14,15 @@ namespace ClubManager.BaseLib
         ITrainerView TrainerView();
         IAdminView AdminView();
         IVerifyUserView VerifyUserView();
-        IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, IWindowFormsFactory windowFormsFactory, IAdminController adminController, PlayerRepository playerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository);
+        IAdminPlayerOptionsView AdminPlayerOptionsView(Player inPlayer, IWindowFormsFactory windowFormsFactory, IAdminController inAdminController);
         IAdminTrainerOptionsView AdminTrainerOptionsView();
         IAdminShowTeamView AdminTeamView();
         IAdminCreateTransactionsView CreateTransactionsView();
-        IAdminTransactionOptionsView AdminTransactionOptions(Player p, Transaction t);
+        IAdminTransactionOptionsView AdminTransactionOptions();
         ISettingsPlayerView PlayerSettingsView(Player player);
         ISettingsAdminView AdminSettingsView(Admin admin);
         ISettingsTrainerView TrainerSettingsView(Trainer trainer);
-        ITrainerCreateTrainingView CreateTrainingView(Trainer t, TrainingRepository trainingRepository, TeamRepository teamRepository);
+        ITrainerCreateTrainingView CreateTrainingView();
         ITrainerDeleteTrainingView DeleteTrainingView(string teamName, string trainingTime);
     }
 }

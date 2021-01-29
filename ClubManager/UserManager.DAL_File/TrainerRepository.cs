@@ -38,6 +38,11 @@ namespace ClubManager.DAL_File
             return null;
         }
 
+        public int GetNextID()
+        {
+            return next_ID;
+        }
+
         public List<Trainer> GetAll()
         {
             return _listTrainers;

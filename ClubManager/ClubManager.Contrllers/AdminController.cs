@@ -11,12 +11,23 @@ namespace ClubManager.Contrllers
 {
     public class AdminController : IAdminController
     {
-        IAdminView form;
+        private IAdminView _form;
+        private IPlayerRepository _playerRepository;
+        private ITrainerRepository _trainerRepository;
+        private ITeamRepository _teamRepository;
+        private ITransactionRepository _transactionRepository;
+
         private decimal MEMBERSHIP_FEE = (decimal)200.00;
-        public void Homepage(IAdminView form, IMainController inController, Admin admin, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
+
+        
+        public void Homepage(IAdminView form, IMainController inController, Admin admin, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository, ITransactionRepository transactionRepository)
         {
-            this.form = form;
-            form.ShowViewModaless(inController, admin, playerRepository._listPlayers, trainerRepository._listTrainers, teamRepository._teamList, transactionRepository._listTransactions);
+            _form = form;
+            _playerRepository = playerRepository;
+            _trainerRepository = trainerRepository;
+            _teamRepository = teamRepository;
+            _transactionRepository = transactionRepository;
+            form.ShowViewModaless(inController, admin, playerRepository.GetAll(), trainerRepository.GetAll(), teamRepository.GetAll(), transactionRepository.GetAll());
         }
 
         public void VerifyPlayer(IVerifyUserView inForm, Player player, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
@@ -26,13 +37,13 @@ namespace ClubManager.Contrllers
             if (result == DialogResult.OK)
             {
                 playerRepository.Verify(player);
-                form.DisplayPlayerList(playerRepository.GetAll(), teamRepository.GetAll());
+                _form.DisplayPlayerList(playerRepository.GetAll(), teamRepository.GetAll());
             }
             else if (result == DialogResult.No)
             {
                 playerRepository.Delete(player);
             }
-            form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
+            _form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
         }
 
         public void VerifyTrainer(IVerifyUserView inForm, Trainer trainer, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
@@ -42,17 +53,19 @@ namespace ClubManager.Contrllers
             if (result == DialogResult.OK)
             {
                 trainerRepository.Verify(trainer);
-                form.DisplayTrainerList(trainerRepository.GetAll(), teamRepository.GetAll());
+                _form.DisplayTrainerList(trainerRepository.GetAll(), teamRepository.GetAll());
             }
             else if (result == DialogResult.No)
             {
                 trainerRepository.Delete(trainer);
             }
-            form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
+            _form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
         }
 
-        public void ShowPlayerOptions(IAdminView parentForm, IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
+        public void ShowPlayerOptions(IAdminView parentForm, IAdminPlayerOptionsView form, Player player, IPlayerRepository playerRepository, ITeamRepository teamRepository, ITransactionRepository transactionRepository)
         {
+            form.DisplayTransactionList(transactionRepository.GetAll());
+            form.SetPlayerValues(player, teamRepository.GetAll());
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
             {
@@ -67,13 +80,13 @@ namespace ClubManager.Contrllers
             {
                 teamRepository.DeletePlayer(player, playerRepository);
             }
-            parentForm.DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
-            parentForm.DisplayTeamList(teamRepository._teamList);
+            parentForm.DisplayPlayerList(playerRepository.GetAll(), teamRepository.GetAll());
+            parentForm.DisplayTeamList(teamRepository.GetAll());
         }
 
-        public void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
+        public void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
         {
-            form.SetTrainerValues(trainer, teamRepository._teamList);
+            form.SetTrainerValues(trainer, teamRepository.GetAll());
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
             {
@@ -89,8 +102,8 @@ namespace ClubManager.Contrllers
             {
                 teamRepository.DeleteTrainer(trainer, trainerRepository);
             }
-            parentForm.DisplayTrainerList(trainerRepository._listTrainers, teamRepository._teamList);
-            parentForm.DisplayTeamList(teamRepository._teamList);
+            parentForm.DisplayTrainerList(trainerRepository.GetAll(), teamRepository.GetAll());
+            parentForm.DisplayTeamList(teamRepository.GetAll());
         }
 
         public void ShowTeam(IAdminShowTeamView form)
@@ -98,15 +111,15 @@ namespace ClubManager.Contrllers
             form.ShowViewModal();
         }
 
-        public void CreateTransactionsView(IAdminCreateTransactionsView form, PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        public void CreateTransactionsView(IAdminCreateTransactionsView form, IPlayerRepository playerRepository, ITransactionRepository transactionRepository)
         {
             var result = form.ShowViewModal();
             if(result == DialogResult.OK)
             {
                 int year = int.Parse(form.Year);
                 int month = int.Parse(form.Month);
-                
-                foreach (Player p in playerRepository._listPlayers)
+
+                foreach (Player p in playerRepository.GetAll())
                 {
                     if (!p.Verified) continue;
 
@@ -122,27 +135,28 @@ namespace ClubManager.Contrllers
                     }
                     if (addNew)
                     {
-                        Transaction newTransaction = new Transaction(transactionRepository.next_ID, MEMBERSHIP_FEE, p.Id, year, month);
+                        Transaction newTransaction = new Transaction(transactionRepository.GetNextId(), MEMBERSHIP_FEE, p.Id, year, month);
                         transactionRepository.Add(newTransaction);
-                        p.TransactionIds.Add(transactionRepository.next_ID - 1);
+                        p.TransactionIds.Add(transactionRepository.GetNextId() - 1);
                     }
                 }
             }
-
         }
 
-        public void AdminTransactionOptions(IAdminTransactionOptionsView inForm, Player p, Transaction t, PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        public void AdminTransactionOptions(IAdminPlayerOptionsView parentForm, IAdminTransactionOptionsView form, Player p, int transactionId)
         {
-            var result = inForm.ShowViewModal();
+            form.SetValues(p, _transactionRepository.GetTransactionById(transactionId));
+            var result = form.ShowViewModal();
             if(result == DialogResult.OK)
             {
-                transactionRepository.ChangeTransactionStatus(t, playerRepository);
+                _transactionRepository.ChangeTransactionStatus(_transactionRepository.GetTransactionById(transactionId));
             }
             else if(result == DialogResult.Abort)
             {
-                transactionRepository.Delete(t);
-                playerRepository.DeleteTransaction(p, t);
+                _playerRepository.DeleteTransaction(p, _transactionRepository.GetTransactionById(transactionId));
+                _transactionRepository.Delete(_transactionRepository.GetTransactionById(transactionId));
             }
+            parentForm.DisplayTransactionList(_transactionRepository.GetAll());
         }
 
         public bool ShowAdminSettings(ISettingsAdminView form, Admin admin, IAdminRepository adminRepository, IAuthController authController)

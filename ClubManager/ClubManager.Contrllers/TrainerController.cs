@@ -11,14 +11,14 @@ namespace ClubManager.Contrllers
 {
     class TrainerController : ITrainerController
     {
-        public void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository, PlayerRepository playerRepository)
+        public void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, ITrainerRepository trainerRepository, ITrainingRepository trainingRepository, ITeamRepository teamRepository, IPlayerRepository playerRepository)
         {
             form.ShowViewModaless(inController, inTrainer);
-            form.DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
-            form.DisplayTrainingList(trainingRepository._trainings, teamRepository._teamList);
+            form.DisplayPlayerList(playerRepository.GetAll(), teamRepository.GetAll());
+            form.DisplayTrainingList(trainingRepository.GetAll(), teamRepository.GetAll());
         }
 
-        public bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, TrainingRepository trainingRepository, TeamRepository teamRepository)
+        public bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, ITrainingRepository trainingRepository, ITeamRepository teamRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.OK)
@@ -26,16 +26,16 @@ namespace ClubManager.Contrllers
                 if (form.TeamName() != "" && VerifyTrainingInput(form.Duration) && !Occupied(form.StartTime, trainingRepository))
                 {
                     int teamID = -1;
-                    foreach (Team t in teamRepository._teamList)
+                    foreach (Team t in teamRepository.GetAll())
                     {
                         if (t.Name == form.TeamName()) teamID = t.Id;
                     }
                     if (teamID == -1) return false;
                     TimeSpan durationTimeSpan = new TimeSpan(0, int.Parse(form.Duration), 0);
-                    Training training = new Training(trainingRepository.next_ID, form.StartTime, durationTimeSpan, teamID, trainer.Id);
+                    Training training = new Training(trainingRepository.GetNextID(), form.StartTime, durationTimeSpan, teamID, trainer.Id);
                     trainingRepository.Add(training);
-                    int trainingID = trainingRepository.next_ID - 1;
-                    foreach (Team t in teamRepository._teamList)
+                    int trainingID = trainingRepository.GetNextID() - 1;
+                    foreach (Team t in teamRepository.GetAll())
                     {
                         if (t.Id == teamID) t.ListTrainingIds.Add(trainingID);
                     }
@@ -46,13 +46,13 @@ namespace ClubManager.Contrllers
             return true;
         }
 
-        public bool DeleteTraining(ITrainerDeleteTrainingView form, TrainingRepository trainingRepository, TeamRepository teamRepository, int trainingId)
+        public bool DeleteTraining(ITrainerDeleteTrainingView form, ITrainingRepository trainingRepository, ITeamRepository teamRepository, int trainingId)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.OK)
             {
                 trainingRepository.Delete(trainingId);
-                foreach (Team t in teamRepository._teamList)
+                foreach (Team t in teamRepository.GetAll())
                 {
                     if (t.ListTrainingIds.Contains(trainingId))
                     {
@@ -64,9 +64,9 @@ namespace ClubManager.Contrllers
             return false;
         }
 
-        private bool Occupied(DateTime startTime, TrainingRepository trainingRepository)
+        private bool Occupied(DateTime startTime, ITrainingRepository trainingRepository)
         {
-            foreach (Training t in trainingRepository._trainings)
+            foreach (Training t in trainingRepository.GetAll())
             {
                 if (startTime < t.EndTime && startTime > t.StartTime)
                     return true;

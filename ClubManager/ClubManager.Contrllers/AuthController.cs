@@ -8,19 +8,19 @@ namespace ClubManager.Contrllers
 {
     public class AuthController : IAuthController
     {
-        public string LogInUser(string email, string password, PlayerRepository playerRepository, TrainerRepository trainerRepository, AdminRepository adminRepository)
+        public string LogInUser(string email, string password, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, IAdminRepository adminRepository)
         {
-            foreach(Player p in playerRepository._listPlayers)
+            foreach(Player p in playerRepository.GetAll())
             {
                 if (p.Email == email && p.Password == password)
                     return "player";
             }
-            foreach(Trainer t in trainerRepository._listTrainers)
+            foreach(Trainer t in trainerRepository.GetAll())
             {
                 if (t.Email == email && t.Password == password)
                     return "trainer";
             }
-            foreach(Admin a in adminRepository._listAdmins)
+            foreach(Admin a in adminRepository.GetAll())
             {
                 if (a.Email == email && a.Password == password)
                     return "admin";
@@ -35,7 +35,7 @@ namespace ClubManager.Contrllers
             return true;
         }
 
-        public bool VerifyRegisterInput(string email, string password, string firstName, string lastName, string role, string age, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public bool VerifyRegisterInput(string email, string password, string firstName, string lastName, string role, string age, IPlayerRepository playerRepository, ITrainerRepository trainerRepository)
         {
             if (!ValidationFunctions.IsValidEmail(email))
                 return false;
@@ -78,7 +78,7 @@ namespace ClubManager.Contrllers
             return true;
         }
 
-        public bool RegisterTrainer(string email, string password, string firstName, string lastName, TrainerRepository trainerRepository, PlayerRepository playerRepository)
+        public bool RegisterTrainer(string email, string password, string firstName, string lastName, ITrainerRepository trainerRepository, IPlayerRepository playerRepository)
         {
             Trainer newTrainer = new Trainer(1, firstName, lastName, email, password, false);
             Player checkEmailInUse = new Player(1, firstName, lastName, email, password, 20, false);
@@ -90,7 +90,7 @@ namespace ClubManager.Contrllers
             return false;
         }
 
-        public bool RegisterPlayer(string email, string password, string firstName, string lastName, string age, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public bool RegisterPlayer(string email, string password, string firstName, string lastName, string age, IPlayerRepository playerRepository, ITrainerRepository trainerRepository)
         {
             Player newPlayer = new Player(1, firstName, lastName, email, password, int.Parse(age), false);
             Trainer checkEmailInUse = new Trainer(1, firstName, lastName, email, password, false);

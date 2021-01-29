@@ -9,14 +9,14 @@ namespace ClubManager.BaseLib
 {
     public interface IAdminController
     {
-        void Homepage(IAdminView form, IMainController inController, Admin admin, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository);
+        void Homepage(IAdminView form, IMainController inController, Admin admin, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository, ITransactionRepository transactionRepository);
         void VerifyPlayer(IVerifyUserView form, Player player, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
         void VerifyTrainer(IVerifyUserView form, Trainer trainer, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
-        void ShowPlayerOptions(IAdminView parentForm, IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository);
-        void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository);
+        void ShowPlayerOptions(IAdminView parentForm, IAdminPlayerOptionsView form, Player player, IPlayerRepository playerRepository, ITeamRepository teamRepository, ITransactionRepository transactionRepository);
+        void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
         void ShowTeam(IAdminShowTeamView form);
-        void CreateTransactionsView(IAdminCreateTransactionsView form, PlayerRepository playerRepository, TransactionRepository transactionRepository);
-        void AdminTransactionOptions(IAdminTransactionOptionsView from, Player p, Transaction t, PlayerRepository playerRepository, TransactionRepository transactionRepository);
+        void CreateTransactionsView(IAdminCreateTransactionsView form, IPlayerRepository playerRepository, ITransactionRepository transactionRepository);
+        void AdminTransactionOptions(IAdminPlayerOptionsView parentForm, IAdminTransactionOptionsView from, Player p, int transactionId);
         bool ShowAdminSettings(ISettingsAdminView form, Admin admin, IAdminRepository adminRepository, IAuthController authController);
     }
 }

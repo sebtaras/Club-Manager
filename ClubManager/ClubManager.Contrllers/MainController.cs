@@ -11,24 +11,24 @@ namespace ClubManager.Contrllers
     public class MainController : IMainController
     {
         private IWindowFormsFactory _formsFactory;
-        public PlayerRepository _playerRepository;
-        public TrainerRepository _trainerRepository;
-        private AdminRepository _adminRepository;
-        private TrainingRepository _trainingRepository;
-        private TeamRepository _teamRepository;
+        public IPlayerRepository _playerRepository;
+        public ITrainerRepository _trainerRepository;
+        private IAdminRepository _adminRepository;
+        private ITrainingRepository _trainingRepository;
+        private ITeamRepository _teamRepository;
+        private ITransactionRepository _transactionRepository;
         private IAdminController _adminController;
         private IPlayerController _playerController;
         private ITrainerController _trainerController;
         private IAuthController _authController;
-        private TransactionRepository _transactionRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
-            PlayerRepository playerRepository, 
-            TrainerRepository trainerRepository, 
-            AdminRepository adminRepository, 
-            TrainingRepository trainingRepository,
-            TeamRepository teamRepository,
-            TransactionRepository transactionRepository)
+            IPlayerRepository playerRepository, 
+            ITrainerRepository trainerRepository, 
+            IAdminRepository adminRepository, 
+            ITrainingRepository trainingRepository,
+            ITeamRepository teamRepository,
+            ITransactionRepository transactionRepository)
         {
             _formsFactory = formsFactory;
             _playerRepository = playerRepository;
@@ -134,7 +134,7 @@ namespace ClubManager.Contrllers
                     case "admin":
                         {
                             var form = _formsFactory.AdminView();
-                            _adminController.Homepage(form, this, _adminRepository.GetAdminByEmail(email),_playerRepository, _trainerRepository, _teamRepository, _transactionRepository);
+                            _adminController.Homepage(form, this, _adminRepository.GetAdminByEmail(email), _playerRepository, _trainerRepository, _teamRepository, _transactionRepository);
                             break;
                         }
                     case "": loginSuccess = false; break;
@@ -188,23 +188,20 @@ namespace ClubManager.Contrllers
 
         public void ShowPlayerInfo(IAdminView inForm, int playerId)
         {
-            var form = _formsFactory.AdminPlayerOptionsView(_playerRepository.GetPlayerById(playerId), _formsFactory, _adminController, _playerRepository, _teamRepository, _transactionRepository);
-            _adminController.ShowPlayerOptions(inForm, form, _playerRepository.GetPlayerById(playerId), _playerRepository ,_teamRepository);
-            
+            var form = _formsFactory.AdminPlayerOptionsView(_playerRepository.GetPlayerById(playerId), _formsFactory, _adminController);
+            _adminController.ShowPlayerOptions(inForm, form, _playerRepository.GetPlayerById(playerId), _playerRepository ,_teamRepository, _transactionRepository);
         }
 
         public void ShowTrainerInfo(IAdminView inForm, int trainerId)
         {
             var form = _formsFactory.AdminTrainerOptionsView();
             _adminController.ShowTrainerOptions(inForm, form, _trainerRepository.GetTrainerById(trainerId), _trainerRepository, _teamRepository);
-            inForm.DisplayTrainerList(_trainerRepository._listTrainers, _teamRepository._teamList);
-            inForm.DisplayTeamList(_teamRepository._teamList);
         }
 
         public void ShowTeamInfo(IAdminView inForm, int teamId)
         {
             var form = _formsFactory.AdminTeamView();
-            form.SetTeamValues(_teamRepository.GetTeamById(teamId), _playerRepository._listPlayers, _trainerRepository._listTrainers);
+            form.SetTeamValues(_teamRepository.GetTeamById(teamId), _playerRepository.GetAll(), _trainerRepository.GetAll());
             _adminController.ShowTeam(form);
         }
 
@@ -233,9 +230,10 @@ namespace ClubManager.Contrllers
 
         public void CreateTrainingView(ITrainerView parentForm, Trainer trainer)
         {
-            var form = _formsFactory.CreateTrainingView(trainer, _trainingRepository, _teamRepository);
+            var form = _formsFactory.CreateTrainingView();
+            form.LoadData(trainer, _teamRepository.GetAll());
             if (_trainerController.ShowCreateTraining(form, trainer, _trainingRepository, _teamRepository))
-                parentForm.DisplayTrainingList(_trainingRepository._trainings, _teamRepository._teamList);
+                parentForm.DisplayTrainingList(_trainingRepository.GetAll(), _teamRepository.GetAll());
             else
                 parentForm.AlertFailedCreateTraining();
         }
@@ -244,13 +242,7 @@ namespace ClubManager.Contrllers
         {
             var form = _formsFactory.DeleteTrainingView(teamName, trainingTime);
             if(_trainerController.DeleteTraining(form, _trainingRepository, _teamRepository, trainingId))
-                trainerForm.DisplayTrainingList(_trainingRepository._trainings, _teamRepository._teamList);
+                trainerForm.DisplayTrainingList(_trainingRepository.GetAll(), _teamRepository.GetAll());
         }
-
-        public bool ShowTrainerSettings(Trainer trainer, TrainerRepository trainerRepository)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

@@ -12,15 +12,14 @@ using ClubManager.Models;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formAdminTransactionOptions : Form, IAdminTransactionOptionsView
+    public partial class FormAdminTransactionOptions : Form, IAdminTransactionOptionsView
     {
-        public formAdminTransactionOptions(Player p, Transaction t)
+        public FormAdminTransactionOptions()
         {
             InitializeComponent();
-            SetValues(p, t);
         }
 
-        private void SetValues(Player p, Transaction t)
+        public void SetValues(Player p, Transaction t)
         {
             LabelName.Text = p.FirstName + " " + p.LastName;
             LabelYear.Text = t.Year.ToString();

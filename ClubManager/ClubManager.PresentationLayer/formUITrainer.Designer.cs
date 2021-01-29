@@ -1,7 +1,7 @@
 ﻿
 namespace ClubManager.PresentationLayer
 {
-    partial class formUITrainer
+    partial class FormUITrainer
     {
         /// <summary>
         /// Required designer variable.

@@ -1,7 +1,7 @@
 ﻿
 namespace ClubManager.PresentationLayer
 {
-    partial class formRegister
+    partial class FormRegister
     {
         /// <summary>
         /// Required designer variable.

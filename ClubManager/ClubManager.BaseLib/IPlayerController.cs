@@ -9,7 +9,7 @@ namespace ClubManager.BaseLib
 {
     public interface IPlayerController
     {
-        void Homepage(IPlayerView form, IMainController inController, Player player, TransactionRepository transactionRepository, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository);
+        void Homepage(IPlayerView form, IMainController inController, Player player, ITransactionRepository transactionRepository, ITrainerRepository trainerRepository, ITrainingRepository trainingRepository, ITeamRepository teamRepository);
         bool ShowPlayerSettings(ISettingsPlayerView form, Player player, IPlayerRepository playerRepository, IAuthController authController);
     }
 }

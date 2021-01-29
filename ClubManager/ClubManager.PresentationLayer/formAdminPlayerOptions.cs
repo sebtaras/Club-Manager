@@ -13,25 +13,19 @@ using System.Windows.Forms;
 using ClubManager.Contrllers;
 namespace ClubManager.PresentationLayer
 {
-    public partial class formAdminPlayerOptions : Form, IAdminPlayerOptionsView
+    public partial class FormAdminPlayerOptions : Form, IAdminPlayerOptionsView
     {
         private Player player;
-        private IAdminController adminController;
-        private IWindowFormsFactory windowFormsFactory;
-        private TeamRepository teamRepository;
-        private PlayerRepository playerRepository;
-        private TransactionRepository transactionRepository;
-          
-        public formAdminPlayerOptions(Player inPlayer, IWindowFormsFactory inWindowFormsFactory, IAdminController inAdminController, PlayerRepository inPlayerRepository, TeamRepository inTeamRepository, TransactionRepository inTransactionRepository)
+        private IAdminController _adminController;
+        private IWindowFormsFactory _windowFormsFactory;
+
+
+        public FormAdminPlayerOptions(Player inPlayer, IWindowFormsFactory windowFormsFactory, IAdminController inAdminController)
         {
             InitializeComponent();
             player = inPlayer;
-            windowFormsFactory = inWindowFormsFactory;
-            adminController = inAdminController;
-            teamRepository = inTeamRepository;
-            playerRepository = inPlayerRepository;
-            transactionRepository = inTransactionRepository;
-            SetPlayerValues(inPlayer, teamRepository, transactionRepository);
+            _adminController = inAdminController;
+            _windowFormsFactory = windowFormsFactory;
         }
 
         public DialogResult ShowViewModal()
@@ -39,38 +33,45 @@ namespace ClubManager.PresentationLayer
             return ShowDialog();
         }
 
-        public void SetPlayerValues(Player player, TeamRepository teamRepository, TransactionRepository transactionRepository)
+        public void SetPlayerValues(Player player, List<Team> teams)
         {
             FullName.Text = "Full name: " + player.FirstName + " " + player.LastName;
             Age.Text = "Age: " + player.Age.ToString();
-            if (player.TeamId != -1)
-                CurrentTeam.Text = "Team: " + teamRepository.GetTeamById(player.TeamId).Name;
-            else
-                CurrentTeam.Visible = false;
-
-            DisplayTransactionList();
+            foreach(Team team in teams)
+            {
+                if (team.ListPlayerIds.Contains(player.Id))
+                {
+                    CurrentTeam.Text = "Team: " + team.Name;
+                    return;
+                }
+            }
+            CurrentTeam.Visible = false;
         }
 
-        private void AdminTransactionOptions(object sender, EventArgs e)
+        public void AdminTransactionOptions(object sender, EventArgs e)
         {
             if (TransactionList.SelectedItems[0] != null)
             {
-                string id = TransactionList.SelectedItems[0].SubItems[0].Text;
-                Transaction transaction = transactionRepository.GetTransactionById(int.Parse(id));
-                var form = windowFormsFactory.AdminTransactionOptions(player, transaction);
-                adminController.AdminTransactionOptions(form, player, transaction,  playerRepository, transactionRepository);
-                DisplayTransactionList();
+                int transactionId = int.Parse(TransactionList.SelectedItems[0].SubItems[0].Text);
+                var form = _windowFormsFactory.AdminTransactionOptions();
+                _adminController.AdminTransactionOptions(this, form, player, transactionId);
             }
         }
 
-        private void DisplayTransactionList()
+        public void DisplayTransactionList(List<Transaction> transactions)
         {
             TransactionList.Items.Clear();
-            foreach (Transaction t in transactionRepository._listTransactions)
+
+            foreach(Transaction transaction in transactions)
             {
-                if (t.PlayerId == player.Id)
+                if(transaction.PlayerId == player.Id)
                 {
-                    TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.Year.ToString(), t.Month.ToString(), t.Amount.ToString(), t.Paid.ToString() }));
+                    TransactionList.Items.Add(new ListViewItem(new string[] { 
+                        transaction.Id.ToString(), 
+                        transaction.Year.ToString(), 
+                        transaction.Month.ToString(), 
+                        transaction.Amount.ToString(), 
+                        transaction.Paid.ToString() }));
                 }
             }
         }

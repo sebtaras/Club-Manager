@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formUITrainer : Form, ITrainerView
+    public partial class FormUITrainer : Form, ITrainerView
     {
         private IMainController controller;
         private Trainer trainer;
 
-        public formUITrainer()
+        public FormUITrainer()
         {
             InitializeComponent();
         }

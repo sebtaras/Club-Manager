@@ -13,15 +13,14 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formTrainerCreateTraining : Form, ITrainerCreateTrainingView
+    public partial class FormTrainerCreateTraining : Form, ITrainerCreateTrainingView
     {
-        public formTrainerCreateTraining(Trainer trainer, TrainingRepository trainingRepository, TeamRepository teamRepository)
+        public FormTrainerCreateTraining()
         {
             InitializeComponent();
-            LoadData(trainer, teamRepository);
         }
 
-        private void LoadData(Trainer trainer, TeamRepository teamRepository)
+        public void LoadData(Trainer trainer, List<Team> teams)
         {
             StartTimePicker.CustomFormat = "dd/MM/yyy HH:mm";
             StartTimePicker.Format = DateTimePickerFormat.Custom;
@@ -30,10 +29,10 @@ namespace ClubManager.PresentationLayer
             var dataTeamCombo = new ComboItem[trainer.TeamIds.Count];
 
             int i = 0;
-            foreach(Team t in teamRepository._teamList)
+            foreach(Team team in teams)
             {
-                if (trainer.TeamIds.Contains(t.Id))
-                    dataTeamCombo[i++] = new ComboItem(t.Name);
+                if (trainer.TeamIds.Contains(team.Id))
+                    dataTeamCombo[i++] = new ComboItem(team.Name);
             }
             TeamCombo.DataSource = dataTeamCombo;
         }

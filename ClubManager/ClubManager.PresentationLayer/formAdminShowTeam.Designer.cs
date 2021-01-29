@@ -1,7 +1,7 @@
 ﻿
 namespace ClubManager.PresentationLayer
 {
-    partial class formAdminShowTeam
+    partial class FormAdminShowTeam
     {
         /// <summary>
         /// Required designer variable.

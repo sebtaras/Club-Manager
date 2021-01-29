@@ -8,10 +8,12 @@ namespace ClubManager.Models.Repositories
     {
         bool Add(Player player);
         Player GetPlayerByEmail(string email);
+        Player GetPlayerById(int id);
         void Delete(Player player);
         void Verify(Player player);
         List<Player> GetAll();
         bool CheckPlayerExists(Player player);
         bool UpdatePlayerValues(Player player, string email, string passwordCurrent, string passwordNew);
+        void DeleteTransaction(Player player, Transaction t);
     }
 }

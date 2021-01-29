@@ -14,83 +14,84 @@ namespace ClubManager.PresentationLayer
     {
         public ILogInView LoginView()
         {
-            return new formLogIn();
+            return new FormLogIn();
         }
 
         public IRegisterView RegisterView()
         {
-            return new formRegister();
+            return new FormRegister();
         }
 
         public IAdminView AdminView()
         {
-            return new formUIAdmin();
+            return new FormUIAdmin();
         }
 
         public IPlayerView PlayerView()
         {
-            return new formUIPlayer();
+            return new FormUIPlayer();
         }
 
         public ITrainerView TrainerView()
         {
-            return new formUITrainer();
+            return new FormUITrainer();
         }
 
         public IVerifyUserView VerifyUserView()
         {
-            return new formVerifyUser();
+            return new FormVerifyUser();
         }
 
 
-        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, IWindowFormsFactory windowFormsFactory, IAdminController adminController, PlayerRepository playerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
+        public IAdminPlayerOptionsView AdminPlayerOptionsView(Player inPlayer, IWindowFormsFactory windowFormsFactory, IAdminController inAdminController)
         {
-            return new formAdminPlayerOptions(p, windowFormsFactory, adminController, playerRepository, teamRepository, transactionRepository);
+            return new FormAdminPlayerOptions(inPlayer, windowFormsFactory, inAdminController);
         }
 
         public IAdminTrainerOptionsView AdminTrainerOptionsView()
         {
-            return new formAdminTrainerOptions();
+            return new FormAdminTrainerOptions();
         }
         
         public IAdminShowTeamView AdminTeamView()
         {
-            return new formAdminShowTeam();
+            return new FormAdminShowTeam();
         }
 
         public IAdminCreateTransactionsView CreateTransactionsView()
         {
-            return new formAdminCreateTransactions();
+            return new FormAdminCreateTransactions();
         }
 
-        public IAdminTransactionOptionsView AdminTransactionOptions(Player p, Transaction t)
+        public IAdminTransactionOptionsView AdminTransactionOptions()
         {
-            return new formAdminTransactionOptions(p, t);
+            return new FormAdminTransactionOptions();
         }
 
         public ISettingsPlayerView PlayerSettingsView(Player player)
         {
-            return new formSettingsPlayer(player);
+            return new FormSettingsPlayer(player);
         }
 
         public ISettingsAdminView AdminSettingsView(Admin admin)
         {
-            return new formSettingsAdmin(admin);
+            return new FormSettingsAdmin(admin);
         }
 
         public ISettingsTrainerView TrainerSettingsView(Trainer trainer)
         {
-            return new formSettingsTrainer(trainer);
+            return new FormSettingsTrainer(trainer);
         }
 
-        public ITrainerCreateTrainingView CreateTrainingView(Trainer t, TrainingRepository trainingRepository, TeamRepository teamRepository)
+        public ITrainerCreateTrainingView CreateTrainingView()
         {
-            return new formTrainerCreateTraining(t, trainingRepository, teamRepository);
+            return new FormTrainerCreateTraining();
         }
 
         public ITrainerDeleteTrainingView DeleteTrainingView(string teamName, string trainingTime)
         {
-            return new formTrainerDeleteTraining(teamName, trainingTime);
+            return new FormTrainerDeleteTraining(teamName, trainingTime);
         }
+
     }
 }

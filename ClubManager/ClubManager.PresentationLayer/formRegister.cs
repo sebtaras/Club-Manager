@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formRegister : Form, IRegisterView
+    public partial class FormRegister : Form, IRegisterView
     {
         private IMainController _controller;
 
-        public formRegister()
+        public FormRegister()
         {
             InitializeComponent();
         }
 
-        public formRegister(MainController inController)
+        public FormRegister(MainController inController)
         {
             _controller = inController;
             InitializeComponent();

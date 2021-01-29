@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formTrainerDeleteTraining : Form, ITrainerDeleteTrainingView
+    public partial class FormTrainerDeleteTraining : Form, ITrainerDeleteTrainingView
     {
-        public formTrainerDeleteTraining(string teamName, string trainingStart)
+        public FormTrainerDeleteTraining(string teamName, string trainingStart)
         {
             InitializeComponent();
             TeamName.Text = teamName;

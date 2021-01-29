@@ -43,101 +43,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formAdminPlayerOptions.cs">
+    <Compile Include="FormAdminPlayerOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAdminPlayerOptions.Designer.cs">
-      <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
+    <Compile Include="FormAdminPlayerOptions.Designer.cs">
+      <DependentUpon>FormAdminPlayerOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAdminShowTeam.cs">
+    <Compile Include="FormAdminShowTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAdminShowTeam.Designer.cs">
-      <DependentUpon>formAdminShowTeam.cs</DependentUpon>
+    <Compile Include="FormAdminShowTeam.Designer.cs">
+      <DependentUpon>FormAdminShowTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAdminTrainerOptions.cs">
+    <Compile Include="FormAdminTrainerOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAdminTrainerOptions.Designer.cs">
-      <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
+    <Compile Include="FormAdminTrainerOptions.Designer.cs">
+      <DependentUpon>FormAdminTrainerOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAdminCreateTransactions.cs">
+    <Compile Include="FormAdminCreateTransactions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAdminCreateTransactions.Designer.cs">
-      <DependentUpon>formAdminCreateTransactions.cs</DependentUpon>
+    <Compile Include="FormAdminCreateTransactions.Designer.cs">
+      <DependentUpon>FormAdminCreateTransactions.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAdminTransactionOptions.cs">
+    <Compile Include="FormAdminTransactionOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAdminTransactionOptions.Designer.cs">
-      <DependentUpon>formAdminTransactionOptions.cs</DependentUpon>
+    <Compile Include="FormAdminTransactionOptions.Designer.cs">
+      <DependentUpon>FormAdminTransactionOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="formLogIn.cs">
+    <Compile Include="FormLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formLogIn.Designer.cs">
-      <DependentUpon>formLogIn.cs</DependentUpon>
+    <Compile Include="FormLogIn.Designer.cs">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="formSettingsPlayer.cs">
+    <Compile Include="FormSettingsPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formSettingsPlayer.Designer.cs">
-      <DependentUpon>formSettingsPlayer.cs</DependentUpon>
+    <Compile Include="FormSettingsPlayer.Designer.cs">
+      <DependentUpon>FormSettingsPlayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="formSettingsAdmin.cs">
+    <Compile Include="FormSettingsAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formSettingsAdmin.Designer.cs">
-      <DependentUpon>formSettingsAdmin.cs</DependentUpon>
+    <Compile Include="FormSettingsAdmin.Designer.cs">
+      <DependentUpon>FormSettingsAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formSettingsTrainer.cs">
+    <Compile Include="FormSettingsTrainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formSettingsTrainer.Designer.cs">
-      <DependentUpon>formSettingsTrainer.cs</DependentUpon>
+    <Compile Include="FormSettingsTrainer.Designer.cs">
+      <DependentUpon>FormSettingsTrainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="formTrainerCreateTraining.cs">
+    <Compile Include="FormTrainerCreateTraining.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formTrainerCreateTraining.Designer.cs">
-      <DependentUpon>formTrainerCreateTraining.cs</DependentUpon>
+    <Compile Include="FormTrainerCreateTraining.Designer.cs">
+      <DependentUpon>FormTrainerCreateTraining.cs</DependentUpon>
     </Compile>
-    <Compile Include="formTrainerDeleteTraining.cs">
+    <Compile Include="FormTrainerDeleteTraining.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formTrainerDeleteTraining.Designer.cs">
-      <DependentUpon>formTrainerDeleteTraining.cs</DependentUpon>
+    <Compile Include="FormTrainerDeleteTraining.Designer.cs">
+      <DependentUpon>FormTrainerDeleteTraining.cs</DependentUpon>
     </Compile>
-    <Compile Include="formUIAdmin.cs">
+    <Compile Include="FormUIAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formUIAdmin.Designer.cs">
-      <DependentUpon>formUIAdmin.cs</DependentUpon>
+    <Compile Include="FormUIAdmin.Designer.cs">
+      <DependentUpon>FormUIAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formUIPlayer.cs">
+    <Compile Include="FormUIPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formUIPlayer.Designer.cs">
-      <DependentUpon>formUIPlayer.cs</DependentUpon>
+    <Compile Include="FormUIPlayer.Designer.cs">
+      <DependentUpon>FormUIPlayer.cs</DependentUpon>
     </Compile>
-    <Compile Include="formRegister.cs">
+    <Compile Include="FormRegister.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formRegister.Designer.cs">
-      <DependentUpon>formRegister.cs</DependentUpon>
+    <Compile Include="FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="formUITrainer.cs">
+    <Compile Include="FormUITrainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formUITrainer.Designer.cs">
-      <DependentUpon>formUITrainer.cs</DependentUpon>
+    <Compile Include="FormUITrainer.Designer.cs">
+      <DependentUpon>FormUITrainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="formVerifyUser.cs">
+    <Compile Include="FormVerifyUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formVerifyUser.Designer.cs">
-      <DependentUpon>formVerifyUser.cs</DependentUpon>
+    <Compile Include="FormVerifyUser.Designer.cs">
+      <DependentUpon>FormVerifyUser.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowFormsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,53 +161,53 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="formAdminPlayerOptions.resx">
-      <DependentUpon>formAdminPlayerOptions.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdminPlayerOptions.resx">
+      <DependentUpon>FormAdminPlayerOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAdminShowTeam.resx">
-      <DependentUpon>formAdminShowTeam.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdminShowTeam.resx">
+      <DependentUpon>FormAdminShowTeam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAdminTrainerOptions.resx">
-      <DependentUpon>formAdminTrainerOptions.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdminTrainerOptions.resx">
+      <DependentUpon>FormAdminTrainerOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAdminCreateTransactions.resx">
-      <DependentUpon>formAdminCreateTransactions.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdminCreateTransactions.resx">
+      <DependentUpon>FormAdminCreateTransactions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAdminTransactionOptions.resx">
-      <DependentUpon>formAdminTransactionOptions.cs</DependentUpon>
+    <EmbeddedResource Include="FormAdminTransactionOptions.resx">
+      <DependentUpon>FormAdminTransactionOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formLogIn.resx">
-      <DependentUpon>formLogIn.cs</DependentUpon>
+    <EmbeddedResource Include="FormLogIn.resx">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formSettingsAdmin.resx">
-      <DependentUpon>formSettingsAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="FormSettingsAdmin.resx">
+      <DependentUpon>FormSettingsAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formSettingsPlayer.resx">
-      <DependentUpon>formSettingsPlayer.cs</DependentUpon>
+    <EmbeddedResource Include="FormSettingsPlayer.resx">
+      <DependentUpon>FormSettingsPlayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formRegister.resx">
-      <DependentUpon>formRegister.cs</DependentUpon>
+    <EmbeddedResource Include="FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formSettingsTrainer.resx">
-      <DependentUpon>formSettingsTrainer.cs</DependentUpon>
+    <EmbeddedResource Include="FormSettingsTrainer.resx">
+      <DependentUpon>FormSettingsTrainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formTrainerCreateTraining.resx">
-      <DependentUpon>formTrainerCreateTraining.cs</DependentUpon>
+    <EmbeddedResource Include="FormTrainerCreateTraining.resx">
+      <DependentUpon>FormTrainerCreateTraining.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formTrainerDeleteTraining.resx">
-      <DependentUpon>formTrainerDeleteTraining.cs</DependentUpon>
+    <EmbeddedResource Include="FormTrainerDeleteTraining.resx">
+      <DependentUpon>FormTrainerDeleteTraining.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formUIAdmin.resx">
-      <DependentUpon>formUIAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="FormUIAdmin.resx">
+      <DependentUpon>FormUIAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formUIPlayer.resx">
-      <DependentUpon>formUIPlayer.cs</DependentUpon>
+    <EmbeddedResource Include="FormUIPlayer.resx">
+      <DependentUpon>FormUIPlayer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formUITrainer.resx">
-      <DependentUpon>formUITrainer.cs</DependentUpon>
+    <EmbeddedResource Include="FormUITrainer.resx">
+      <DependentUpon>FormUITrainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formVerifyUser.resx">
-      <DependentUpon>formVerifyUser.cs</DependentUpon>
+    <EmbeddedResource Include="FormVerifyUser.resx">
+      <DependentUpon>FormVerifyUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
