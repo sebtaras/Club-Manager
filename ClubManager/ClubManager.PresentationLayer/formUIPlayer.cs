@@ -47,9 +47,9 @@ namespace ClubManager.PresentationLayer
             TransactionList.Items.Clear();
             foreach (Transaction t in inListTransactions)
             {
-                if (t._playerId == player.Id)
+                if (t.PlayerId == player.Id)
                 {
-                    TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._year.ToString(), t._month.ToString(), t._amount.ToString(), t._paid.ToString() }));
+                    TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.Year.ToString(), t.Month.ToString(), t.Amount.ToString(), t.Paid.ToString() }));
                 }
             }
         }
@@ -59,9 +59,9 @@ namespace ClubManager.PresentationLayer
             TrainingList.Items.Clear();
             foreach(Team team in teams)
             {
-                if (team._listPlayerIds.Contains(player.Id))
+                if (team.ListPlayerIds.Contains(player.Id))
                 {
-                    foreach(int trainingId in team._listTrainingIds)
+                    foreach(int trainingId in team.ListTrainingIds)
                     {
                         foreach(Training training in trainings)
                         {

@@ -73,6 +73,7 @@ namespace ClubManager.Contrllers
 
         public void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
+            form.SetTrainerValues(trainer, teamRepository._teamList);
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
             {
@@ -110,10 +111,10 @@ namespace ClubManager.Contrllers
                     if (!p.Verified) continue;
 
                     bool addNew = true;
-                    foreach(int id in p._transactionIds)
+                    foreach(int id in p.TransactionIds)
                     {
                         Transaction t = transactionRepository.GetTransactionById(id);
-                        if (t._month == month && t._year == year)
+                        if (t.Month == month && t.Year == year)
                         {
                             addNew = false;
                             continue;
@@ -123,7 +124,7 @@ namespace ClubManager.Contrllers
                     {
                         Transaction newTransaction = new Transaction(transactionRepository.next_ID, MEMBERSHIP_FEE, p.Id, year, month);
                         transactionRepository.Add(newTransaction);
-                        p._transactionIds.Add(transactionRepository.next_ID - 1);
+                        p.TransactionIds.Add(transactionRepository.next_ID - 1);
                     }
                 }
             }

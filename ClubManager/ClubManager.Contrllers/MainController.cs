@@ -58,10 +58,10 @@ namespace ClubManager.Contrllers
             Player player_mb = new Player(1, "zugecov", "brat", "mb@mail", "password", 6, false);
             Player player_poreg = new Player(1, "poreg", "srbin", "poreg@mail", "password", 17, false);
             Player player_it = new Player(1, "ivan", "tarzan", "mb@mail", "password", 7, true);
-            player_bd._transactionIds.Add(1);
-            player_bd._transactionIds.Add(2);
-            player_mz.teamId = 1;
-            player_it.teamId = 1;
+            player_bd.TransactionIds.Add(1);
+            player_bd.TransactionIds.Add(2);
+            player_mz.TeamId = 1;
+            player_it.TeamId = 1;
             _playerRepository.Add(player_bd);
             _playerRepository.Add(player_mp);
             _playerRepository.Add(player_mz);
@@ -73,7 +73,7 @@ namespace ClubManager.Contrllers
             Trainer trainer1 = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
             Trainer trainer2 = new Trainer(1, "brkonja", "bradic", "bb@mail", "password", true);
             Trainer trainer3 = new Trainer(1, "drugi", "trener", "dt@mail", "password", false);
-            trainer1._teamIds.Add(1);
+            trainer1.TeamIds.Add(1);
             _trainerRepository.Add(trainer1);
             _trainerRepository.Add(trainer2);
             _trainerRepository.Add(trainer3);
@@ -84,11 +84,11 @@ namespace ClubManager.Contrllers
             Team pioniri = new Team(1, "Pioniri", 13, 15);
             Team juniori = new Team(1, "Juniori", 16, 18);
             Team seniori = new Team(1, "Seniori", 19, 30);
-            zagici._listTrainerIds.Add(1);
-            zagici._listPlayerIds.Add(3);
-            zagici._listPlayerIds.Add(6);
-            zagici._listTrainingIds.Add(1);
-            zagici._listTrainingIds.Add(2);
+            zagici.ListTrainerIds.Add(1);
+            zagici.ListPlayerIds.Add(3);
+            zagici.ListPlayerIds.Add(6);
+            zagici.ListTrainingIds.Add(1);
+            zagici.ListTrainingIds.Add(2);
             _teamRepository.Add(zagici);
             _teamRepository.Add(limaci);
             _teamRepository.Add(mladiPioniri);
@@ -195,7 +195,7 @@ namespace ClubManager.Contrllers
 
         public void ShowTrainerInfo(IAdminView inForm, int trainerId)
         {
-            var form = _formsFactory.AdminTrainerOptionsView(_trainerRepository.GetTrainerById(trainerId), _teamRepository);
+            var form = _formsFactory.AdminTrainerOptionsView();
             _adminController.ShowTrainerOptions(inForm, form, _trainerRepository.GetTrainerById(trainerId), _trainerRepository, _teamRepository);
             inForm.DisplayTrainerList(_trainerRepository._listTrainers, _teamRepository._teamList);
             inForm.DisplayTeamList(_teamRepository._teamList);
@@ -203,7 +203,8 @@ namespace ClubManager.Contrllers
 
         public void ShowTeamInfo(IAdminView inForm, int teamId)
         {
-            var form = _formsFactory.AdminTeamView(_teamRepository.GetTeamById(teamId), _playerRepository, _trainerRepository);
+            var form = _formsFactory.AdminTeamView();
+            form.SetTeamValues(_teamRepository.GetTeamById(teamId), _playerRepository._listPlayers, _trainerRepository._listTrainers);
             _adminController.ShowTeam(form);
         }
 

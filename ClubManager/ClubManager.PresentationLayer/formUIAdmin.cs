@@ -1,7 +1,6 @@
 ﻿using ClubManager.BaseLib;
 using ClubManager.DAL_File;
 using ClubManager.Models;
-using ClubManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,9 +42,9 @@ namespace ClubManager.PresentationLayer
             {
                 TeamList.Items.Add(new ListViewItem(new string[] { 
                     team.Id.ToString(), 
-                    team._name, team._ages[0] + " - " + team._ages[team._ages.Count - 1], 
-                    team._listPlayerIds.Count.ToString(), 
-                    team._listTrainerIds.Count.ToString() }));
+                    team.Name, team.Ages[0] + " - " + team.Ages[team.Ages.Count - 1], 
+                    team.ListPlayerIds.Count.ToString(), 
+                    team.ListTrainerIds.Count.ToString() }));
             }
         }
 
@@ -72,10 +71,10 @@ namespace ClubManager.PresentationLayer
             {
                 if (player.Verified)
                 {
-                    string teamName = player.teamId == -1 ? "" : "placeholder";
+                    string teamName = player.TeamId == -1 ? "" : "placeholder";
                     foreach (Team team in teams)
                     {
-                        if (team._listPlayerIds.Contains(player.Id)) teamName = team._name;
+                        if (team.ListPlayerIds.Contains(player.Id)) teamName = team.Name;
                     }
                     PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Email, teamName, player.Age.ToString() }));
                 }
@@ -92,9 +91,9 @@ namespace ClubManager.PresentationLayer
                     List<string> teamNames = new List<string>();
                     foreach(Team team in teams)
                     {
-                        if (team._listTrainerIds.Contains(trainer.Id))
+                        if (team.ListTrainerIds.Contains(trainer.Id))
                         {
-                            teamNames.Add(team._name);
+                            teamNames.Add(team.Name);
                         }
                     }
                     TrainerList.Items.Add(new ListViewItem(new string[] { trainer.Id.ToString(), trainer.FirstName + " " + trainer.LastName, trainer.Email, string.Join(", ", teamNames) }));

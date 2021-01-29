@@ -28,7 +28,7 @@ namespace ClubManager.Contrllers
                     int teamID = -1;
                     foreach (Team t in teamRepository._teamList)
                     {
-                        if (t._name == form.TeamName()) teamID = t.Id;
+                        if (t.Name == form.TeamName()) teamID = t.Id;
                     }
                     if (teamID == -1) return false;
                     TimeSpan durationTimeSpan = new TimeSpan(0, int.Parse(form.Duration), 0);
@@ -37,7 +37,7 @@ namespace ClubManager.Contrllers
                     int trainingID = trainingRepository.next_ID - 1;
                     foreach (Team t in teamRepository._teamList)
                     {
-                        if (t.Id == teamID) t._listTrainingIds.Add(trainingID);
+                        if (t.Id == teamID) t.ListTrainingIds.Add(trainingID);
                     }
                     return true;
                 }
@@ -54,9 +54,9 @@ namespace ClubManager.Contrllers
                 trainingRepository.Delete(trainingId);
                 foreach (Team t in teamRepository._teamList)
                 {
-                    if (t._listTrainingIds.Contains(trainingId))
+                    if (t.ListTrainingIds.Contains(trainingId))
                     {
-                        t._listTrainingIds.Remove(trainingId);
+                        t.ListTrainingIds.Remove(trainingId);
                         return true;
                     }
                 }

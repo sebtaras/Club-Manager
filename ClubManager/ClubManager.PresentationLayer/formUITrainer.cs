@@ -44,13 +44,13 @@ namespace ClubManager.PresentationLayer
             PlayerList.Items.Clear();
             foreach(Team team in teams)
             {
-                if (team._listTrainerIds.Contains(trainer.Id))
+                if (team.ListTrainerIds.Contains(trainer.Id))
                 {
                     foreach(Player player in players)
                     {
-                        if (team._listPlayerIds.Contains(player.Id))
+                        if (team.ListPlayerIds.Contains(player.Id))
                         {
-                            PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Age.ToString(), team._name }));
+                            PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Age.ToString(), team.Name }));
                         }
                     }
                 }
@@ -62,15 +62,15 @@ namespace ClubManager.PresentationLayer
             TrainingList.Items.Clear();
             foreach (Team team in teams)
             {
-                if (team._listTrainerIds.Contains(trainer.Id))
+                if (team.ListTrainerIds.Contains(trainer.Id))
                 {
                     foreach (Training training in trainings)
                     {
-                        if (team._listTrainingIds.Contains(training.Id))
+                        if (team.ListTrainingIds.Contains(training.Id))
                         {
                             string start = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
                             string end = training.EndTime.ToLongDateString() + "  " + training.EndTime.ToShortTimeString();
-                            TrainingList.Items.Add(new ListViewItem(new string[] { training.Id.ToString(), team._name, start, end }));
+                            TrainingList.Items.Add(new ListViewItem(new string[] { training.Id.ToString(), team.Name, start, end }));
                         }
                     }
                 }

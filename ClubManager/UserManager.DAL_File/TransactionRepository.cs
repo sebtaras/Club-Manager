@@ -45,7 +45,7 @@ namespace ClubManager.DAL_File
             {
                 if(t.Id == transaction.Id)
                 {
-                    t._paid = !t._paid;
+                    t.Paid = !t.Paid;
                         return;
                 }
             }

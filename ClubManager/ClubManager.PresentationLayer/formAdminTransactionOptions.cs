@@ -23,9 +23,9 @@ namespace ClubManager.PresentationLayer
         private void SetValues(Player p, Transaction t)
         {
             LabelName.Text = p.FirstName + " " + p.LastName;
-            LabelYear.Text = t._year.ToString();
-            LabelMonth.Text = "Month: " + t._month.ToString();
-            string status = t._paid ? "Yes" : "No";
+            LabelYear.Text = t.Year.ToString();
+            LabelMonth.Text = "Month: " + t.Month.ToString();
+            string status = t.Paid ? "Yes" : "No";
             LabelPaid.Text = "Paid: " + status;
         }
 

@@ -48,14 +48,14 @@ namespace ClubManager.PresentationLayer
             return new formAdminPlayerOptions(p, windowFormsFactory, adminController, playerRepository, teamRepository, transactionRepository);
         }
 
-        public IAdminTrainerOptionsView AdminTrainerOptionsView(Trainer t, TeamRepository teamRepository)
+        public IAdminTrainerOptionsView AdminTrainerOptionsView()
         {
-            return new formAdminTrainerOptions(t, teamRepository);
+            return new formAdminTrainerOptions();
         }
         
-        public IAdminShowTeamView AdminTeamView(Team team, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public IAdminShowTeamView AdminTeamView()
         {
-            return new formAdminShowTeam(team, playerRepository, trainerRepository);
+            return new formAdminShowTeam();
         }
 
         public IAdminCreateTransactionsView CreateTransactionsView()

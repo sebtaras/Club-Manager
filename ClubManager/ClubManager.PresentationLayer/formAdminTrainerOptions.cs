@@ -17,62 +17,63 @@ namespace ClubManager.PresentationLayer
     {
         public string NameAddTeam()
         {
-            var value = this.TeamNameAdd.SelectedValue;
+            var value = TeamNameAdd.SelectedValue;
             if (value != null)
-                return this.TeamNameAdd.SelectedValue.ToString();
+                return TeamNameAdd.SelectedValue.ToString();
             else
                 return "";
         }
         public string NameRemoveTeam()
         {
-            var value = this.TeamNameRemove.SelectedValue;
+            var value = TeamNameRemove.SelectedValue;
             if (value != null)
-                return this.TeamNameRemove.SelectedValue.ToString();
+                return TeamNameRemove.SelectedValue.ToString();
             else
                 return "";
         }
 
-        public formAdminTrainerOptions(Trainer t, TeamRepository teamRepository)
+        public formAdminTrainerOptions()
         {
             InitializeComponent();
-            SetTrainerValues(t, teamRepository);
         }
 
         public DialogResult ShowViewModal()
         {
-            return this.ShowDialog();
+            return ShowDialog();
         }
 
-        public void SetTrainerValues(Trainer trainer, TeamRepository teamRepository)
+        public void SetTrainerValues(Trainer trainer, List<Team> teams)
         {
-            FullName.Text = "Name: " + trainer.FirstName + " " + trainer.LastName;
+            List<string> nameList = new List<string>();
 
-            string teams = "";
-            if (trainer._teamIds.Count > 1)
+            if (trainer.TeamIds.Count > 1)
             {
-                foreach (int id in trainer._teamIds)
+                foreach (Team team in teams)
                 {
-                    teams += teamRepository.GetTeamById(id)._name + ", ";
+                    if (trainer.TeamIds.Contains(team.Id))
+                    {
+                        nameList.Add(team.Name);
+                    }
                 }
-                teams = teams.Substring(0, teams.Length - 2);
             }
-            else if (trainer._teamIds.Count == 1)
-                teams = teamRepository.GetTeamById(trainer._teamIds[0])._name;
-            Teams.Text = "Teams: " + teams;
 
-            var dataAddCombo = new ComboItem[teamRepository._teamList.Count - trainer._teamIds.Count];
-            var dataRemoveCombo = new ComboItem[trainer._teamIds.Count];
+            var dataAddCombo = new ComboItem[teams.Count - trainer.TeamIds.Count];
+            var dataRemoveCombo = new ComboItem[trainer.TeamIds.Count];
             int i = 0;
             int j = 0;
-            foreach (Team t in teamRepository._teamList)
+
+            foreach (Team team in teams)
             {
-                if(!trainer._teamIds.Contains(t.Id))
-                    dataAddCombo[i++] = new ComboItem(t._name);
-                if (trainer._teamIds.Contains(t.Id))
-                    dataRemoveCombo[j++] = new ComboItem(t._name);
+                if (!trainer.TeamIds.Contains(team.Id))
+                    dataAddCombo[i++] = new ComboItem(team.Name);
+                if (trainer.TeamIds.Contains(team.Id))
+                    dataRemoveCombo[j++] = new ComboItem(team.Name);
             }
+
             TeamNameAdd.DataSource = dataAddCombo;
             TeamNameRemove.DataSource = dataRemoveCombo;
+            FullName.Text = "Name: " + trainer.FirstName + " " + trainer.LastName;
+            Teams.Text = "Teams: " + string.Join(", ", nameList);
         }
     }
 }

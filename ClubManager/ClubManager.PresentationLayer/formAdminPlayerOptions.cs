@@ -36,15 +36,15 @@ namespace ClubManager.PresentationLayer
 
         public DialogResult ShowViewModal()
         {
-            return this.ShowDialog();
+            return ShowDialog();
         }
 
         public void SetPlayerValues(Player player, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
             FullName.Text = "Full name: " + player.FirstName + " " + player.LastName;
             Age.Text = "Age: " + player.Age.ToString();
-            if (player.teamId != -1)
-                CurrentTeam.Text = "Team: " + teamRepository.GetTeamById(player.teamId)._name;
+            if (player.TeamId != -1)
+                CurrentTeam.Text = "Team: " + teamRepository.GetTeamById(player.TeamId).Name;
             else
                 CurrentTeam.Visible = false;
 
@@ -68,9 +68,9 @@ namespace ClubManager.PresentationLayer
             TransactionList.Items.Clear();
             foreach (Transaction t in transactionRepository._listTransactions)
             {
-                if (t._playerId == player.Id)
+                if (t.PlayerId == player.Id)
                 {
-                    TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._year.ToString(), t._month.ToString(), t._amount.ToString(), t._paid.ToString() }));
+                    TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.Year.ToString(), t.Month.ToString(), t.Amount.ToString(), t.Paid.ToString() }));
                 }
             }
         }

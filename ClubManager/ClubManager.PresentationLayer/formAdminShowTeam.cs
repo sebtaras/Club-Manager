@@ -15,28 +15,37 @@ namespace ClubManager.PresentationLayer
 {
     public partial class formAdminShowTeam : Form, IAdminShowTeamView
     {
-        public formAdminShowTeam(Team team, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public formAdminShowTeam()
         {
             InitializeComponent();
-            SetTeamValues(team, playerRepository, trainerRepository);
         }
 
-        public void SetTeamValues(Team team, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public void SetTeamValues(Team team, List<Player> players, List<Trainer> trainers)
         {
             TrainerList.Items.Clear();
             PlayerList.Items.Clear();
 
-            TeamName.Text = team._name;
-            foreach(int id in team._listTrainerIds)
+            TeamName.Text = team.Name;
+            foreach (Trainer trainer in trainers)
             {
-                Trainer t = trainerRepository.GetTrainerById(id);
-                TrainerList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.FirstName + " " + t.LastName, t.Email }));
+                if (team.ListTrainerIds.Contains(trainer.Id))
+                {
+                    TrainerList.Items.Add(new ListViewItem(new string[] {
+                    trainer.Id.ToString(),
+                    trainer.FirstName + " " + trainer.LastName,
+                    trainer.Email}));
+                }
             }
-
-            foreach (int id in team._listPlayerIds)
+            foreach (Player player in players)
             {
-                Player p = playerRepository.GetPlayerById(id);
-                PlayerList.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Email, p.Age.ToString() }));
+                if (team.ListPlayerIds.Contains(player.Id))
+                {
+                    PlayerList.Items.Add(new ListViewItem(new string[] {
+                    player.Id.ToString(),
+                    player.FirstName + " " + player.LastName,
+                    player.Email,
+                    player.Age.ToString() }));
+                }
             }
 
         }

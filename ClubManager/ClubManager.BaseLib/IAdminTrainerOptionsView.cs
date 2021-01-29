@@ -1,5 +1,6 @@
 ﻿using ClubManager.DAL_File;
 using ClubManager.Models;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ClubManager.BaseLib
@@ -9,6 +10,6 @@ namespace ClubManager.BaseLib
         string NameAddTeam();
         string NameRemoveTeam();
         DialogResult ShowViewModal();
-        void SetTrainerValues(Trainer trainer, TeamRepository teamRepository);
+        void SetTrainerValues(Trainer trainer, List<Team> teams);
     }
 }

@@ -27,13 +27,13 @@ namespace ClubManager.PresentationLayer
             StartTimePicker.Format = DateTimePickerFormat.Custom;
             StartTimePicker.ShowUpDown = true;
 
-            var dataTeamCombo = new ComboItem[trainer._teamIds.Count];
+            var dataTeamCombo = new ComboItem[trainer.TeamIds.Count];
 
             int i = 0;
             foreach(Team t in teamRepository._teamList)
             {
-                if (trainer._teamIds.Contains(t.Id))
-                    dataTeamCombo[i++] = new ComboItem(t._name);
+                if (trainer.TeamIds.Contains(t.Id))
+                    dataTeamCombo[i++] = new ComboItem(t.Name);
             }
             TeamCombo.DataSource = dataTeamCombo;
         }
