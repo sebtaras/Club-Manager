@@ -17,65 +17,62 @@ namespace ClubManager.PresentationLayer
     {
         private IMainController controller;
         private Trainer trainer;
-        private TeamRepository teamRepository;
-        private TrainingRepository trainingRepository;
-        private PlayerRepository playerRepository;
 
         public formUITrainer()
         {
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Trainer inTrainer, TeamRepository inTeamRepository, TrainingRepository inTrainingRepository, PlayerRepository inPlayerRepository)
+        public bool ShowViewModaless(IMainController inController, Trainer inTrainer)
         {
             controller = inController;
             trainer = inTrainer;
-            teamRepository = inTeamRepository;
-            trainingRepository = inTrainingRepository;
-            playerRepository = inPlayerRepository;
 
             if (trainer.Verified)
             {
                 HideVerificationLabel();
-                DisplayTrainingList();
-                DisplayPlayerList();
             }
             Show();
             return true;
         }
 
-        private void DisplayPlayerList()
+        public void DisplayPlayerList(List<Player> players, List<Team> teams)
         {
-            if (trainer.Verified == false)
+            if (!trainer.Verified)
                 return;
 
             PlayerList.Items.Clear();
-            foreach(int teamId in trainer._teamIds)
+            foreach(Team team in teams)
             {
-                Team t = teamRepository.GetTeamById(teamId);
-                foreach(int playerId in t._listPlayerIds)
+                if (team._listTrainerIds.Contains(trainer.Id))
                 {
-                    Player p = playerRepository.GetPlayerById(playerId);
-                    PlayerList.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Age.ToString(), t._name }));
+                    foreach(Player player in players)
+                    {
+                        if (team._listPlayerIds.Contains(player.Id))
+                        {
+                            PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Age.ToString(), team._name }));
+                        }
+                    }
                 }
             }
         }
 
-        public void DisplayTrainingList()
+        public void DisplayTrainingList(List<Training> trainings, List<Team> teams)
         {
-            if (trainer.Verified == false)
-                return;
-
             TrainingList.Items.Clear();
-            foreach(int teamId in trainer._teamIds)
+            foreach (Team team in teams)
             {
-                Team t = teamRepository.GetTeamById(teamId);
-                foreach(int trainingId in t._listTrainingIds)
+                if (team._listTrainerIds.Contains(trainer.Id))
                 {
-                    Training tr = trainingRepository.GetTrainingById(trainingId);
-                    string start = tr.StartTime.ToLongDateString() + "  " + tr.StartTime.ToShortTimeString();
-                    string end = tr.EndTime.ToLongDateString() + "  " +  tr.EndTime.ToShortTimeString();
-                    TrainingList.Items.Add(new ListViewItem(new string[] { tr.Id.ToString(), t._name, start, end }));
+                    foreach (Training training in trainings)
+                    {
+                        if (team._listTrainingIds.Contains(training.Id))
+                        {
+                            string start = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
+                            string end = training.EndTime.ToLongDateString() + "  " + training.EndTime.ToShortTimeString();
+                            TrainingList.Items.Add(new ListViewItem(new string[] { training.Id.ToString(), team._name, start, end }));
+                        }
+                    }
                 }
             }
         }
@@ -100,10 +97,12 @@ namespace ClubManager.PresentationLayer
 
         private void CreateTraining(object sender, EventArgs e)
         {
-            if (!controller.CreateTrainingView(trainer))
-                MessageBox.Show("Failed to add training");
-            else
-                DisplayTrainingList();
+            controller.CreateTrainingView(this, trainer);
+        }
+
+        public void AlertFailedCreateTraining()
+        {
+            MessageBox.Show("Failed to create training");
         }
 
         private void DeleteTraining(object sender, EventArgs e)
@@ -116,5 +115,6 @@ namespace ClubManager.PresentationLayer
                 controller.DeleteTraining(this, int.Parse(trainingId), teamName, trainingTime);
             }
         }
+
     }
 }

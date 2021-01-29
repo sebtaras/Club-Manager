@@ -13,7 +13,9 @@ namespace ClubManager.Contrllers
     {
         public void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository, PlayerRepository playerRepository)
         {
-            form.ShowViewModaless(inController, inTrainer, teamRepository, trainingRepository, playerRepository);
+            form.ShowViewModaless(inController, inTrainer);
+            form.DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
+            form.DisplayTrainingList(trainingRepository._trainings, teamRepository._teamList);
         }
 
         public bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, TrainingRepository trainingRepository, TeamRepository teamRepository)

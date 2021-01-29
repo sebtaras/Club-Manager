@@ -24,7 +24,7 @@ namespace ClubManager.BaseLib
         bool ShowPlayerSettings(int playerId);
         bool ShowTrainerSettings(int trainerId);
         bool ShowAdminSettings(int adminId);
-        bool CreateTrainingView(Trainer trainer);
+        void CreateTrainingView(ITrainerView form, Trainer trainer);
         void DeleteTraining(ITrainerView form, int trainingId, string teamName, string trainingTime);
     }
 }

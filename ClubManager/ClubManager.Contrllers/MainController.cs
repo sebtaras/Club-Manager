@@ -237,19 +237,20 @@ namespace ClubManager.Contrllers
             return _adminController.ShowAdminSettings(form, _adminRepository.GetAdminById(adminId), _adminRepository, _authController);
         }
 
-        public bool CreateTrainingView(Trainer trainer)
+        public void CreateTrainingView(ITrainerView parentForm, Trainer trainer)
         {
             var form = _formsFactory.CreateTrainingView(trainer, _trainingRepository, _teamRepository);
             if (_trainerController.ShowCreateTraining(form, trainer, _trainingRepository, _teamRepository))
-                return true;
-            return false;
+                parentForm.DisplayTrainingList(_trainingRepository._trainings, _teamRepository._teamList);
+            else
+                parentForm.AlertFailedCreateTraining();
         }
 
         public void DeleteTraining(ITrainerView trainerForm, int trainingId, string teamName, string trainingTime)
         {
             var form = _formsFactory.DeleteTrainingView(teamName, trainingTime);
             if(_trainerController.DeleteTraining(form, _trainingRepository, _teamRepository, trainingId))
-                trainerForm.DisplayTrainingList();
+                trainerForm.DisplayTrainingList(_trainingRepository._trainings, _teamRepository._teamList);
         }
 
         public bool ShowTrainerSettings(Trainer trainer, TrainerRepository trainerRepository)
