@@ -179,15 +179,15 @@ namespace ClubManager.Contrllers
             var form = _formsFactory.VerifyUserView(p, t);
             if (p != null)
             {
-                _adminController.VerifyPlayer(form, p, _playerRepository);
+                _adminController.VerifyPlayer(form, p, _playerRepository, _trainerRepository, _teamRepository);
             }
             else
             {
-                _adminController.VerifyTrainer(form, t, _trainerRepository);
+                _adminController.VerifyTrainer(form, t, _playerRepository, _trainerRepository, _teamRepository);
             }
-            _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
+           /* _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
             _adminController.RefreshPlayerList(_playerRepository, _teamRepository);
-            _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);
+            _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);*/
         }
 
         public void ShowPlayerInfo(Player p)

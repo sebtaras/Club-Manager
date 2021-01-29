@@ -10,8 +10,8 @@ namespace ClubManager.BaseLib
     public interface IAdminController
     {
         void Homepage(IAdminView form, IMainController inController, Admin admin, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository);
-        void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository);
-        void VerifyTrainer(IVerifyUserView form, Trainer trainer, TrainerRepository trainerRepository);
+        void VerifyPlayer(IVerifyUserView form, Player player, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
+        void VerifyTrainer(IVerifyUserView form, Trainer trainer, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
         void RefreshRegisterRequestsList(PlayerRepository playerRepository, TrainerRepository trainerRepository);
         void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository);
         void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository);

@@ -130,7 +130,7 @@ namespace ClubManager.DAL_File
             {
                 foreach (Trainer t in trainerRepository._listTrainers)
                 {
-                    if (t._teamIds.Contains(idToRemove))
+                    if (t._teamIds.Contains(idToRemove) && t.Id == trainer.Id)
                     {
                         t._teamIds.Remove(idToRemove);
                     }

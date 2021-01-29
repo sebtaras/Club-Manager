@@ -36,56 +36,64 @@ namespace ClubManager.PresentationLayer
             trainerRepository = inTrainerRepository;
             teamRepository = inTeamRepository;
             transactionRepository = inTransactionRepository;
-            DisplayRegisterRequests(playerRepository, trainerRepository);
-            DisplayTeamList(teamRepository);
-            DisplayPlayerList(playerRepository, teamRepository);
-            DisplayTrainerList(trainerRepository, teamRepository);
+            DisplayRegisterRequests(playerRepository._listPlayers, trainerRepository._listTrainers);
+            DisplayTeamList(teamRepository._teamList);
+            DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
+            DisplayTrainerList(trainerRepository._listTrainers, teamRepository._teamList);
             this.Show();
             return true;
         }
 
-        public void DisplayTeamList(TeamRepository teamRepository)
+        public void DisplayTeamList(List<Team> teams)
         {
             TeamList.Items.Clear();
-            foreach (Team t in teamRepository._teamList)
+            foreach(Team team in teams)
             {
-                TeamList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t._name, t._ages[0] + "-" + t._ages[t._ages.Count-1], t._listPlayerIds.Count.ToString(), t._listTrainerIds.Count.ToString() }));
+                TeamList.Items.Add(new ListViewItem(new string[] { 
+                    team.Id.ToString(), 
+                    team._name, team._ages[0] + " - " + team._ages[team._ages.Count - 1], 
+                    team._listPlayerIds.Count.ToString(), 
+                    team._listTrainerIds.Count.ToString() }));
             }
         }
 
-        public void DisplayRegisterRequests(PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public void DisplayRegisterRequests(List<Player> players, List<Trainer> trainers)
         {
             RegisterRequests.Items.Clear();
-            foreach(Player p in playerRepository._listPlayers)
+            foreach(Player player in players)
             {
-                if(!p.Verified)
-                    RegisterRequests.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Email, "Player" }));
+                if(!player.Verified)
+                    RegisterRequests.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Email, "Player" }));
             }
-            foreach (Trainer t in trainerRepository._listTrainers)
+            foreach (Trainer trainer in trainers)
             {
-                if (!t.Verified)
-                    RegisterRequests.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.FirstName + " " + t.LastName, t.Email, "Trainer"}));
+                if (!trainer.Verified)
+                    RegisterRequests.Items.Add(new ListViewItem(new string[] { trainer.Id.ToString(), trainer.FirstName + " " + trainer.LastName, trainer.Email, "Trainer" }));
             }
         }
 
-        public void DisplayPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
+        public void DisplayPlayerList(List<Player> players, List<Team> teams)
         {
-            
             PlayerList.Items.Clear();
-            foreach (Player p in playerRepository._listPlayers)
+
+            foreach(Player player in players)
             {
-                if (p.Verified)
+                if (player.Verified)
                 {
-                    string teamName = p.teamId != -1 ? teamRepository.GetTeamById(p.teamId)._name : "";
-                    PlayerList.Items.Add(new ListViewItem(new string[] { p.Id.ToString(), p.FirstName + " " + p.LastName, p.Email, teamName, p.Age.ToString() }));
+                    string teamName = player.teamId == -1 ? "" : "placeholder";
+                    foreach (Team team in teams)
+                    {
+                        if (team._listPlayerIds.Contains(player.Id)) teamName = team._name;
+                    }
+                    PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Email, teamName, player.Age.ToString() }));
                 }
             }
         }
 
-        public void DisplayTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
+        public void DisplayTrainerList(List<Trainer> trainers, List<Team> teams)
         {
             TrainerList.Items.Clear();
-            foreach (Trainer t in trainerRepository._listTrainers)
+            /*foreach (Trainer t in trainerRepository._listTrainers)
             {
                 string teamNames = "";
                 if (t._teamIds.Count > 1)
@@ -100,6 +108,21 @@ namespace ClubManager.PresentationLayer
 
                 if (t.Verified)
                     TrainerList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.FirstName + " " + t.LastName, t.Email, teamNames }));
+            }*/
+            foreach(Trainer trainer in trainers)
+            {
+                if (trainer.Verified)
+                {
+                    List<string> teamNames = new List<string>();
+                    foreach(Team team in teams)
+                    {
+                        if (team._listTrainerIds.Contains(trainer.Id))
+                        {
+                            teamNames.Add(team._name);
+                        }
+                    }
+                    TrainerList.Items.Add(new ListViewItem(new string[] { trainer.Id.ToString(), trainer.FirstName + " " + trainer.LastName, trainer.Email, string.Join(", ", teamNames) }));
+                }
             }
         }
 

@@ -10,9 +10,10 @@ namespace ClubManager.BaseLib
     public interface IAdminView
     {
         bool ShowViewModaless(IMainController inController, Admin inAdmin, PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository, TeamRepository inTeamRepository, TransactionRepository inTransactionRepository);
-        void DisplayRegisterRequests(PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository);
-        void DisplayTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository);
-        void DisplayPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository);
-        void DisplayTeamList(TeamRepository teamRepository);
+        //bool ShowViewModaless(IMainController inController, Admin inAdmin);
+        void DisplayRegisterRequests(List<Player> players, List<Trainer> trainers);
+        void DisplayTrainerList(List<Trainer> trainers, List<Team> teams);
+        void DisplayPlayerList(List<Player> players, List<Team> teams);
+        void DisplayTeamList(List<Team> teams);
     }
 }

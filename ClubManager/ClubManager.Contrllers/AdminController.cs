@@ -19,49 +19,53 @@ namespace ClubManager.Contrllers
             form.ShowViewModaless(inController, admin, playerRepository, trainerRepository, teamRepository, transactionRepository);
         }
 
-        public void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository)
+        public void VerifyPlayer(IVerifyUserView inForm, Player player, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
         {
-            var result = form.ShowViewModal();
+            var result = inForm.ShowViewModal();
             if (result == DialogResult.OK)
             {
                 playerRepository.Verify(player);
+                form.DisplayPlayerList(playerRepository.GetAll(), teamRepository.GetAll());
             }
             else if (result == DialogResult.No)
             {
                 playerRepository.Delete(player);
             }
+            form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
         }
 
-        public void VerifyTrainer(IVerifyUserView form, Trainer trainer, TrainerRepository trainerRepository)
+        public void VerifyTrainer(IVerifyUserView inForm, Trainer trainer, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
         {
-            var result = form.ShowViewModal();
+            var result = inForm.ShowViewModal();
             if (result == DialogResult.OK)
             {
                 trainerRepository.Verify(trainer);
+                form.DisplayTrainerList(trainerRepository.GetAll(), teamRepository.GetAll());
             }
             else if (result == DialogResult.No)
             {
                 trainerRepository.Delete(trainer);
             }
+            form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
         }
 
         public void RefreshRegisterRequestsList(PlayerRepository playerRepository, TrainerRepository trainerRepository)
         {
-            form.DisplayRegisterRequests(playerRepository, trainerRepository);
+            form.DisplayRegisterRequests(playerRepository._listPlayers, trainerRepository._listTrainers);
         }
 
         public void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
         {
-            form.DisplayPlayerList(playerRepository, teamRepository);
+            form.DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
         }
 
         public void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
-            form.DisplayTrainerList(trainerRepository,teamRepository);
+            form.DisplayTrainerList(trainerRepository._listTrainers, teamRepository._teamList);
         }
         public void RefreshTeamList(TeamRepository teamRepository)
         {
-            form.DisplayTeamList(teamRepository);
+            form.DisplayTeamList(teamRepository._teamList);
         }
 
         public void ShowPlayerOptions(IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
