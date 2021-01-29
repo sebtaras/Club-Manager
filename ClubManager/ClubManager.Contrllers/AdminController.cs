@@ -16,11 +16,12 @@ namespace ClubManager.Contrllers
         public void Homepage(IAdminView form, IMainController inController, Admin admin, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
             this.form = form;
-            form.ShowViewModaless(inController, admin, playerRepository, trainerRepository, teamRepository, transactionRepository);
+            form.ShowViewModaless(inController, admin, playerRepository._listPlayers, trainerRepository._listTrainers, teamRepository._teamList, transactionRepository._listTransactions);
         }
 
         public void VerifyPlayer(IVerifyUserView inForm, Player player, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
         {
+            inForm.SetPlayerValues(player);
             var result = inForm.ShowViewModal();
             if (result == DialogResult.OK)
             {
@@ -36,6 +37,7 @@ namespace ClubManager.Contrllers
 
         public void VerifyTrainer(IVerifyUserView inForm, Trainer trainer, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository)
         {
+            inForm.SetTrainerValues(trainer);
             var result = inForm.ShowViewModal();
             if (result == DialogResult.OK)
             {
@@ -49,26 +51,7 @@ namespace ClubManager.Contrllers
             form.DisplayRegisterRequests(playerRepository.GetAll(), trainerRepository.GetAll());
         }
 
-        public void RefreshRegisterRequestsList(PlayerRepository playerRepository, TrainerRepository trainerRepository)
-        {
-            form.DisplayRegisterRequests(playerRepository._listPlayers, trainerRepository._listTrainers);
-        }
-
-        public void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository)
-        {
-            form.DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
-        }
-
-        public void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository)
-        {
-            form.DisplayTrainerList(trainerRepository._listTrainers, teamRepository._teamList);
-        }
-        public void RefreshTeamList(TeamRepository teamRepository)
-        {
-            form.DisplayTeamList(teamRepository._teamList);
-        }
-
-        public void ShowPlayerOptions(IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
+        public void ShowPlayerOptions(IAdminView parentForm, IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
@@ -78,14 +61,17 @@ namespace ClubManager.Contrllers
             else if (result == DialogResult.No)
             {
                 teamRepository.RemovePlayerFromTeam(player, playerRepository);
+
             }
             else if (result == DialogResult.Abort)
             {
                 teamRepository.DeletePlayer(player, playerRepository);
             }
+            parentForm.DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
+            parentForm.DisplayTeamList(teamRepository._teamList);
         }
 
-        public void ShowTrainerOptions(IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
+        public void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.Yes)
@@ -102,6 +88,8 @@ namespace ClubManager.Contrllers
             {
                 teamRepository.DeleteTrainer(trainer, trainerRepository);
             }
+            parentForm.DisplayTrainerList(trainerRepository._listTrainers, teamRepository._teamList);
+            parentForm.DisplayTeamList(teamRepository._teamList);
         }
 
         public void ShowTeam(IAdminShowTeamView form)

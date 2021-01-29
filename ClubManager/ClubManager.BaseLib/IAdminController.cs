@@ -12,12 +12,8 @@ namespace ClubManager.BaseLib
         void Homepage(IAdminView form, IMainController inController, Admin admin, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository);
         void VerifyPlayer(IVerifyUserView form, Player player, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
         void VerifyTrainer(IVerifyUserView form, Trainer trainer, IPlayerRepository playerRepository, ITrainerRepository trainerRepository, ITeamRepository teamRepository);
-        void RefreshRegisterRequestsList(PlayerRepository playerRepository, TrainerRepository trainerRepository);
-        void RefreshPlayerList(PlayerRepository playerRepository, TeamRepository teamRepository);
-        void RefreshTrainerList(TrainerRepository trainerRepository, TeamRepository teamRepository);
-        void RefreshTeamList(TeamRepository teamRepository);
-        void ShowPlayerOptions(IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository);
-        void ShowTrainerOptions(IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository);
+        void ShowPlayerOptions(IAdminView parentForm, IAdminPlayerOptionsView form, Player player, PlayerRepository playerRepository, TeamRepository teamRepository);
+        void ShowTrainerOptions(IAdminView parentForm, IAdminTrainerOptionsView form, Trainer trainer, TrainerRepository trainerRepository, TeamRepository teamRepository);
         void ShowTeam(IAdminShowTeamView form);
         void CreateTransactionsView(IAdminCreateTransactionsView form, PlayerRepository playerRepository, TransactionRepository transactionRepository);
         void AdminTransactionOptions(IAdminTransactionOptionsView from, Player p, Transaction t, PlayerRepository playerRepository, TransactionRepository transactionRepository);

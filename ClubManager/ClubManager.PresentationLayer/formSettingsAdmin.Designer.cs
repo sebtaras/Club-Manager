@@ -41,7 +41,7 @@ namespace ClubManager.PresentationLayer
             // 
             // Cancel
             // 
-            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.Cancel.Location = new System.Drawing.Point(170, 182);
             this.Cancel.Name = "Cancel";

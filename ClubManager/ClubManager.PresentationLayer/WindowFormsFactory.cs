@@ -37,10 +37,11 @@ namespace ClubManager.PresentationLayer
             return new formUITrainer();
         }
 
-        public IVerifyUserView VerifyUserView(Player p, Trainer t)
+        public IVerifyUserView VerifyUserView()
         {
-            return new formVerifyUser(p, t);
+            return new formVerifyUser();
         }
+
 
         public IAdminPlayerOptionsView AdminPlayerOptionsView(Player p, IWindowFormsFactory windowFormsFactory, IAdminController adminController, PlayerRepository playerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
@@ -91,7 +92,5 @@ namespace ClubManager.PresentationLayer
         {
             return new formTrainerDeleteTraining(teamName, trainingTime);
         }
-
-
     }
 }

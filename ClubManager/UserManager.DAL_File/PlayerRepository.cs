@@ -84,12 +84,15 @@ namespace ClubManager.DAL_File
         {
             foreach(Player p in _listPlayers)
             {
-                foreach(int id in p._transactionIds)
+                if (p.Id == player.Id)
                 {
-                    if(id == t.Id)
+                    foreach (int id in p._transactionIds)
                     {
-                        p._transactionIds.Remove(id);
-                        return;
+                        if (id == t.Id)
+                        {
+                            p._transactionIds.Remove(id);
+                            return;
+                        }
                     }
                 }
             }

@@ -174,50 +174,43 @@ namespace ClubManager.Contrllers
             form.ShowAgeOption();
         }
 
-        public void ShowVerifyUserForm(Player p, Trainer t)
+        public void ShowVerifyPlayerForm(int playerId)
         {
-            var form = _formsFactory.VerifyUserView(p, t);
-            if (p != null)
-            {
-                _adminController.VerifyPlayer(form, p, _playerRepository, _trainerRepository, _teamRepository);
-            }
-            else
-            {
-                _adminController.VerifyTrainer(form, t, _playerRepository, _trainerRepository, _teamRepository);
-            }
-           /* _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
-            _adminController.RefreshPlayerList(_playerRepository, _teamRepository);
-            _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);*/
+            var form = _formsFactory.VerifyUserView();
+            _adminController.VerifyPlayer(form, _playerRepository.GetPlayerById(playerId), _playerRepository, _trainerRepository, _teamRepository);
         }
 
-        public void ShowPlayerInfo(Player p)
+        public void ShowVerifyTrainerForm(int trainerId)
         {
-            var form = _formsFactory.AdminPlayerOptionsView(p, _formsFactory, _adminController, _playerRepository, _teamRepository, _transactionRepository);
-            _adminController.ShowPlayerOptions(form, p, _playerRepository ,_teamRepository);
-
-            _adminController.RefreshPlayerList(_playerRepository, _teamRepository);
-            _adminController.RefreshTeamList(_teamRepository);
+            var form = _formsFactory.VerifyUserView();
+            _adminController.VerifyTrainer(form, _trainerRepository.GetTrainerById(trainerId), _playerRepository, _trainerRepository, _teamRepository);
         }
 
-        public void ShowTrainerInfo(Trainer t)
+        public void ShowPlayerInfo(IAdminView inForm, int playerId)
         {
-            var form = _formsFactory.AdminTrainerOptionsView(t, _teamRepository);
-            _adminController.ShowTrainerOptions(form, t, _trainerRepository, _teamRepository);
-
-            _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
-            _adminController.RefreshTeamList(_teamRepository);
+            var form = _formsFactory.AdminPlayerOptionsView(_playerRepository.GetPlayerById(playerId), _formsFactory, _adminController, _playerRepository, _teamRepository, _transactionRepository);
+            _adminController.ShowPlayerOptions(inForm, form, _playerRepository.GetPlayerById(playerId), _playerRepository ,_teamRepository);
+            
         }
 
-        public void ShowTeamInfo(Team t)
+        public void ShowTrainerInfo(IAdminView inForm, int trainerId)
         {
-            var form = _formsFactory.AdminTeamView(t, _playerRepository, _trainerRepository);
+            var form = _formsFactory.AdminTrainerOptionsView(_trainerRepository.GetTrainerById(trainerId), _teamRepository);
+            _adminController.ShowTrainerOptions(inForm, form, _trainerRepository.GetTrainerById(trainerId), _trainerRepository, _teamRepository);
+            inForm.DisplayTrainerList(_trainerRepository._listTrainers, _teamRepository._teamList);
+            inForm.DisplayTeamList(_teamRepository._teamList);
+        }
+
+        public void ShowTeamInfo(IAdminView inForm, int teamId)
+        {
+            var form = _formsFactory.AdminTeamView(_teamRepository.GetTeamById(teamId), _playerRepository, _trainerRepository);
             _adminController.ShowTeam(form);
         }
 
-        public void CreateTransactionsView(PlayerRepository playerRepository, TransactionRepository transactionRepository)
+        public void CreateTransactionsView()
         {
             var form = _formsFactory.CreateTransactionsView();
-            _adminController.CreateTransactionsView(form, playerRepository, transactionRepository);
+            _adminController.CreateTransactionsView(form, _playerRepository, _transactionRepository);
         }
 
         public bool ShowPlayerSettings(int playerId)

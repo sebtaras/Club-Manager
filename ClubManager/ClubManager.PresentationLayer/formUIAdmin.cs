@@ -18,28 +18,20 @@ namespace ClubManager.PresentationLayer
     {
         public IMainController controller;
         private Admin admin;
-        public PlayerRepository playerRepository;
-        public TrainerRepository trainerRepository;
-        public TeamRepository teamRepository;
-        public TransactionRepository transactionRepository;
 
         public formUIAdmin()
         {
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Admin inAdmin, PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository, TeamRepository inTeamRepository, TransactionRepository inTransactionRepository)
+        public bool ShowViewModaless(IMainController inController, Admin inAdmin, List<Player> inListPlayers, List<Trainer> inListTrainers, List<Team> inListTeams, List<Transaction> inListTransactions)
         {
             controller = inController;
             admin = inAdmin;
-            playerRepository = inPlayerRepository;
-            trainerRepository = inTrainerRepository;
-            teamRepository = inTeamRepository;
-            transactionRepository = inTransactionRepository;
-            DisplayRegisterRequests(playerRepository._listPlayers, trainerRepository._listTrainers);
-            DisplayTeamList(teamRepository._teamList);
-            DisplayPlayerList(playerRepository._listPlayers, teamRepository._teamList);
-            DisplayTrainerList(trainerRepository._listTrainers, teamRepository._teamList);
+            DisplayRegisterRequests(inListPlayers, inListTrainers);
+            DisplayTeamList(inListTeams);
+            DisplayPlayerList(inListPlayers, inListTeams);
+            DisplayTrainerList(inListTrainers, inListTeams);
             this.Show();
             return true;
         }
@@ -93,22 +85,6 @@ namespace ClubManager.PresentationLayer
         public void DisplayTrainerList(List<Trainer> trainers, List<Team> teams)
         {
             TrainerList.Items.Clear();
-            /*foreach (Trainer t in trainerRepository._listTrainers)
-            {
-                string teamNames = "";
-                if (t._teamIds.Count > 1)
-                {
-                    foreach(int id in t._teamIds)
-                    {
-                        teamNames += teamRepository.GetTeamById(id)._name + ", ";
-                    }
-                    teamNames = teamNames.Substring(0, teamNames.Length - 2);
-                }
-                else if (t._teamIds.Count == 1) teamNames = teamRepository.GetTeamById(t._teamIds[0])._name;
-
-                if (t.Verified)
-                    TrainerList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.FirstName + " " + t.LastName, t.Email, teamNames }));
-            }*/
             foreach(Trainer trainer in trainers)
             {
                 if (trainer.Verified)
@@ -128,7 +104,7 @@ namespace ClubManager.PresentationLayer
 
         private void LogOut(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             controller.LogOut();
         }
 
@@ -136,16 +112,15 @@ namespace ClubManager.PresentationLayer
         {
             if (RegisterRequests.SelectedItems[0] != null)
             {
-                string id = RegisterRequests.SelectedItems[0].SubItems[0].Text;
-                Player p = null;
-                Trainer t = null;
-                if (RegisterRequests.SelectedItems[0].SubItems[3].Text == "Player") 
-                    p = playerRepository.GetPlayerById(int.Parse(id));
-                else 
-                    t = trainerRepository.GetTrainerById(int.Parse(id));
-
-                if (p != null) controller.ShowVerifyUserForm(p, null);
-                else controller.ShowVerifyUserForm(null, t);
+                int id = int.Parse(RegisterRequests.SelectedItems[0].SubItems[0].Text);
+                if (RegisterRequests.SelectedItems[0].SubItems[3].Text == "Player")
+                {
+                    controller.ShowVerifyPlayerForm(id);
+                }
+                else
+                {
+                    controller.ShowVerifyTrainerForm(id);
+                }
             }
         }
 
@@ -153,9 +128,8 @@ namespace ClubManager.PresentationLayer
         {
             if(PlayerList.SelectedItems[0] != null)
             {
-                string id= PlayerList.SelectedItems[0].SubItems[0].Text;
-                Player p = playerRepository.GetPlayerById(int.Parse(id));
-                controller.ShowPlayerInfo(p);
+                int playerId = int.Parse(PlayerList.SelectedItems[0].SubItems[0].Text);
+                controller.ShowPlayerInfo(this, playerId);
             }
         }
 
@@ -163,9 +137,8 @@ namespace ClubManager.PresentationLayer
         {
             if (TrainerList.SelectedItems[0] != null)
             {
-                string id = TrainerList.SelectedItems[0].SubItems[0].Text;
-                Trainer t = trainerRepository.GetTrainerById(int.Parse(id));
-                controller.ShowTrainerInfo(t);
+                int trainerId = int.Parse(TrainerList.SelectedItems[0].SubItems[0].Text);
+                controller.ShowTrainerInfo(this, trainerId);
             }
         }
 
@@ -173,15 +146,14 @@ namespace ClubManager.PresentationLayer
         {
             if (TeamList.SelectedItems[0] != null)
             {
-                string id = TeamList.SelectedItems[0].SubItems[0].Text;
-                Team t = teamRepository.GetTeamById(int.Parse(id));
-                controller.ShowTeamInfo(t);
+                int teamId = int.Parse(TeamList.SelectedItems[0].SubItems[0].Text);
+                controller.ShowTeamInfo(this, teamId);
             }
         }
 
         private void CreateTransactions(object sender, EventArgs e)
         {
-            controller.CreateTransactionsView(playerRepository, transactionRepository);
+            controller.CreateTransactionsView();
         }
 
         private void ShowUserSettings(object sender, EventArgs e)

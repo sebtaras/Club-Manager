@@ -19,16 +19,9 @@ namespace ClubManager.PresentationLayer
             InitializeComponent();
         }
 
-        public formVerifyUser(Player p, Trainer t)
-        {
-            InitializeComponent();
-            if (p != null) SetPlayerValues(p);
-            else SetTrainerValues(t);
-        }
-
         public DialogResult ShowViewModal()
         {
-            return this.ShowDialog();
+            return ShowDialog();
         }
 
         public void SetPlayerValues(Player player)

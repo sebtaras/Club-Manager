@@ -40,7 +40,7 @@ namespace ClubManager.DAL_File
             int newTeamID = -1;
             foreach (Team t in _teamList)
             {
-                if (t._ages.IndexOf(player.Age) > -1)
+                if (t._ages.IndexOf(player.Age) > -1 && !t._listPlayerIds.Contains(player.Id))
                 {
                     t._listPlayerIds.Add(player.Id);
                     newTeamID = t.Id;
@@ -50,7 +50,7 @@ namespace ClubManager.DAL_File
             {
                 foreach (Player p in playerRepository._listPlayers)
                 {
-                    if (p.Email == player.Email)
+                    if (p.Id == player.Id)
                     {
                         p.teamId = newTeamID;
                     }

@@ -16,11 +16,12 @@ namespace ClubManager.BaseLib
         void ShowAgeInput(IRegisterView form);
         void HideAgeInput(IRegisterView form);
         bool RegisterUser(string email, string password, string firstName, string lastName, string role, string age);
-        void ShowVerifyUserForm(Player p, Trainer t);
-        void ShowPlayerInfo(Player p);
-        void ShowTrainerInfo(Trainer t);
-        void ShowTeamInfo(Team t);
-        void CreateTransactionsView(PlayerRepository playerRepository, TransactionRepository transactionRepository);
+        void ShowVerifyPlayerForm(int playerId);
+        void ShowVerifyTrainerForm(int trainerId);
+        void ShowPlayerInfo(IAdminView form, int playerId);
+        void ShowTrainerInfo(IAdminView form, int trainerId);
+        void ShowTeamInfo(IAdminView form, int teamId);
+        void CreateTransactionsView();
         bool ShowPlayerSettings(int playerId);
         bool ShowTrainerSettings(int trainerId);
         bool ShowAdminSettings(int adminId);
