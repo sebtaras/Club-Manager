@@ -8,5 +8,6 @@ namespace ClubManager.Models.Repositories
     {
         bool Add(Admin admin);
         Admin GetAdminByEmail(string email);
+        bool UpdateAdminValues(Admin admin, string email, string passwordCurrent, string passwordNew);
     }
 }

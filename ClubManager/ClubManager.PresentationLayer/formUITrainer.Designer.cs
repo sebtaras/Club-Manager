@@ -141,7 +141,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.VerificationLabel.AutoSize = true;
             this.VerificationLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.VerificationLabel.Location = new System.Drawing.Point(225, 416);
+            this.VerificationLabel.Location = new System.Drawing.Point(225, 419);
             this.VerificationLabel.Name = "VerificationLabel";
             this.VerificationLabel.Size = new System.Drawing.Size(249, 19);
             this.VerificationLabel.TabIndex = 12;

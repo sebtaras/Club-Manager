@@ -35,7 +35,6 @@ namespace ClubManager.PresentationLayer
             this.Trainer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Duration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.TransactionList = new System.Windows.Forms.ListView();
             this.transactionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,8 +68,7 @@ namespace ClubManager.PresentationLayer
             this.trainingID,
             this.Trainer,
             this.StartDate,
-            this.EndDate,
-            this.Duration});
+            this.EndDate});
             this.TrainingList.HideSelection = false;
             this.TrainingList.Location = new System.Drawing.Point(12, 31);
             this.TrainingList.Name = "TrainingList";
@@ -87,7 +85,7 @@ namespace ClubManager.PresentationLayer
             // Trainer
             // 
             this.Trainer.Text = "Trainer";
-            this.Trainer.Width = 80;
+            this.Trainer.Width = 160;
             // 
             // StartDate
             // 
@@ -98,11 +96,6 @@ namespace ClubManager.PresentationLayer
             // 
             this.EndDate.Text = "End Time";
             this.EndDate.Width = 140;
-            // 
-            // Duration
-            // 
-            this.Duration.Text = "Duration";
-            this.Duration.Width = 110;
             // 
             // label1
             // 
@@ -221,7 +214,6 @@ namespace ClubManager.PresentationLayer
         private System.Windows.Forms.ColumnHeader Amount;
         private System.Windows.Forms.Label VerificationLabel;
         private System.Windows.Forms.ColumnHeader trainingID;
-        private System.Windows.Forms.ColumnHeader Duration;
         private System.Windows.Forms.ColumnHeader transactionID;
         private System.Windows.Forms.Button CreateTransactionsButon;
     }

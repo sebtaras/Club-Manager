@@ -14,5 +14,6 @@ namespace ClubManager.Models.Repositories
         List<Trainer> GetAll();
         //Trainer getTrainer();
         bool CheckTrainerExists(Trainer trainer);
+        bool UpdatePlayerValues(Trainer trainer, string email, string passwordCurrent, string passwordNew);
     }
 }

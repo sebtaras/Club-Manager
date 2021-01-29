@@ -8,5 +8,6 @@ namespace ClubManager.Models.Repositories
     {
         bool Add(Training training);
         void Delete(int id);
+        List<Training> GetAll();
     }
 }

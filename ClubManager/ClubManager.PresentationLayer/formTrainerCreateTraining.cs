@@ -23,7 +23,7 @@ namespace ClubManager.PresentationLayer
 
         private void LoadData(Trainer trainer, TeamRepository teamRepository)
         {
-            StartTimePicker.CustomFormat = "MM/dd/yyy HH:mm";
+            StartTimePicker.CustomFormat = "dd/MM/yyy HH:mm";
             StartTimePicker.Format = DateTimePickerFormat.Custom;
             StartTimePicker.ShowUpDown = true;
 

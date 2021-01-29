@@ -1,6 +1,7 @@
 ﻿using ClubManager.BaseLib;
 using ClubManager.DAL_File;
 using ClubManager.Models;
+using ClubManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,12 +19,12 @@ namespace ClubManager.Contrllers
         public bool ShowCreateTraining(ITrainerCreateTrainingView form, Trainer trainer, TrainingRepository trainingRepository, TeamRepository teamRepository)
         {
             var result = form.ShowViewModal();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                if(form.TeamName() != "" && VerifyTrainingInput(form.Duration) && !Occupied(form.StartTime, trainingRepository))
+                if (form.TeamName() != "" && VerifyTrainingInput(form.Duration) && !Occupied(form.StartTime, trainingRepository))
                 {
                     int teamID = -1;
-                    foreach(Team t in teamRepository._teamList)
+                    foreach (Team t in teamRepository._teamList)
                     {
                         if (t._name == form.TeamName()) teamID = t.Id;
                     }
@@ -32,23 +33,24 @@ namespace ClubManager.Contrllers
                     Training training = new Training(trainingRepository.next_ID, form.StartTime, durationTimeSpan, teamID, trainer.Id);
                     trainingRepository.Add(training);
                     int trainingID = trainingRepository.next_ID - 1;
-                    foreach(Team t in teamRepository._teamList)
+                    foreach (Team t in teamRepository._teamList)
                     {
                         if (t.Id == teamID) t._listTrainingIds.Add(trainingID);
                     }
                     return true;
                 }
+                return false;
             }
-            return false;
+            return true;
         }
 
         public bool DeleteTraining(ITrainerDeleteTrainingView form, TrainingRepository trainingRepository, TeamRepository teamRepository, int trainingId)
         {
             var result = form.ShowViewModal();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 trainingRepository.Delete(trainingId);
-                foreach(Team t in teamRepository._teamList)
+                foreach (Team t in teamRepository._teamList)
                 {
                     if (t._listTrainingIds.Contains(trainingId))
                     {
@@ -62,7 +64,7 @@ namespace ClubManager.Contrllers
 
         private bool Occupied(DateTime startTime, TrainingRepository trainingRepository)
         {
-            foreach(Training t in trainingRepository._trainings)
+            foreach (Training t in trainingRepository._trainings)
             {
                 if (startTime < t.EndTime && startTime > t.StartTime)
                     return true;
@@ -74,6 +76,19 @@ namespace ClubManager.Contrllers
         {
             if (!ValidationFunctions.IsValidTrainingDuration(duration))
                 return false;
+            return true;
+        }
+
+        public bool ShowTrainerSettings(ISettingsTrainerView form, Trainer trainer, ITrainerRepository trainerRepository, IAuthController authController)
+        {
+            var result = form.ShowViewModal();
+            if (result == DialogResult.OK)
+            {
+                if (authController.VerifyUpdateUserInput(form.Email, form.PasswordCurrent, form.PasswordNew))
+                    return trainerRepository.UpdatePlayerValues(trainer, form.Email, form.PasswordCurrent, form.PasswordNew);
+                else
+                    return false;
+            }
             return true;
         }
     }

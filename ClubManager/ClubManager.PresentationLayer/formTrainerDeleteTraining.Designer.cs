@@ -91,6 +91,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DeleteButton);
             this.Name = "formTrainerDeleteTraining";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "formTrainerDeleteTraining";
             this.ResumeLayout(false);
             this.PerformLayout();

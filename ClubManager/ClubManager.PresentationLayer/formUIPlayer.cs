@@ -16,38 +16,36 @@ namespace ClubManager.PresentationLayer
     public partial class formUIPlayer : Form, IPlayerView
     {
         public IMainController controller;
-        public Player player;
-        public PlayerRepository playerRepository;
+        private Player player;
 
         public formUIPlayer()
         {
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Player inPlayer, TransactionRepository transactionRepository, TrainingRepository trainingRepository, PlayerRepository inPlayerRepository)
+        public bool ShowViewModaless(IMainController inController, Player inPlayer, List<Transaction> inListTransactions, List<Training> inListTrainings, List<Team> inListTeams, List<Trainer> inListTrainers)
         {
             controller = inController;
-            playerRepository = inPlayerRepository;
             player = inPlayer;
-            if (player.Verified)
+            if (inPlayer.Verified)
             {
                 HideVerificationLabel();
-                DisplayTransactionList(transactionRepository);
-                //DisplayTrainingList(player._trainingIds);
+                DisplayTransactionList(inListTransactions);
+                DisplayTrainingList(inListTrainings, inListTeams, inListTrainers);
             }
-            this.Show();
+            Show();
             return true;
         }
 
         public void HideVerificationLabel()
         {
-            this.VerificationLabel.Hide();
+            VerificationLabel.Hide();
         }
 
-        public void DisplayTransactionList(TransactionRepository transactionRepository)
+        public void DisplayTransactionList(List<Transaction> inListTransactions)
         {
             TransactionList.Items.Clear();
-            foreach (Transaction t in transactionRepository._listTransactions)
+            foreach (Transaction t in inListTransactions)
             {
                 if (t._playerId == player.Id)
                 {
@@ -56,23 +54,45 @@ namespace ClubManager.PresentationLayer
             }
         }
 
-        public void DisplayTrainingList(TrainingRepository trainingRepository)
+        public void DisplayTrainingList(List<Training> trainings, List<Team> teams, List<Trainer> trainers)
         {
-            foreach (Training t in trainingRepository._trainings)
+            TrainingList.Items.Clear();
+            foreach(Team team in teams)
             {
-                TrainingList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.StartTime.ToString(), t.EndTime.ToString() })) ;
+                if (team._listPlayerIds.Contains(player.Id))
+                {
+                    foreach(int trainingId in team._listTrainingIds)
+                    {
+                        foreach(Training training in trainings)
+                        {
+                            if(training.Id == trainingId)
+                            {
+                                foreach (Trainer trainer in trainers)
+                                {
+                                    if (trainer.Id == training.TrainerId)
+                                    {
+                                        string trainerName = trainer.FirstName + " " + trainer.LastName;
+                                        string startTime = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
+                                        string endTime = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
+                                        TrainingList.Items.Add(new ListViewItem(new string[] { trainingId.ToString(), trainerName, startTime, endTime }));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
         private void LogOut(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             controller.LogOut();
         }
 
         private void ShowUserSettings(object sender, EventArgs e)
         {
-            if(!controller.ShowPlayerSettings(player, playerRepository))
+            if (!controller.ShowPlayerSettings(player.Id))
             {
                 MessageBox.Show("Failed to update values");
             }

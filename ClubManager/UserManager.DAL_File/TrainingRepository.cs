@@ -19,6 +19,11 @@ namespace ClubManager.DAL_File
             return true;
         }
 
+        public List<Training> GetAll()
+        {
+            return _trainings;
+        }
+
         public void Delete(int id)
         {
             _trainings.RemoveAll(t => t.Id == id);

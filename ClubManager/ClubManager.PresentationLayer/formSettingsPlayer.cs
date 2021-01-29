@@ -13,7 +13,7 @@ using ClubManager.Models;
 
 namespace ClubManager.PresentationLayer
 {
-    public partial class formPlayerSettings : Form, IPlayerSettingsView
+    public partial class formSettingsPlayer : Form, ISettingsPlayerView
     {
         public string Email => EmailInput.Text;
 
@@ -21,7 +21,7 @@ namespace ClubManager.PresentationLayer
 
         public string PasswordNew => PasswordInputNew.Text;
 
-        public formPlayerSettings(Player player, PlayerRepository playerRepository)
+        public formSettingsPlayer(Player player)
         {
             InitializeComponent();
             ShowValues(player);

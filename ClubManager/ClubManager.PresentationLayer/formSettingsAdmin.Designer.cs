@@ -1,7 +1,7 @@
 ﻿
 namespace ClubManager.PresentationLayer
 {
-    partial class formPlayerSettings
+    partial class formSettingsAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,93 +29,93 @@ namespace ClubManager.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.Cancel = new System.Windows.Forms.Button();
+            this.LogInButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PasswordInputNew = new System.Windows.Forms.TextBox();
             this.PasswordInputCurrent = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.EmailInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PasswordInputNew = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.LogInButton = new System.Windows.Forms.Button();
-            this.Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // PasswordInputCurrent
-            // 
-            this.PasswordInputCurrent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.PasswordInputCurrent.Location = new System.Drawing.Point(11, 83);
-            this.PasswordInputCurrent.Name = "PasswordInputCurrent";
-            this.PasswordInputCurrent.Size = new System.Drawing.Size(305, 27);
-            this.PasswordInputCurrent.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(7, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Current password";
-            // 
-            // EmailInput
-            // 
-            this.EmailInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.EmailInput.Location = new System.Drawing.Point(11, 32);
-            this.EmailInput.Name = "EmailInput";
-            this.EmailInput.Size = new System.Drawing.Size(305, 27);
-            this.EmailInput.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(8, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Email";
-            // 
-            // PasswordInputNew
-            // 
-            this.PasswordInputNew.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.PasswordInputNew.Location = new System.Drawing.Point(12, 135);
-            this.PasswordInputNew.Name = "PasswordInputNew";
-            this.PasswordInputNew.Size = new System.Drawing.Size(305, 27);
-            this.PasswordInputNew.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(8, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "New password";
-            // 
-            // LogInButton
-            // 
-            this.LogInButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.LogInButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.LogInButton.Location = new System.Drawing.Point(11, 182);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(152, 34);
-            this.LogInButton.TabIndex = 10;
-            this.LogInButton.Text = "Confirm";
-            this.LogInButton.UseVisualStyleBackColor = true;
             // 
             // Cancel
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Cancel.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.Cancel.Location = new System.Drawing.Point(169, 182);
+            this.Cancel.Location = new System.Drawing.Point(170, 182);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(148, 34);
-            this.Cancel.TabIndex = 11;
+            this.Cancel.TabIndex = 19;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
             // 
-            // formPlayerSettings
+            // LogInButton
+            // 
+            this.LogInButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.LogInButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.LogInButton.Location = new System.Drawing.Point(12, 182);
+            this.LogInButton.Name = "LogInButton";
+            this.LogInButton.Size = new System.Drawing.Size(152, 34);
+            this.LogInButton.TabIndex = 18;
+            this.LogInButton.Text = "Confirm";
+            this.LogInButton.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(9, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 19);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "New password";
+            // 
+            // PasswordInputNew
+            // 
+            this.PasswordInputNew.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.PasswordInputNew.Location = new System.Drawing.Point(13, 135);
+            this.PasswordInputNew.Name = "PasswordInputNew";
+            this.PasswordInputNew.Size = new System.Drawing.Size(305, 27);
+            this.PasswordInputNew.TabIndex = 16;
+            // 
+            // PasswordInputCurrent
+            // 
+            this.PasswordInputCurrent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.PasswordInputCurrent.Location = new System.Drawing.Point(12, 83);
+            this.PasswordInputCurrent.Name = "PasswordInputCurrent";
+            this.PasswordInputCurrent.Size = new System.Drawing.Size(305, 27);
+            this.PasswordInputCurrent.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(8, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 19);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Current password";
+            // 
+            // EmailInput
+            // 
+            this.EmailInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.EmailInput.Location = new System.Drawing.Point(12, 32);
+            this.EmailInput.Name = "EmailInput";
+            this.EmailInput.Size = new System.Drawing.Size(305, 27);
+            this.EmailInput.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Email";
+            // 
+            // formSettingsAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,9 +128,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EmailInput);
             this.Controls.Add(this.label1);
-            this.Name = "formPlayerSettings";
+            this.Name = "formSettingsAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formPlayerSettings";
+            this.Text = "formSettingsAdmin";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,13 +138,13 @@ namespace ClubManager.PresentationLayer
 
         #endregion
 
+        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button LogInButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox PasswordInputNew;
         private System.Windows.Forms.TextBox PasswordInputCurrent;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox EmailInput;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PasswordInputNew;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button LogInButton;
-        private System.Windows.Forms.Button Cancel;
     }
 }

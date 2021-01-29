@@ -26,5 +26,26 @@ namespace ClubManager.DAL_File
             }
             return null;
         }
+
+        public Admin GetAdminById(int adminId)
+        {
+            return _listAdmins.Find(a => a.Id == adminId);
+        }
+
+        public bool UpdateAdminValues(Admin admin, string email, string passwordCurrent, string passwordNew)
+        {
+            foreach (Admin a in _listAdmins)
+            {
+                if (a.Id == admin.Id)
+                {
+                    if (a.Password != passwordCurrent)
+                        return false;
+                    a.Email = email;
+                    a.Password = passwordNew;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

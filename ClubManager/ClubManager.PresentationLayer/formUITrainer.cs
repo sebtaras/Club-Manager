@@ -94,8 +94,8 @@ namespace ClubManager.PresentationLayer
 
         private void ShowUserSettings(object sender, EventArgs e)
         {
-            /*if (!controller.ShowPlayerSettings(trainer, trainerRepository))
-                MessageBox.Show("Failed to update value");*/
+            if (!controller.ShowTrainerSettings(trainer.Id))
+                MessageBox.Show("Failed to update value");
         }
 
         private void CreateTraining(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace ClubManager.PresentationLayer
     public partial class formUIAdmin : Form, IAdminView
     {
         public IMainController controller;
+        private Admin admin;
         public PlayerRepository playerRepository;
         public TrainerRepository trainerRepository;
         public TeamRepository teamRepository;
@@ -27,9 +28,10 @@ namespace ClubManager.PresentationLayer
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository, TeamRepository inTeamRepository, TransactionRepository inTransactionRepository)
+        public bool ShowViewModaless(IMainController inController, Admin inAdmin, PlayerRepository inPlayerRepository, TrainerRepository inTrainerRepository, TeamRepository inTeamRepository, TransactionRepository inTransactionRepository)
         {
             controller = inController;
+            admin = inAdmin;
             playerRepository = inPlayerRepository;
             trainerRepository = inTrainerRepository;
             teamRepository = inTeamRepository;
@@ -157,6 +159,14 @@ namespace ClubManager.PresentationLayer
         private void CreateTransactions(object sender, EventArgs e)
         {
             controller.CreateTransactionsView(playerRepository, transactionRepository);
+        }
+
+        private void ShowUserSettings(object sender, EventArgs e)
+        {
+            if (!controller.ShowAdminSettings(admin.Id))
+            {
+                MessageBox.Show("Failed to update values");
+            }
         }
     }
 }

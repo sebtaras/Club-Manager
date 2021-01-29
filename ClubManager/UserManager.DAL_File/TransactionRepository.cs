@@ -19,21 +19,19 @@ namespace ClubManager.DAL_File
             return true;
         }
 
+        public List<Transaction> GetAll()
+        {
+            return _listTransactions;
+        }
+
+        public int GetNextId()
+        {
+            return next_ID;
+        }
+
         public void Delete(Transaction transaction)
         {
             _listTransactions.Remove(transaction);
-        }
-
-        public void ChangeTransactionStatus(int id)
-        {
-            foreach (Transaction t in _listTransactions)
-            {
-                if (t.Id == id)
-                {
-                    t._paid = !t._paid;
-                    return;
-                }
-            }
         }
 
         public Transaction GetTransactionById(int id)
@@ -48,7 +46,7 @@ namespace ClubManager.DAL_File
                 if(t.Id == transaction.Id)
                 {
                     t._paid = !t._paid;
-                    return;
+                        return;
                 }
             }
         }

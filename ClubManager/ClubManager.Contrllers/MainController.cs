@@ -19,6 +19,7 @@ namespace ClubManager.Contrllers
         private IAdminController _adminController;
         private IPlayerController _playerController;
         private ITrainerController _trainerController;
+        private IAuthController _authController;
         private TransactionRepository _transactionRepository;
         
         public MainController(IWindowFormsFactory formsFactory, 
@@ -39,6 +40,7 @@ namespace ClubManager.Contrllers
             _adminController = new AdminController();
             _playerController = new PlayerController();
             _trainerController = new TrainerController();
+            _authController = new AuthController();
         }
 
         public void LoadDefaultModel()
@@ -58,6 +60,8 @@ namespace ClubManager.Contrllers
             Player player_it = new Player(1, "ivan", "tarzan", "mb@mail", "password", 7, true);
             player_bd._transactionIds.Add(1);
             player_bd._transactionIds.Add(2);
+            player_mz.teamId = 1;
+            player_it.teamId = 1;
             _playerRepository.Add(player_bd);
             _playerRepository.Add(player_mp);
             _playerRepository.Add(player_mz);
@@ -80,6 +84,11 @@ namespace ClubManager.Contrllers
             Team pioniri = new Team(1, "Pioniri", 13, 15);
             Team juniori = new Team(1, "Juniori", 16, 18);
             Team seniori = new Team(1, "Seniori", 19, 30);
+            zagici._listTrainerIds.Add(1);
+            zagici._listPlayerIds.Add(3);
+            zagici._listPlayerIds.Add(6);
+            zagici._listTrainingIds.Add(1);
+            zagici._listTrainingIds.Add(2);
             _teamRepository.Add(zagici);
             _teamRepository.Add(limaci);
             _teamRepository.Add(mladiPioniri);
@@ -87,29 +96,32 @@ namespace ClubManager.Contrllers
             _teamRepository.Add(juniori);
             _teamRepository.Add(seniori);
 
+            Training training1 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), 1, 1);
+            Training training2 = new Training(1, DateTime.Now - new TimeSpan(1, 0, 0, 0), new TimeSpan(0, 60, 0), 1, 1);
+            _trainingRepository.Add(training1);
+            _trainingRepository.Add(training2);
+
         }
 
         public bool RegisterUser(string email, string password, string firstName, string lastName, string role, string age)
         {
-            var authController = new AuthController();
-            if(authController.VerifyRegisterInput(email, password, firstName, lastName, role, age, _playerRepository, _trainerRepository))
+            if(_authController.VerifyRegisterInput(email, password, firstName, lastName, role, age, _playerRepository, _trainerRepository))
                 return true;
             return false;
         }
 
         public bool LogInUser(string email, string password)
         {
-            var authController = new AuthController();
 
-            if (authController.VerifyLoginInput(email, password))
+            if (_authController.VerifyLoginInput(email, password))
             {
                 bool loginSuccess = true;
-                switch (authController.LogInUser(email, password, _playerRepository, _trainerRepository, _adminRepository))
+                switch (_authController.LogInUser(email, password, _playerRepository, _trainerRepository, _adminRepository))
                 {
                     case "player":
                         {
                             var form = _formsFactory.PlayerView();
-                            _playerController.Homepage(form, this, _playerRepository.GetPlayerByEmail(email), _transactionRepository, _trainingRepository, _playerRepository);
+                            _playerController.Homepage(form, this, _playerRepository.GetPlayerByEmail(email), _transactionRepository, _trainerRepository, _trainingRepository, _teamRepository);
                             break;
                         }
                     case "trainer":
@@ -122,7 +134,7 @@ namespace ClubManager.Contrllers
                     case "admin":
                         {
                             var form = _formsFactory.AdminView();
-                            _adminController.Homepage(form, this, _playerRepository, _trainerRepository, _teamRepository, _transactionRepository);
+                            _adminController.Homepage(form, this, _adminRepository.GetAdminByEmail(email),_playerRepository, _trainerRepository, _teamRepository, _transactionRepository);
                             break;
                         }
                     case "": loginSuccess = false; break;
@@ -174,6 +186,7 @@ namespace ClubManager.Contrllers
                 _adminController.VerifyTrainer(form, t, _trainerRepository);
             }
             _adminController.RefreshTrainerList(_trainerRepository, _teamRepository);
+            _adminController.RefreshPlayerList(_playerRepository, _teamRepository);
             _adminController.RefreshRegisterRequestsList(_playerRepository, _trainerRepository);
         }
 
@@ -207,10 +220,21 @@ namespace ClubManager.Contrllers
             _adminController.CreateTransactionsView(form, playerRepository, transactionRepository);
         }
 
-        public bool ShowPlayerSettings(Player player, PlayerRepository playerRepository)
+        public bool ShowPlayerSettings(int playerId)
         {
-            var form = _formsFactory.PlayerSettingsView(player, playerRepository);
-            return _playerController.ShowPlayerSettings(form, player, playerRepository);
+            var form = _formsFactory.PlayerSettingsView(_playerRepository.GetPlayerById(playerId));
+            return _playerController.ShowPlayerSettings(form, _playerRepository.GetPlayerById(playerId), _playerRepository, _authController);
+        }
+
+        public bool ShowTrainerSettings(int trainerId)
+        {
+            var form = _formsFactory.TrainerSettingsView(_trainerRepository.GetTrainerById(trainerId));
+            return _trainerController.ShowTrainerSettings(form, _trainerRepository.GetTrainerById(trainerId), _trainerRepository, _authController);
+        }
+        public bool ShowAdminSettings(int adminId)
+        {
+            var form = _formsFactory.AdminSettingsView(_adminRepository.GetAdminById(adminId));
+            return _adminController.ShowAdminSettings(form, _adminRepository.GetAdminById(adminId), _adminRepository, _authController);
         }
 
         public bool CreateTrainingView(Trainer trainer)

@@ -67,9 +67,19 @@ namespace ClubManager.PresentationLayer
             return new formAdminTransactionOptions(p, t);
         }
 
-        public IPlayerSettingsView PlayerSettingsView(Player p, PlayerRepository playerRepository)
+        public ISettingsPlayerView PlayerSettingsView(Player player)
         {
-            return new formPlayerSettings(p, playerRepository);
+            return new formSettingsPlayer(player);
+        }
+
+        public ISettingsAdminView AdminSettingsView(Admin admin)
+        {
+            return new formSettingsAdmin(admin);
+        }
+
+        public ISettingsTrainerView TrainerSettingsView(Trainer trainer)
+        {
+            return new formSettingsTrainer(trainer);
         }
 
         public ITrainerCreateTrainingView CreateTrainingView(Trainer t, TrainingRepository trainingRepository, TeamRepository teamRepository)
@@ -81,5 +91,7 @@ namespace ClubManager.PresentationLayer
         {
             return new formTrainerDeleteTraining(teamName, trainingTime);
         }
+
+
     }
 }

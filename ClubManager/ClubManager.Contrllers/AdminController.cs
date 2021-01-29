@@ -13,10 +13,10 @@ namespace ClubManager.Contrllers
     {
         IAdminView form;
         private decimal MEMBERSHIP_FEE = (decimal)200.00;
-        public void Homepage(IAdminView form, IMainController inController, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
+        public void Homepage(IAdminView form, IMainController inController, Admin admin, PlayerRepository playerRepository, TrainerRepository trainerRepository, TeamRepository teamRepository, TransactionRepository transactionRepository)
         {
             this.form = form;
-            form.ShowViewModaless(inController, playerRepository, trainerRepository, teamRepository, transactionRepository);
+            form.ShowViewModaless(inController, admin, playerRepository, trainerRepository, teamRepository, transactionRepository);
         }
 
         public void VerifyPlayer(IVerifyUserView form, Player player, PlayerRepository playerRepository)
@@ -150,6 +150,19 @@ namespace ClubManager.Contrllers
                 transactionRepository.Delete(t);
                 playerRepository.DeleteTransaction(p, t);
             }
+        }
+
+        public bool ShowAdminSettings(ISettingsAdminView form, Admin admin, IAdminRepository adminRepository, IAuthController authController)
+        {
+            var result = form.ShowViewModal();
+            if (result == DialogResult.OK)
+            {
+                if (authController.VerifyUpdateUserInput(form.Email, form.PasswordCurrent, form.PasswordNew))
+                    return adminRepository.UpdateAdminValues(admin, form.Email, form.PasswordCurrent, form.PasswordNew);
+                else
+                    return false;
+            }
+            return true;
         }
     }
 }

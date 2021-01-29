@@ -1,6 +1,7 @@
 ﻿using ClubManager.BaseLib;
 using ClubManager.DAL_File;
 using ClubManager.Models;
+using ClubManager.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,32 +11,25 @@ namespace ClubManager.Contrllers
 {
     public class PlayerController : IPlayerController
     {
-        public void Homepage(IPlayerView form, IMainController inController, Player player, TransactionRepository transactionRepository, TrainingRepository trainingRepository, PlayerRepository playerRepository)
+        public void Homepage(IPlayerView form, IMainController inController, Player player, TransactionRepository transactionRepository, TrainerRepository trainerRepository, TrainingRepository trainingRepository, TeamRepository teamRepository)
         {
-            form.ShowViewModaless(inController, player, transactionRepository, trainingRepository, playerRepository);
+            ITransactionRepository transRep = transactionRepository;
+            ITrainingRepository trainRep = trainingRepository;
+            ITeamRepository teamRep = teamRepository;
+            ITrainerRepository trainerRep = trainerRepository;
+            form.ShowViewModaless(inController, player, transRep.GetAll(), trainRep.GetAll(), teamRep.GetAll(), trainerRep.GetAll());
         }
 
-        public bool ShowPlayerSettings(IPlayerSettingsView form, Player player, PlayerRepository playerRepository)
+        public bool ShowPlayerSettings(ISettingsPlayerView form, Player player, IPlayerRepository playerRepository, IAuthController authController)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.OK)
             {
-                if (VerifyPlayerInput(form.Email, form.PasswordCurrent, form.PasswordNew, playerRepository))
+                if (authController.VerifyUpdateUserInput(form.Email, form.PasswordCurrent, form.PasswordNew))
                     return playerRepository.UpdatePlayerValues(player, form.Email, form.PasswordCurrent, form.PasswordNew);
                 else
                     return false;
             }
-            return true;
-        }
-
-        private bool VerifyPlayerInput(string email, string passwordCurrent, string passwordNew, PlayerRepository playerRepository)
-        {
-            if (!ValidationFunctions.IsValidEmail(email))
-                return false;
-            if (!ValidationFunctions.IsValidPassword(passwordCurrent))
-                return false;
-            if (!ValidationFunctions.IsValidPassword(passwordNew))
-                return false;
             return true;
         }
     }

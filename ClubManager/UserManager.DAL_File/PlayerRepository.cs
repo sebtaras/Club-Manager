@@ -22,6 +22,11 @@ namespace ClubManager.DAL_File
         {
             _listPlayers.Remove(player);
         }
+        
+        public List<Player> GetAll()
+        {
+            return _listPlayers;
+        }
 
         public Player GetPlayerById(int id)
         {
@@ -52,11 +57,6 @@ namespace ClubManager.DAL_File
                 }
             }
             return false;
-        }
-
-        public List<Player> GetAll()
-        {
-            return _listPlayers;
         }
 
         public void Verify(Player player)

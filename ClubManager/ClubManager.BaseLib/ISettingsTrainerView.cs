@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace ClubManager.BaseLib
 {
-    public interface IPlayerSettingsView
+    public interface ISettingsTrainerView
     {
         DialogResult ShowViewModal();
         string Email { get; }

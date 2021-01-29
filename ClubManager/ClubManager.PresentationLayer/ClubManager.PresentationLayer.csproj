@@ -79,11 +79,23 @@
     <Compile Include="formLogIn.Designer.cs">
       <DependentUpon>formLogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="formPlayerSettings.cs">
+    <Compile Include="formSettingsPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formPlayerSettings.Designer.cs">
-      <DependentUpon>formPlayerSettings.cs</DependentUpon>
+    <Compile Include="formSettingsPlayer.Designer.cs">
+      <DependentUpon>formSettingsPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formSettingsAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSettingsAdmin.Designer.cs">
+      <DependentUpon>formSettingsAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formSettingsTrainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSettingsTrainer.Designer.cs">
+      <DependentUpon>formSettingsTrainer.cs</DependentUpon>
     </Compile>
     <Compile Include="formTrainerCreateTraining.cs">
       <SubType>Form</SubType>
@@ -167,11 +179,17 @@
     <EmbeddedResource Include="formLogIn.resx">
       <DependentUpon>formLogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formPlayerSettings.resx">
-      <DependentUpon>formPlayerSettings.cs</DependentUpon>
+    <EmbeddedResource Include="formSettingsAdmin.resx">
+      <DependentUpon>formSettingsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSettingsPlayer.resx">
+      <DependentUpon>formSettingsPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formRegister.resx">
       <DependentUpon>formRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSettingsTrainer.resx">
+      <DependentUpon>formSettingsTrainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formTrainerCreateTraining.resx">
       <DependentUpon>formTrainerCreateTraining.cs</DependentUpon>

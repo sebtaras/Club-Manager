@@ -24,6 +24,12 @@ namespace ClubManager.DAL_File
             _teamList.Remove(team);
             
         }
+
+        public List<Team> GetAll()
+        {
+            return _teamList;
+        }
+
         public Team GetTeamById(int id)
         {
             return _teamList.Find(t => t.Id == id);

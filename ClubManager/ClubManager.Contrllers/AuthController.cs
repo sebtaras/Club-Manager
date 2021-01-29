@@ -6,7 +6,7 @@ using System;
 
 namespace ClubManager.Contrllers
 {
-    public class AuthController
+    public class AuthController : IAuthController
     {
         public string LogInUser(string email, string password, PlayerRepository playerRepository, TrainerRepository trainerRepository, AdminRepository adminRepository)
         {
@@ -28,14 +28,14 @@ namespace ClubManager.Contrllers
             return "";
         }
 
-        internal bool VerifyLoginInput(string email, string password)
+        public bool VerifyLoginInput(string email, string password)
         {
             if (!ValidationFunctions.IsValidEmail(email) || password.Length < 6)
                 return false;
             return true;
         }
 
-        internal bool VerifyRegisterInput(string email, string password, string firstName, string lastName, string role, string age, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public bool VerifyRegisterInput(string email, string password, string firstName, string lastName, string role, string age, PlayerRepository playerRepository, TrainerRepository trainerRepository)
         {
             if (!ValidationFunctions.IsValidEmail(email))
                 return false;
@@ -48,26 +48,37 @@ namespace ClubManager.Contrllers
             if (role == "")
                 return false;
 
-            switch (role) {
-
+            switch (role)
+            {
                 case "Player":
                     {
-                        if(RegisterPlayer(email, password, firstName, lastName, age, playerRepository, trainerRepository))
+                        if (RegisterPlayer(email, password, firstName, lastName, age, playerRepository, trainerRepository))
                             return true;
                         return false;
                     }
                 case "Trainer":
                     {
-                        if(RegisterTrainer(email, password, firstName, lastName, trainerRepository, playerRepository))
+                        if (RegisterTrainer(email, password, firstName, lastName, trainerRepository, playerRepository))
                             return true;
                         return false;
                     }
                 case "": return false;
             }
             return false;
-            }
+        }
 
-        private bool RegisterTrainer(string email, string password, string firstName, string lastName, TrainerRepository trainerRepository, PlayerRepository playerRepository)
+        public bool VerifyUpdateUserInput(string email, string passwordCurrent, string passwordNew)
+        {
+            if (!ValidationFunctions.IsValidEmail(email))
+                return false;
+            if (!ValidationFunctions.IsValidPassword(passwordCurrent))
+                return false;
+            if (!ValidationFunctions.IsValidPassword(passwordNew))
+                return false;
+            return true;
+        }
+
+        public bool RegisterTrainer(string email, string password, string firstName, string lastName, TrainerRepository trainerRepository, PlayerRepository playerRepository)
         {
             Trainer newTrainer = new Trainer(1, firstName, lastName, email, password, false);
             Player checkEmailInUse = new Player(1, firstName, lastName, email, password, 20, false);
@@ -79,7 +90,7 @@ namespace ClubManager.Contrllers
             return false;
         }
 
-        private bool RegisterPlayer(string email, string password, string firstName, string lastName, string age, PlayerRepository playerRepository, TrainerRepository trainerRepository)
+        public bool RegisterPlayer(string email, string password, string firstName, string lastName, string age, PlayerRepository playerRepository, TrainerRepository trainerRepository)
         {
             Player newPlayer = new Player(1, firstName, lastName, email, password, int.Parse(age), false);
             Trainer checkEmailInUse = new Trainer(1, firstName, lastName, email, password, false);

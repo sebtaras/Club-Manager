@@ -11,8 +11,7 @@ namespace ClubManager.Models.Repositories
         void Delete(Player player);
         void Verify(Player player);
         List<Player> GetAll();
-        //Player getPlayer();
         bool CheckPlayerExists(Player player);
-
+        bool UpdatePlayerValues(Player player, string email, string passwordCurrent, string passwordNew);
     }
 }
