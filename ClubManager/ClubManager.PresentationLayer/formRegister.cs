@@ -47,12 +47,12 @@ namespace ClubManager.PresentationLayer
         public void ShowViewModaless(IMainController inController)
         {
             _controller = inController;
-            this.Show();
+            Show();
         }
 
         public void HideForm()
         {
-            this.Hide();
+            Hide();
         }
 
         private void SelectedPlayerRole(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace ClubManager.PresentationLayer
                 MessageBox.Show("Incorrect register input or email already in use.");
             else
             {
-                MessageBox.Show("Registering");
+                MessageBox.Show("Account pending verification.");
             }
         }
     }

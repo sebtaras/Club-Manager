@@ -74,7 +74,7 @@ namespace ClubManager.PresentationLayer
             this.GoToLogin.Location = new System.Drawing.Point(280, 390);
             this.GoToLogin.Name = "GoToLogin";
             this.GoToLogin.Size = new System.Drawing.Size(241, 34);
-            this.GoToLogin.TabIndex = 13;
+            this.GoToLogin.TabIndex = 9;
             this.GoToLogin.Text = "Login instead";
             this.GoToLogin.UseVisualStyleBackColor = true;
             this.GoToLogin.Click += new System.EventHandler(this.SwitchToLogin);
@@ -85,7 +85,7 @@ namespace ClubManager.PresentationLayer
             this.RegisterButton.Location = new System.Drawing.Point(280, 310);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(241, 34);
-            this.RegisterButton.TabIndex = 12;
+            this.RegisterButton.TabIndex = 8;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterUser);
@@ -97,7 +97,7 @@ namespace ClubManager.PresentationLayer
             this.PasswordInput.Name = "PasswordInput";
             this.PasswordInput.PasswordChar = '*';
             this.PasswordInput.Size = new System.Drawing.Size(219, 27);
-            this.PasswordInput.TabIndex = 11;
+            this.PasswordInput.TabIndex = 2;
             // 
             // label2
             // 
@@ -115,7 +115,7 @@ namespace ClubManager.PresentationLayer
             this.EmailInput.Location = new System.Drawing.Point(129, 96);
             this.EmailInput.Name = "EmailInput";
             this.EmailInput.Size = new System.Drawing.Size(219, 27);
-            this.EmailInput.TabIndex = 9;
+            this.EmailInput.TabIndex = 1;
             // 
             // label1
             // 
@@ -133,7 +133,7 @@ namespace ClubManager.PresentationLayer
             this.LastNameInput.Location = new System.Drawing.Point(442, 159);
             this.LastNameInput.Name = "LastNameInput";
             this.LastNameInput.Size = new System.Drawing.Size(214, 27);
-            this.LastNameInput.TabIndex = 19;
+            this.LastNameInput.TabIndex = 4;
             // 
             // label5
             // 
@@ -151,7 +151,7 @@ namespace ClubManager.PresentationLayer
             this.FirstNameInput.Location = new System.Drawing.Point(442, 96);
             this.FirstNameInput.Name = "FirstNameInput";
             this.FirstNameInput.Size = new System.Drawing.Size(219, 27);
-            this.FirstNameInput.TabIndex = 17;
+            this.FirstNameInput.TabIndex = 3;
             // 
             // label6
             // 
@@ -170,7 +170,7 @@ namespace ClubManager.PresentationLayer
             this.PlayerRB.Location = new System.Drawing.Point(361, 207);
             this.PlayerRB.Name = "PlayerRB";
             this.PlayerRB.Size = new System.Drawing.Size(75, 23);
-            this.PlayerRB.TabIndex = 20;
+            this.PlayerRB.TabIndex = 5;
             this.PlayerRB.TabStop = true;
             this.PlayerRB.Text = "Player";
             this.PlayerRB.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@ namespace ClubManager.PresentationLayer
             this.TrainerRB.Location = new System.Drawing.Point(442, 207);
             this.TrainerRB.Name = "TrainerRB";
             this.TrainerRB.Size = new System.Drawing.Size(79, 23);
-            this.TrainerRB.TabIndex = 21;
+            this.TrainerRB.TabIndex = 6;
             this.TrainerRB.TabStop = true;
             this.TrainerRB.Text = "Trainer";
             this.TrainerRB.UseVisualStyleBackColor = true;
@@ -205,7 +205,7 @@ namespace ClubManager.PresentationLayer
             this.AgeInput.Location = new System.Drawing.Point(280, 265);
             this.AgeInput.Name = "AgeInput";
             this.AgeInput.Size = new System.Drawing.Size(241, 27);
-            this.AgeInput.TabIndex = 24;
+            this.AgeInput.TabIndex = 7;
             // 
             // AgeLabel
             // 
@@ -217,7 +217,7 @@ namespace ClubManager.PresentationLayer
             this.AgeLabel.TabIndex = 23;
             this.AgeLabel.Text = "Age";
             // 
-            // formRegister
+            // FormRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -239,7 +239,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EmailInput);
             this.Controls.Add(this.label1);
-            this.Name = "formRegister";
+            this.Name = "FormRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formRegister";
             this.ResumeLayout(false);
