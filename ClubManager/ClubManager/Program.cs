@@ -35,7 +35,11 @@ namespace ClubManager
                 adminRepository, 
                 trainingRepository,
                 teamRepository,
-                transactionRepository);
+                transactionRepository,
+                new AdminController(),
+                new PlayerController(),
+                new TrainerController(),
+                new AuthController());
             mainController.LoadDefaultModel();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);

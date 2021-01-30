@@ -26,7 +26,7 @@ namespace ClubManager.Contrllers
             if (result == DialogResult.OK)
             {
                 if (authController.VerifyUpdateUserInput(form.Email, form.PasswordCurrent, form.PasswordNew))
-                    return playerRepository.UpdatePlayerValues(player, form.Email, form.PasswordCurrent, form.PasswordNew);
+                    return playerRepository.UpdatePlayerValues(player.Id, form.Email, form.PasswordCurrent, form.PasswordNew);
                 else
                     return false;
             }

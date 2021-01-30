@@ -54,7 +54,7 @@ namespace ClubManager.PresentationLayer
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(524, 407);
+            this.button1.Location = new System.Drawing.Point(555, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(248, 42);
             this.button1.TabIndex = 1;
@@ -72,7 +72,7 @@ namespace ClubManager.PresentationLayer
             this.TrainingList.HideSelection = false;
             this.TrainingList.Location = new System.Drawing.Point(12, 31);
             this.TrainingList.Name = "TrainingList";
-            this.TrainingList.Size = new System.Drawing.Size(506, 370);
+            this.TrainingList.Size = new System.Drawing.Size(537, 370);
             this.TrainingList.TabIndex = 2;
             this.TrainingList.UseCompatibleStateImageBehavior = false;
             this.TrainingList.View = System.Windows.Forms.View.Details;
@@ -85,17 +85,17 @@ namespace ClubManager.PresentationLayer
             // Trainer
             // 
             this.Trainer.Text = "Trainer";
-            this.Trainer.Width = 160;
+            this.Trainer.Width = 130;
             // 
             // StartDate
             // 
             this.StartDate.Text = "Start Time";
-            this.StartDate.Width = 140;
+            this.StartDate.Width = 185;
             // 
             // EndDate
             // 
             this.EndDate.Text = "End Time";
-            this.EndDate.Width = 140;
+            this.EndDate.Width = 185;
             // 
             // label1
             // 
@@ -116,7 +116,7 @@ namespace ClubManager.PresentationLayer
             this.Amount,
             this.Paid});
             this.TransactionList.HideSelection = false;
-            this.TransactionList.Location = new System.Drawing.Point(524, 31);
+            this.TransactionList.Location = new System.Drawing.Point(555, 31);
             this.TransactionList.Name = "TransactionList";
             this.TransactionList.Size = new System.Drawing.Size(248, 370);
             this.TransactionList.TabIndex = 4;
@@ -152,7 +152,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(520, 9);
+            this.label2.Location = new System.Drawing.Point(551, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 19);
             this.label2.TabIndex = 5;
@@ -162,7 +162,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.VerificationLabel.AutoSize = true;
             this.VerificationLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.VerificationLabel.Location = new System.Drawing.Point(269, 419);
+            this.VerificationLabel.Location = new System.Drawing.Point(300, 419);
             this.VerificationLabel.Name = "VerificationLabel";
             this.VerificationLabel.Size = new System.Drawing.Size(249, 19);
             this.VerificationLabel.TabIndex = 6;
@@ -179,11 +179,11 @@ namespace ClubManager.PresentationLayer
             this.CreateTransactionsButon.UseVisualStyleBackColor = true;
             this.CreateTransactionsButon.Click += new System.EventHandler(this.ShowUserSettings);
             // 
-            // formUIPlayer
+            // FormUIPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(815, 461);
             this.Controls.Add(this.CreateTransactionsButon);
             this.Controls.Add(this.VerificationLabel);
             this.Controls.Add(this.label2);
@@ -191,7 +191,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TrainingList);
             this.Controls.Add(this.button1);
-            this.Name = "formUIPlayer";
+            this.Name = "FormUIPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formPlayerUI";
             this.ResumeLayout(false);

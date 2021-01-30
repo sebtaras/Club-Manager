@@ -10,5 +10,6 @@ namespace ClubManager.Models.Repositories
         void Delete(int id);
         List<Training> GetAll();
         int GetNextID();
+        Training GetTrainingById(int trainingId);
     }
 }

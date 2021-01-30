@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ClubManager.Contrllers
 {
-    class TrainerController : ITrainerController
+    public class TrainerController : ITrainerController
     {
         public void Homepage(ITrainerView form, IMainController inController, Trainer inTrainer, ITrainerRepository trainerRepository, ITrainingRepository trainingRepository, ITeamRepository teamRepository, IPlayerRepository playerRepository)
         {

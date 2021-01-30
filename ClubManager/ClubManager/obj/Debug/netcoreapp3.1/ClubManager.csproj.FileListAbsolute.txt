@@ -69,10 +69,6 @@ C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\bin\
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.Models.pdb
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\bin\Debug\netcoreapp3.1\ClubManager.DAL_File.pdb
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.csprojAssemblyReference.cache
-C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.LoginForm.resources
-C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.PlayerUI.resources
-C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.RegisterForm.resources
-C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.csproj.GenerateResource.cache
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.AssemblyInfoInputs.cache
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.AssemblyInfo.cs
 C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager\obj\Debug\netcoreapp3.1\ClubManager.csproj.CoreCompileInputs.cache

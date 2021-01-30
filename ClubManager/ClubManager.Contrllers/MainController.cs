@@ -28,7 +28,12 @@ namespace ClubManager.Contrllers
             IAdminRepository adminRepository, 
             ITrainingRepository trainingRepository,
             ITeamRepository teamRepository,
-            ITransactionRepository transactionRepository)
+            ITransactionRepository transactionRepository,
+            IAdminController adminController,
+            IPlayerController playerController,
+            ITrainerController trainerController,
+            IAuthController authController
+            )
         {
             _formsFactory = formsFactory;
             _playerRepository = playerRepository;
@@ -37,10 +42,10 @@ namespace ClubManager.Contrllers
             _trainingRepository = trainingRepository;
             _teamRepository = teamRepository;
             _transactionRepository = transactionRepository;
-            _adminController = new AdminController();
-            _playerController = new PlayerController();
-            _trainerController = new TrainerController();
-            _authController = new AuthController();
+            _adminController = adminController;
+            _playerController = playerController;
+            _trainerController = trainerController;
+            _authController = authController;
         }
 
         public void LoadDefaultModel()

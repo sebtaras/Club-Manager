@@ -13,7 +13,7 @@ namespace ClubManager.Models.Repositories
         void Verify(Player player);
         List<Player> GetAll();
         bool CheckPlayerExists(Player player);
-        bool UpdatePlayerValues(Player player, string email, string passwordCurrent, string passwordNew);
+        bool UpdatePlayerValues(int playerId, string email, string passwordCurrent, string passwordNew);
         void DeleteTransaction(Player player, Transaction t);
     }
 }

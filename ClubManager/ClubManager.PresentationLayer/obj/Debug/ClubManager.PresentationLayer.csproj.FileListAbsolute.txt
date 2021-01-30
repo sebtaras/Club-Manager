@@ -52,3 +52,13 @@ C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.Presenta
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formSettingsAdmin.resources
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formSettingsPlayer.resources
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.formSettingsTrainer.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormAdminPlayerOptions.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormAdminShowTeam.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormAdminTrainerOptions.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormAdminCreateTransactions.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormAdminTransactionOptions.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormSettingsAdmin.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormSettingsPlayer.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormSettingsTrainer.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormTrainerCreateTraining.resources
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.PresentationLayer\obj\Debug\ClubManager.PresentationLayer.FormTrainerDeleteTraining.resources

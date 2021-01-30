@@ -38,3 +38,15 @@ C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.BaseLib\
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\Accessibility.xml
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Deployment.xml
 C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.xml
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Windows.Forms.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Security.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Configuration.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\Accessibility.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Deployment.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.dll
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Windows.Forms.xml
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Security.xml
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Configuration.xml
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\Accessibility.xml
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Deployment.xml
+C:\Users\Sebastian\Desktop\ClubManager\Club-Manager\ClubManager\ClubManager.BaseLib\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.xml
