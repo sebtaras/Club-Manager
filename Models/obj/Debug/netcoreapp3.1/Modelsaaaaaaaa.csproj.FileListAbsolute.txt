@@ -1,4 +1,0 @@
-C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\Models\obj\Debug\netcoreapp3.1\Modelsaaaaaaaa.csprojAssemblyReference.cache
-C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\Models\obj\Debug\netcoreapp3.1\Modelsaaaaaaaa.AssemblyInfoInputs.cache
-C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\Models\obj\Debug\netcoreapp3.1\Modelsaaaaaaaa.AssemblyInfo.cs
-C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager\Models\obj\Debug\netcoreapp3.1\Modelsaaaaaaaa.csproj.CoreCompileInputs.cache
