@@ -35,7 +35,7 @@ namespace ClubManager.PresentationLayer
 
         public void SetPlayerValues(Player player, List<Team> teams)
         {
-            FullName.Text = "Full name: " + player.FirstName + " " + player.LastName;
+            FullName.Text = "Name: " + player.FirstName + " " + player.LastName;
             Age.Text = "Age: " + player.Age.ToString();
             foreach(Team team in teams)
             {
