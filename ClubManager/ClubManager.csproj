@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClubManager.BaseLib\ClubManager.BaseLib.csproj" />
-    <ProjectReference Include="..\ClubManager.Contrllers\ClubManager.Contrllers.csproj" />
+    <ProjectReference Include="..\ClubManager.Contrllers\ClubManager.Controllers.csproj" />
     <ProjectReference Include="..\ClubManager.PresentationLayer\ClubManager.PresentationLayer.csproj" />
     <ProjectReference Include="..\Models1\ClubManager.Models.csproj" />
     <ProjectReference Include="..\UserManager.DAL_File\ClubManager.DAL_File.csproj" />

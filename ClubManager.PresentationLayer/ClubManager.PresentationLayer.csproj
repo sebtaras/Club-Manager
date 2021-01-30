@@ -147,9 +147,9 @@
       <Project>{dec4d0ae-ce4f-4e53-bd42-4641992317d0}</Project>
       <Name>ClubManager.BaseLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClubManager.Contrllers\ClubManager.Contrllers.csproj">
+    <ProjectReference Include="..\ClubManager.Contrllers\ClubManager.Controllers.csproj">
       <Project>{e927ad63-d10f-4671-b6eb-37d8dc74d783}</Project>
-      <Name>ClubManager.Contrllers</Name>
+      <Name>ClubManager.Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models1\ClubManager.Models.csproj">
       <Project>{C71CA14B-44D9-44AE-A3DF-D16885D1B40E}</Project>

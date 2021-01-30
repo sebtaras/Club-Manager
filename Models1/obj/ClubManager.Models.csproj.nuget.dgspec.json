@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj": {}
+    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj": {
+    "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj",
+        "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj",
         "projectName": "ClubManager.Models",
-        "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj",
-        "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\obj\\",
+        "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj",
+        "packagesPath": "C:\\Users\\sebo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -12,7 +12,7 @@ namespace ClubManager.Models
         public List<int> TransactionIds { get; set; }
 
         public Player(int id, string firstName, string lastName, string email, string password, int age, bool verified = true) 
-            : base(id, firstName, lastName, email, password, 3) { 
+            : base(id, firstName, lastName, email, password) { 
             Age = age;
             Verified = verified;
             TransactionIds = new List<int>();

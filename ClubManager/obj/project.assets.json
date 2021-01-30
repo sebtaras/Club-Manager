@@ -1399,7 +1399,7 @@
           "bin/placeholder/ClubManager.BaseLib.dll": {}
         }
       },
-      "ClubManager.Contrllers/1.0.0": {
+      "ClubManager.Controllers/1.0.0": {
         "type": "project",
         "dependencies": {
           "ClubManager.BaseLib": "1.0.0",
@@ -1407,10 +1407,10 @@
           "ClubManager.Models": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ClubManager.Contrllers.dll": {}
+          "bin/placeholder/ClubManager.Controllers.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ClubManager.Contrllers.dll": {}
+          "bin/placeholder/ClubManager.Controllers.dll": {}
         }
       },
       "ClubManager.DAL_File/1.0.0": {
@@ -1440,7 +1440,7 @@
         "type": "project",
         "dependencies": {
           "ClubManager.BaseLib": "1.0.0",
-          "ClubManager.Contrllers": "1.0.0",
+          "ClubManager.Controllers": "1.0.0",
           "ClubManager.DAL_File": "1.0.0",
           "ClubManager.Models": "1.0.0"
         },
@@ -1510,7 +1510,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -1626,7 +1626,7 @@
       ]
     },
     "Remotion.Linq/2.2.0": {
-      "sha512": "twDAH8dAXXCAf3sRv1Tf94u66eEHvgU75hfn1nn2v4fSWXD50XoDOAk8WpSrbViNuMkB4kN1ElnOGm1c519IHg==",
+      "sha512": "fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
       "type": "package",
       "path": "remotion.linq/2.2.0",
       "files": [
@@ -1968,7 +1968,7 @@
       ]
     },
     "System.Buffers/4.3.0": {
-      "sha512": "Pcv2b27ffpu09pjN3PgbnQWYEdhOBcesYYsmQO/tZC8Imw74TJJ8X1j+/+Q7uWprz0/sQiUpuCmYsY1w5GSMvg==",
+      "sha512": "ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==",
       "type": "package",
       "path": "system.buffers/4.3.0",
       "files": [
@@ -3055,7 +3055,7 @@
       ]
     },
     "System.Net.Http/4.3.0": {
-      "sha512": "6BBc6BUa7pWFL7KUI/c8wb18IobTZHTtcQKksxJI5F9DRDShdtOvBEJzg5jJbFdTll7gRE+5yXUlq72ciLE+QQ==",
+      "sha512": "sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==",
       "type": "package",
       "path": "system.net.http/4.3.0",
       "files": [
@@ -5128,10 +5128,10 @@
       "path": "../ClubManager.BaseLib/ClubManager.BaseLib.csproj",
       "msbuildProject": "../ClubManager.BaseLib/ClubManager.BaseLib.csproj"
     },
-    "ClubManager.Contrllers/1.0.0": {
+    "ClubManager.Controllers/1.0.0": {
       "type": "project",
-      "path": "../ClubManager.Contrllers/ClubManager.Contrllers.csproj",
-      "msbuildProject": "../ClubManager.Contrllers/ClubManager.Contrllers.csproj"
+      "path": "../ClubManager.Contrllers/ClubManager.Controllers.csproj",
+      "msbuildProject": "../ClubManager.Contrllers/ClubManager.Controllers.csproj"
     },
     "ClubManager.DAL_File/1.0.0": {
       "type": "project",
@@ -5152,7 +5152,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ClubManager.BaseLib >= 1.0.0",
-      "ClubManager.Contrllers >= 1.0.0",
+      "ClubManager.Controllers >= 1.0.0",
       "ClubManager.DAL_File >= 1.0.0",
       "ClubManager.Models >= 1.0.0",
       "ClubManager.PresentationLayer >= 1.0.0",
@@ -5162,23 +5162,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sebastian\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\sebo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.csproj",
+      "projectUniqueName": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.csproj",
       "projectName": "ClubManager",
-      "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\ClubManager.csproj",
-      "packagesPath": "C:\\Users\\Sebastian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager\\obj\\",
+      "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\ClubManager.csproj",
+      "packagesPath": "C:\\Users\\sebo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Sebastian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sebo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5192,20 +5188,20 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
-              "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj"
+            "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj": {
+              "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager.BaseLib\\ClubManager.BaseLib.csproj"
             },
-            "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj": {
-              "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager.Contrllers\\ClubManager.Contrllers.csproj"
+            "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager.Contrllers\\ClubManager.Controllers.csproj": {
+              "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager.Contrllers\\ClubManager.Controllers.csproj"
             },
-            "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager.PresentationLayer\\ClubManager.PresentationLayer.csproj": {
-              "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\ClubManager.PresentationLayer\\ClubManager.PresentationLayer.csproj"
+            "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager.PresentationLayer\\ClubManager.PresentationLayer.csproj": {
+              "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\ClubManager.PresentationLayer\\ClubManager.PresentationLayer.csproj"
             },
-            "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj": {
-              "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj"
+            "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj": {
+              "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj"
             },
-            "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
-              "projectPath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
+            "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj": {
+              "projectPath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\UserManager.DAL_File\\ClubManager.DAL_File.csproj"
             }
           }
         }

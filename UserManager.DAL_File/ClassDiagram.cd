@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Svi repozitoriji su singletoni&#xD;&#xA;">
+    <Position X="4.395" Y="4.145" Height="0.562" Width="2.075" />
+  </Comment>
+  <Class Name="ClubManager.Models.EntityBase&lt;TId&gt;" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.Models.Player">
+    <Position X="1" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.Models.Admin">
+    <Position X="5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.Models.Training">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.Models.Team">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.Models.Transaction">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.DAL_File.AdminRepository">
+    <Position X="4.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAQAAAAAGAAAAAQAAABAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>AdminRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="ClubManager.DAL_File.TransactionRepository">
+    <Position X="8.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAQAIAABAAAAAAAAAAAAEAQAAAAgAAAAAAAAA=</HashCode>
+      <FileName>TransactionRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="ClubManager.DAL_File.TeamRepository">
+    <Position X="10.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAQAAAABBACCAApABAAAECAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>TeamRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubManager.DAL_File.TrainingRepository">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAQAAAABAAAAAAAAAAAgEEAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>TrainingRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubManager.DAL_File.PlayerRepository">
+    <Position X="0.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAQCAAAQAASAAAAAAAAAEAAAAAAgIgAAAAAAA=</HashCode>
+      <FileName>PlayerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubManager.DAL_File.TrainerRepository">
+    <Position X="2.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAoAAAAAQCAAAxAAAAAAAAAAAAEAAAAAQgAAABAAAAA=</HashCode>
+      <FileName>TrainerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ClubManager.Models.Trainer">
+    <Position X="3" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ClubManager.Models.Person">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClubManager.BaseLib", "Club
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManager.PresentationLayer", "ClubManager.PresentationLayer\ClubManager.PresentationLayer.csproj", "{D97D3477-1B05-4102-85B6-592306027B6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManager.Contrllers", "ClubManager.Contrllers\ClubManager.Contrllers.csproj", "{E927AD63-D10F-4671-B6EB-37D8DC74D783}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClubManager.Controllers", "ClubManager.Contrllers\ClubManager.Controllers.csproj", "{E927AD63-D10F-4671-B6EB-37D8DC74D783}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

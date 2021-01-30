@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IZuQ1OSoFgDjQjSqc0XR73sSLY0isXlWizXUl5TORqSbKedeS5rlyeBH5WqMG+kYWcR9iZcZatBbMLZ6dWZgbg==",
+  "dgSpecHash": "V8cS8lBx58DtJoxk/tFbm+GObZXPWg+Cn2B2sCnNr/YMr5DNkbRYV30xAGFXCb+Y4HC9DuT/BiniM9c7gsCH1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sebastian\\Desktop\\ClubManager\\Club-Manager\\Models1\\ClubManager.Models.csproj",
+  "projectFilePath": "C:\\Users\\sebo\\Desktop\\Labosi\\OBJOBL\\ClubManager\\Models1\\ClubManager.Models.csproj",
   "expectedPackageFiles": [
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\sebo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\sebo\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -69,7 +69,7 @@ namespace ClubManager.DAL_File
             return false;
         }
 
-        public bool UpdatePlayerValues(Trainer trainer, string email, string passwordCurrent, string passwordNew)
+        public bool UpdateTrainerValues(Trainer trainer, string email, string passwordCurrent, string passwordNew)
         {
             foreach (Trainer t in _listTrainers)
             {
