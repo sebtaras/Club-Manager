@@ -137,7 +137,7 @@ namespace ClubManager.PresentationLayer
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // formVerifyUser
+            // FormVerifyUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -151,9 +151,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.LastName);
             this.Controls.Add(this.FirstName);
             this.Controls.Add(this.label1);
-            this.Name = "formVerifyUser";
+            this.Name = "FormVerifyUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formVerifyUser";
+            this.Text = "Verify User";
             this.ResumeLayout(false);
             this.PerformLayout();
 

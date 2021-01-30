@@ -1,0 +1,13 @@
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Contrllers.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Contrllers.pdb
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.BaseLib.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.DAL_File.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Models.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.BaseLib.pdb
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.Models.pdb
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\bin\Debug\ClubManager.DAL_File.pdb
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Controllers.csprojAssemblyReference.cache
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Controllers.csproj.CoreCompileInputs.cache
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Controllers.csproj.CopyComplete
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.dll
+C:\Users\sebo\Desktop\Labosi\OBJOBL\ClubManager\ClubManager.Contrllers\obj\Debug\ClubManager.Contrllers.pdb

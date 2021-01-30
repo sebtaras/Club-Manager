@@ -50,19 +50,19 @@ namespace ClubManager.Contrllers
 
         public void LoadDefaultModel()
         {
-            _adminRepository.Add(new Admin(1, "admin", "admin", "a@m", "aaaaaa"));
+            _adminRepository.Add(new Admin(1, "Admin", "Admin", "a@m", "asdasd"));
 
             Transaction bd_t1 = new Transaction(1, (decimal)200.00, 1, 2020, 12);
             Transaction bd_t2 = new Transaction(2, (decimal)200.00, 1, 2021, 1);
             _transactionRepository.Add(bd_t1);
             _transactionRepository.Add(bd_t2);
 
-            Player player_bd = new Player(1, "bob", "dasilva", "bd@mail", "password", 15, true);
-            Player player_mp = new Player(1, "marko", "perkovic", "mp@mail", "password", 15, true);
-            Player player_mz = new Player(1, "mali", "zugec", "mz@mail", "password", 6, true);
-            Player player_mb = new Player(1, "zugecov", "brat", "mb@mail", "password", 6, false);
-            Player player_poreg = new Player(1, "poreg", "srbin", "poreg@mail", "password", 17, false);
-            Player player_it = new Player(1, "ivan", "tarzan", "mb@mail", "password", 7, true);
+            Player player_bd = new Player(1, "Bob", "Dasilva", "bd@mail", "asdasd", 15, true);
+            Player player_mp = new Player(1, "Mijo", "Klašić", "mp@mail", "asdasd", 15, true);
+            Player player_mz = new Player(1, "Josip", "Janeš", "mz@mail", "asdasd", 6, true);
+            Player player_mb = new Player(1, "Hrvoje", "Horvat", "mb@mail", "asdasd", 6, false);
+            Player player_poreg = new Player(1, "Marko", "Lipovac", "poreg@mail", "asdasd", 17, false);
+            Player player_it = new Player(1, "Ivan", "Tarzan", "mb@mail", "asdasd", 7, true);
             player_bd.TransactionIds.Add(1);
             player_bd.TransactionIds.Add(2);
             player_mz.TeamId = 1;
@@ -75,18 +75,18 @@ namespace ClubManager.Contrllers
             _playerRepository.Add(player_it);
 
 
-            Trainer trainer1 = new Trainer(1, "gospon", "trener", "gt@mail", "password", true);
-            Trainer trainer2 = new Trainer(1, "brkonja", "bradic", "bb@mail", "password", true);
-            Trainer trainer3 = new Trainer(1, "drugi", "trener", "dt@mail", "password", false);
+            Trainer trainer1 = new Trainer(1, "Antonio", "Trener", "gt@mail", "asdasd", true);
+            Trainer trainer2 = new Trainer(1, "Siniša", "Bradić", "bb@mail", "asdasd", true);
+            Trainer trainer3 = new Trainer(1, "Domagoj", "Penava", "dt@mail", "asdasd", false);
             trainer1.TeamIds.Add(1);
             _trainerRepository.Add(trainer1);
             _trainerRepository.Add(trainer2);
             _trainerRepository.Add(trainer3);
 
-            Team zagici = new Team(1, "Zagici", 6, 7);
-            Team limaci = new Team(1, "Limaci", 8, 10);
-            Team mladiPioniri = new Team(1, "Mladi Pioniri", 11, 12);
-            Team pioniri = new Team(1, "Pioniri", 13, 15);
+            Team zagici = new Team(1, "Zagići", 6, 7);
+            Team limaci = new Team(1, "Limaći", 8, 10);
+            Team mladiPioniri = new Team(1, "Mlađi Pioniri", 11, 12);
+            Team pioniri = new Team(1, "Stariji Pioniri", 13, 15);
             Team juniori = new Team(1, "Juniori", 16, 18);
             Team seniori = new Team(1, "Seniori", 19, 30);
             zagici.ListTrainerIds.Add(1);

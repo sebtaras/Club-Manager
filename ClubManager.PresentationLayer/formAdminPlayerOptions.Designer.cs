@@ -186,7 +186,7 @@ namespace ClubManager.PresentationLayer
             this.Paid.Text = "Paid ";
             this.Paid.Width = 80;
             // 
-            // formAdminPlayerOptions
+            // FormAdminPlayerOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -201,9 +201,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.Age);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.FullName);
-            this.Name = "formAdminPlayerOptions";
+            this.Name = "FormAdminPlayerOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formAdminPlayerOptions";
+            this.Text = "Player Options";
             this.DoubleClick += new System.EventHandler(this.AdminTransactionOptions);
             this.ResumeLayout(false);
             this.PerformLayout();

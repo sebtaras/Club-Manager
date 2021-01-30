@@ -140,7 +140,7 @@ namespace ClubManager.PresentationLayer
             // 
             this.comboItemBindingSource.DataSource = typeof(ClubManager.BaseLib.ComboItem);
             // 
-            // formTrainerCreateTraining
+            // FormTrainerCreateTraining
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,9 +154,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.button1);
             this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.StartTimePicker);
-            this.Name = "formTrainerCreateTraining";
+            this.Name = "FormTrainerCreateTraining";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formTrainerCreateTraining";
+            this.Text = "Create Training";
             ((System.ComponentModel.ISupportInitialize)(this.comboItemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

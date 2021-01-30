@@ -292,7 +292,7 @@ namespace ClubManager.PresentationLayer
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ShowUserSettings);
             // 
-            // formUIAdmin
+            // FormUIAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -308,9 +308,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.TeamList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "formUIAdmin";
+            this.Name = "FormUIAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formUIAdmin";
+            this.Text = "ClubManager - Admin";
             this.ResumeLayout(false);
             this.PerformLayout();
 

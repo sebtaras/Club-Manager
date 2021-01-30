@@ -149,7 +149,7 @@ namespace ClubManager.PresentationLayer
             this.label3.TabIndex = 20;
             this.label3.Text = "Players";
             // 
-            // formAdminShowTeam
+            // FormAdminShowTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,9 +160,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.TeamName);
             this.Controls.Add(this.DoneButton);
             this.Controls.Add(this.PlayerList);
-            this.Name = "formAdminShowTeam";
+            this.Name = "FormAdminShowTeam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formAdminshowTeam";
+            this.Text = "Team";
             this.ResumeLayout(false);
             this.PerformLayout();
 

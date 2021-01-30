@@ -42,9 +42,9 @@ namespace ClubManager.PresentationLayer
             // 
             this.AddButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.AddButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.AddButton.Location = new System.Drawing.Point(7, 93);
+            this.AddButton.Location = new System.Drawing.Point(7, 92);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(207, 34);
+            this.AddButton.Size = new System.Drawing.Size(235, 34);
             this.AddButton.TabIndex = 4;
             this.AddButton.Text = "Change paid status";
             this.AddButton.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@ namespace ClubManager.PresentationLayer
             this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(7, 133);
+            this.DeleteButton.Location = new System.Drawing.Point(7, 132);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(207, 34);
+            this.DeleteButton.Size = new System.Drawing.Size(235, 34);
             this.DeleteButton.TabIndex = 5;
             this.DeleteButton.Text = "Delete transaction";
             this.DeleteButton.UseVisualStyleBackColor = false;
@@ -68,9 +68,9 @@ namespace ClubManager.PresentationLayer
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.button1.Location = new System.Drawing.Point(7, 173);
+            this.button1.Location = new System.Drawing.Point(7, 172);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 34);
+            this.button1.Size = new System.Drawing.Size(235, 34);
             this.button1.TabIndex = 6;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
@@ -115,11 +115,11 @@ namespace ClubManager.PresentationLayer
             this.LabelPaid.TabIndex = 12;
             this.LabelPaid.Text = "Paid";
             // 
-            // formAdminTransactionOptions
+            // FormAdminTransactionOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(220, 214);
+            this.ClientSize = new System.Drawing.Size(247, 214);
             this.Controls.Add(this.LabelPaid);
             this.Controls.Add(this.LabelMonth);
             this.Controls.Add(this.LabelYear);
@@ -127,9 +127,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
-            this.Name = "formAdminTransactionOptions";
+            this.Name = "FormAdminTransactionOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formAdminTransactionOptions";
+            this.Text = "Transaction Options";
             this.ResumeLayout(false);
             this.PerformLayout();
 

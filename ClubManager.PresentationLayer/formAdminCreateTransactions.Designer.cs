@@ -110,7 +110,7 @@ namespace ClubManager.PresentationLayer
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // formAdminCreateTransactions
+            // FormAdminCreateTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,9 +121,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FullName);
             this.Controls.Add(this.AddButton);
-            this.Name = "formAdminCreateTransactions";
+            this.Name = "FormAdminCreateTransactions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formCreateTransactionsView";
+            this.Text = "Create Transactions";
             ((System.ComponentModel.ISupportInitialize)(this.comboItemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

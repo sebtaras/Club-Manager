@@ -31,20 +31,20 @@ namespace ClubManager.PresentationLayer
         {
             this.label2 = new System.Windows.Forms.Label();
             this.PlayerList = new System.Windows.Forms.ListView();
+            this.playerId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.playerFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Age = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.teamFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.TrainingList = new System.Windows.Forms.ListView();
             this.trainingId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TeamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.VerificationLabel = new System.Windows.Forms.Label();
             this.CreateTransactionsButon = new System.Windows.Forms.Button();
             this.CreateTrainingButton = new System.Windows.Forms.Button();
-            this.TeamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.playerId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.teamFullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label2
@@ -72,6 +72,11 @@ namespace ClubManager.PresentationLayer
             this.PlayerList.UseCompatibleStateImageBehavior = false;
             this.PlayerList.View = System.Windows.Forms.View.Details;
             // 
+            // playerId
+            // 
+            this.playerId.Text = "ID";
+            this.playerId.Width = 30;
+            // 
             // playerFullName
             // 
             this.playerFullName.Text = "Name";
@@ -81,6 +86,11 @@ namespace ClubManager.PresentationLayer
             // 
             this.Age.Text = "Age";
             this.Age.Width = 40;
+            // 
+            // teamFullName
+            // 
+            this.teamFullName.Text = "Team";
+            this.teamFullName.Width = 80;
             // 
             // label1
             // 
@@ -112,6 +122,11 @@ namespace ClubManager.PresentationLayer
             // 
             this.trainingId.Text = "ID";
             this.trainingId.Width = 30;
+            // 
+            // TeamName
+            // 
+            this.TeamName.Text = "Team";
+            this.TeamName.Width = 80;
             // 
             // StartDate
             // 
@@ -169,22 +184,7 @@ namespace ClubManager.PresentationLayer
             this.CreateTrainingButton.UseVisualStyleBackColor = true;
             this.CreateTrainingButton.Click += new System.EventHandler(this.CreateTraining);
             // 
-            // TeamName
-            // 
-            this.TeamName.Text = "Team";
-            this.TeamName.Width = 80;
-            // 
-            // playerId
-            // 
-            this.playerId.Text = "ID";
-            this.playerId.Width = 30;
-            // 
-            // teamFullName
-            // 
-            this.teamFullName.Text = "Team";
-            this.teamFullName.Width = 80;
-            // 
-            // formUITrainer
+            // FormUITrainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,9 +197,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TrainingList);
             this.Controls.Add(this.button1);
-            this.Name = "formUITrainer";
+            this.Name = "FormUITrainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formUITrainer";
+            this.Text = "ClubManager";
             this.ResumeLayout(false);
             this.PerformLayout();
 

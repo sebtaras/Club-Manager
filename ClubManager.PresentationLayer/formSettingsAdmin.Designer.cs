@@ -115,7 +115,7 @@ namespace ClubManager.PresentationLayer
             this.label1.TabIndex = 12;
             this.label1.Text = "Email";
             // 
-            // formSettingsAdmin
+            // FormSettingsAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,9 +128,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EmailInput);
             this.Controls.Add(this.label1);
-            this.Name = "formSettingsAdmin";
+            this.Name = "FormSettingsAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formSettingsAdmin";
+            this.Text = "Admin Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -160,7 +160,7 @@ namespace ClubManager.PresentationLayer
             this.label2.TabIndex = 24;
             this.label2.Text = "Or choose a team to remove from";
             // 
-            // formAdminTrainerOptions
+            // FormAdminTrainerOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,9 +175,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.FullName);
-            this.Name = "formAdminTrainerOptions";
+            this.Name = "FormAdminTrainerOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formAdminTrainerOptions";
+            this.Text = "Trainer Options";
             ((System.ComponentModel.ISupportInitialize)(this.comboItemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

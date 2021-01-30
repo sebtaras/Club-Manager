@@ -81,7 +81,7 @@ namespace ClubManager.PresentationLayer
             this.DeleteButton.Text = "Delete training";
             this.DeleteButton.UseVisualStyleBackColor = false;
             // 
-            // formTrainerDeleteTraining
+            // FormTrainerDeleteTraining
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,9 +90,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.TeamName);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DeleteButton);
-            this.Name = "formTrainerDeleteTraining";
+            this.Name = "FormTrainerDeleteTraining";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "formTrainerDeleteTraining";
+            this.Text = "Delete Training";
             this.ResumeLayout(false);
             this.PerformLayout();
 

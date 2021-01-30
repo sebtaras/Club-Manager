@@ -241,7 +241,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label1);
             this.Name = "FormRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formRegister";
+            this.Text = "Club Manager - Register";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -125,7 +125,7 @@ namespace ClubManager.PresentationLayer
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // formLogIn
+            // FormLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,9 +138,9 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EmailInput);
             this.Controls.Add(this.label1);
-            this.Name = "formLogIn";
+            this.Name = "FormLogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formLogIn";
+            this.Text = "Club Manager - Log In";
             this.ResumeLayout(false);
             this.PerformLayout();
 
