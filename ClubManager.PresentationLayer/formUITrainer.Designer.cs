@@ -199,7 +199,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.button1);
             this.Name = "FormUITrainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClubManager";
+            this.Text = "ClubManager - Trainer";
             this.ResumeLayout(false);
             this.PerformLayout();
 

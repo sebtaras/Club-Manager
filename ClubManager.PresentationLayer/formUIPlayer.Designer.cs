@@ -193,7 +193,7 @@ namespace ClubManager.PresentationLayer
             this.Controls.Add(this.button1);
             this.Name = "FormUIPlayer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClubManager";
+            this.Text = "ClubManager - Player";
             this.ResumeLayout(false);
             this.PerformLayout();
 

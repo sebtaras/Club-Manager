@@ -64,6 +64,7 @@ namespace ClubManager.PresentationLayer
             this.PasswordInput.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.PasswordInput.Location = new System.Drawing.Point(281, 195);
             this.PasswordInput.Name = "PasswordInput";
+            this.PasswordInput.PasswordChar = '*';
             this.PasswordInput.Size = new System.Drawing.Size(241, 27);
             this.PasswordInput.TabIndex = 3;
             // 
