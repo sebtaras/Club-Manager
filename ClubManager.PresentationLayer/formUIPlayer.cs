@@ -23,7 +23,7 @@ namespace ClubManager.PresentationLayer
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Player inPlayer, List<Transaction> inListTransactions, List<Training> inListTrainings, List<Team> inListTeams, List<Trainer> inListTrainers)
+        public bool ShowViewModaless(IMainController inController, Player inPlayer, IList<Transaction> inListTransactions, IList<Training> inListTrainings, List<Team> inListTeams, List<Trainer> inListTrainers)
         {
             controller = inController;
             player = inPlayer;
@@ -42,7 +42,7 @@ namespace ClubManager.PresentationLayer
             VerificationLabel.Hide();
         }
 
-        public void DisplayTransactionList(List<Transaction> inListTransactions)
+        public void DisplayTransactionList(IList<Transaction> inListTransactions)
         {
             TransactionList.Items.Clear();
             foreach (Transaction t in inListTransactions)
@@ -54,7 +54,7 @@ namespace ClubManager.PresentationLayer
             }
         }
 
-        public void DisplayTrainingList(List<Training> trainings, List<Team> teams, List<Trainer> trainers)
+        public void DisplayTrainingList(IList<Training> trainings, List<Team> teams, List<Trainer> trainers)
         {
             TrainingList.Items.Clear();
             foreach(Team team in teams)

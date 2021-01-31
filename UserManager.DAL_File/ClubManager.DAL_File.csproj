@@ -1,10 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Training.hbm.xml" />
+    <None Remove="Transaction.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Training.hbm.xml" />
+    <EmbeddedResource Include="Transaction.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.3.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClubManager.NHibernate\ClubManager.NHibernate.csproj" />
     <ProjectReference Include="..\Models1\ClubManager.Models.csproj" />
   </ItemGroup>
 

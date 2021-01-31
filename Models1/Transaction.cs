@@ -6,11 +6,11 @@ namespace ClubManager.Models
 {
     public class Transaction : EntityBase<int>
     {
-        public decimal Amount { get; set; }
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public int PlayerId { get; set; }
-        public bool Paid { get; set; }
+        public virtual decimal Amount { get; set; }
+        public virtual int Year { get; set; }
+        public virtual int Month { get; set; }
+        public virtual int PlayerId { get; set; }
+        public virtual bool Paid { get; set; }
 
         public Transaction(int id, decimal amount, int playerId, int year, int month) : base(id)
         {
@@ -19,6 +19,11 @@ namespace ClubManager.Models
             Year = year;
             Month = month;
             Paid = false;
+        }
+
+        public Transaction()
+        {
+
         }
     }
 }

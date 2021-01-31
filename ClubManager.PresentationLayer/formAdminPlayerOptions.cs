@@ -58,7 +58,7 @@ namespace ClubManager.PresentationLayer
             }
         }
 
-        public void DisplayTransactionList(List<Transaction> transactions)
+        public void DisplayTransactionList(IList<Transaction> transactions)
         {
             TransactionList.Items.Clear();
 

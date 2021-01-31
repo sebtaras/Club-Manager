@@ -6,7 +6,7 @@ namespace ClubManager.Models.Repositories
 {
     public interface ITransactionRepository
     {
-        List<Transaction> GetAll();
+        IList<Transaction> GetAll();
         bool Add(Transaction transaction);
         int GetNextId();
         void Delete(Transaction transaction);

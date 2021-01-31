@@ -126,8 +126,9 @@ namespace ClubManager.Contrllers
                     bool addNew = true;
                     foreach(int id in p.TransactionIds)
                     {
+                        IList<Transaction> list = transactionRepository.GetAll();
                         Transaction t = transactionRepository.GetTransactionById(id);
-                        if (t.Month == month && t.Year == year)
+                        if ( t!= null && t.Month == month && t.Year == year)
                         {
                             addNew = false;
                             continue;

@@ -22,7 +22,8 @@ namespace ClubManager.Contrllers
         private ITrainerController _trainerController;
         private IAuthController _authController;
         
-        public MainController(IWindowFormsFactory formsFactory, 
+        public MainController(
+            IWindowFormsFactory formsFactory, 
             IPlayerRepository playerRepository, 
             ITrainerRepository trainerRepository, 
             IAdminRepository adminRepository, 
@@ -47,15 +48,18 @@ namespace ClubManager.Contrllers
             _trainerController = trainerController;
             _authController = authController;
         }
-
+        public void CreateAdmin()
+        {
+            _adminRepository.Add(new Admin(1, "Admin", "Admin", "ad@m", "asdasd"));
+        }
         public void LoadDefaultModel()
         {
             _adminRepository.Add(new Admin(1, "Admin", "Admin", "a@m", "asdasd"));
 
-            Transaction bd_t1 = new Transaction(1, (decimal)200.00, 1, 2020, 12);
+/*            Transaction bd_t1 = new Transaction(1, (decimal)200.00, 1, 2020, 12);
             Transaction bd_t2 = new Transaction(2, (decimal)200.00, 1, 2021, 1);
             _transactionRepository.Add(bd_t1);
-            _transactionRepository.Add(bd_t2);
+            _transactionRepository.Add(bd_t2);*/
 
             Player player_bd = new Player(1, "Bob", "Dasilva", "bd@mail", "asdasd", 15, true);
             Player player_mp = new Player(1, "Mijo", "Klašić", "mp@mail", "asdasd", 15, true);
@@ -63,8 +67,8 @@ namespace ClubManager.Contrllers
             Player player_mb = new Player(1, "Hrvoje", "Horvat", "mb@mail", "asdasd", 6, false);
             Player player_poreg = new Player(1, "Marko", "Lipovac", "poreg@mail", "asdasd", 17, false);
             Player player_it = new Player(1, "Ivan", "Tarzan", "mb@mail", "asdasd", 7, true);
-            player_bd.TransactionIds.Add(1);
-            player_bd.TransactionIds.Add(2);
+            //player_bd.TransactionIds.Add(1);
+            //player_bd.TransactionIds.Add(2);
             player_mz.TeamId = 1;
             player_it.TeamId = 1;
             _playerRepository.Add(player_bd);
@@ -92,19 +96,19 @@ namespace ClubManager.Contrllers
             zagici.ListTrainerIds.Add(1);
             zagici.ListPlayerIds.Add(3);
             zagici.ListPlayerIds.Add(6);
-            zagici.ListTrainingIds.Add(1);
-            zagici.ListTrainingIds.Add(2);
+            //zagici.ListTrainingIds.Add(1);
+            //zagici.ListTrainingIds.Add(2);
             _teamRepository.Add(zagici);
             _teamRepository.Add(limaci);
             _teamRepository.Add(mladiPioniri);
             _teamRepository.Add(pioniri);
             _teamRepository.Add(juniori);
             _teamRepository.Add(seniori);
-
+/*
             Training training1 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), 1, 1);
             Training training2 = new Training(1, DateTime.Now - new TimeSpan(1, 0, 0, 0), new TimeSpan(0, 60, 0), 1, 1);
             _trainingRepository.Add(training1);
-            _trainingRepository.Add(training2);
+            _trainingRepository.Add(training2);*/
 
         }
 

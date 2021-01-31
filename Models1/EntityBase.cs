@@ -13,6 +13,11 @@ namespace ClubManager.Models
 			Id = id;
 		}
 
+		protected EntityBase()
+        {
+
+        }
+
 		public virtual TId Id { get; set; }
 
 		public virtual bool Equals(EntityBase<TId> other)

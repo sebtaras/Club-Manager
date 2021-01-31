@@ -11,6 +11,6 @@ namespace ClubManager.BaseLib
     {
         DialogResult ShowViewModal();
         void SetPlayerValues(Player player, List<Team> teams);
-        void DisplayTransactionList(List<Transaction> transaction);
+        void DisplayTransactionList(IList<Transaction> transaction);
     }
 }

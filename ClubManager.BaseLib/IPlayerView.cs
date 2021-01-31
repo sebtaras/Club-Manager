@@ -8,16 +8,15 @@ namespace ClubManager.BaseLib
 {
     public interface IPlayerView
     {
-        //bool ShowViewModaless(IMainController inController, Player inPlayer, TransactionRepository transactionRepository, TrainingRepository trainingRepository, PlayerRepository playerRepository);
         bool ShowViewModaless(
             IMainController inController, 
             Player inPlayer, 
-            List<Transaction> inListTransactions, 
-            List<Training> inListTrainings, 
+            IList<Transaction> inListTransactions, 
+            IList<Training> inListTrainings, 
             List<Team> inListTeams, 
             List<Trainer> inListTrainers);
         void HideVerificationLabel();
-        void DisplayTransactionList(List<Transaction> inListTransactions);
-        void DisplayTrainingList(List<Training> trainings, List<Team> teams, List<Trainer> trainers);
+        void DisplayTransactionList(IList<Transaction> inListTransactions);
+        void DisplayTrainingList(IList<Training> trainings, List<Team> teams, List<Trainer> trainers);
     }
 }

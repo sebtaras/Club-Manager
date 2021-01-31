@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping 
+  xmlns="urn:nhibernate-mapping-2.2"
+  namespace="ClubManager.Models" 
+  assembly="ClubManager.Models">
+
+  <class name="Transaction" table="Transactions">
+
+    <id name="Id">
+      <column name="Id" sql-type="integer" not-null="true"/>
+      <generator class="native" />
+    </id>
+
+    <property name="Amount" type="Decimal" not-null="true" />
+    <property name="PlayerId" type="Int32" not-null="true"/>
+    <property name="Year" type="Int32" not-null="true"/>
+    <property name="Month" type="Int32" not-null="true"/>
+    <property name="Paid" type="Boolean" not-null="true"/>
+  </class>
+
+</hibernate-mapping>

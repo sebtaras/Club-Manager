@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using ClubManager.DAL_File;
 using ClubManager.PresentationLayer;
 using ClubManager.BaseLib;
 using ClubManager.Contrllers;
+using NHibernate.Cfg;
+using NHibernate;
+using ClubManager.Models;
 
 namespace ClubManager
 {
-    static class Program
+    public class Program
     {
+        
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
+        [Obsolete]
         static void Main()
         {
-            IWindowFormsFactory _formsFactory = new WindowFormsFactory();
-
+            IWindowFormsFactory formsFactory = new WindowFormsFactory();
             PlayerRepository playerRepository = new PlayerRepository();
             TrainerRepository trainerRepository = new TrainerRepository();
             AdminRepository adminRepository = new AdminRepository();
@@ -29,7 +32,7 @@ namespace ClubManager
             TransactionRepository transactionRepository = new TransactionRepository();
 
             MainController mainController = new MainController(
-                _formsFactory, 
+                formsFactory, 
                 playerRepository, 
                 trainerRepository, 
                 adminRepository, 

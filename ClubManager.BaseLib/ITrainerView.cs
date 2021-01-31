@@ -9,7 +9,7 @@ namespace ClubManager.BaseLib
     public interface ITrainerView
     {
         bool ShowViewModaless(IMainController inController, Trainer inTrainer);
-        void DisplayTrainingList(List<Training> trainings, List<Team> teams);
+        void DisplayTrainingList(IList<Training> trainings, List<Team> teams);
         void DisplayPlayerList(List<Player> players, List<Team> teams);
         void AlertFailedCreateTraining();
     }

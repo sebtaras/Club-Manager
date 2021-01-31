@@ -9,7 +9,7 @@ namespace ClubManager.Models
         public int Age { get; set; }
         public bool Verified { get; set; }
         public int TeamId { get; set; }
-        public List<int> TransactionIds { get; set; }
+        public IList<int> TransactionIds { get; set; }
 
         public Player(int id, string firstName, string lastName, string email, string password, int age, bool verified = true) 
             : base(id, firstName, lastName, email, password) { 

@@ -57,7 +57,7 @@ namespace ClubManager.PresentationLayer
             }
         }
 
-        public void DisplayTrainingList(List<Training> trainings, List<Team> teams)
+        public void DisplayTrainingList(IList<Training> trainings, List<Team> teams)
         {
             TrainingList.Items.Clear();
             foreach (Team team in teams)
@@ -66,6 +66,7 @@ namespace ClubManager.PresentationLayer
                 {
                     foreach (Training training in trainings)
                     {
+                        IList<int> temp = team.ListTrainingIds;
                         if (team.ListTrainingIds.Contains(training.Id))
                         {
                             string start = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();

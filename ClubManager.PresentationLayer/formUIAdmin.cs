@@ -23,7 +23,7 @@ namespace ClubManager.PresentationLayer
             InitializeComponent();
         }
 
-        public bool ShowViewModaless(IMainController inController, Admin inAdmin, List<Player> inListPlayers, List<Trainer> inListTrainers, List<Team> inListTeams, List<Transaction> inListTransactions)
+        public bool ShowViewModaless(IMainController inController, Admin inAdmin, List<Player> inListPlayers, List<Trainer> inListTrainers, List<Team> inListTeams, IList<Transaction> inListTransactions)
         {
             controller = inController;
             admin = inAdmin;

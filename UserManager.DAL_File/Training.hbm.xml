@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+  xmlns="urn:nhibernate-mapping-2.2"
+  namespace="ClubManager.Models"
+  assembly="ClubManager.Models">
+
+  <class name="Training" table="Trainings">
+
+    <id name="Id">
+      <column name="Id" sql-type="integer" not-null="true"/>
+      <generator class="native" />
+    </id>
+
+    <property name="StartTime" type="DateTime" not-null="true" />
+    <property name="EndTime" type="DateTime" not-null="true"/>
+    <property name="TeamId" type="Int32" not-null="true"/>
+    <property name="TrainerId" type="Int32" not-null="true"/>
+  </class>
+
+</hibernate-mapping>

@@ -7,10 +7,10 @@ namespace ClubManager.Models
     public class Team : EntityBase<int>
     {
         public string Name { get; set; }
-        public List<int> Ages { get; set; }
-        public List<int> ListPlayerIds { get; set; }
-        public List<int> ListTrainingIds { get; set; }
-        public List<int> ListTrainerIds { get; set; }
+        public IList<int> Ages { get; set; }
+        public IList<int> ListPlayerIds { get; set; }
+        public IList<int> ListTrainingIds { get; set; }
+        public IList<int> ListTrainerIds { get; set; }
 
         public Team(int id, string name, int lower, int upper): base(id)
         {
