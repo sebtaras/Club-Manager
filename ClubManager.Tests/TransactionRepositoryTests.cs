@@ -18,7 +18,7 @@ namespace ClubManager.Tests
         {
             Assert.AreEqual(0, _repo.GetAll().Count);
 
-            Transaction transaction = new Transaction(1, (decimal)200.00, 1, 2020, 3);
+            Transaction transaction = new Transaction(1, (decimal)200.00, new Player(), 2020, 3);
             _repo.Add(transaction);
 
             Assert.AreEqual(1, _repo.GetAll().Count);
@@ -30,8 +30,8 @@ namespace ClubManager.Tests
         {
             Assert.AreEqual(0, _repo.GetAll().Count);
 
-            Transaction transaction1 = new Transaction(1, (decimal)200.00, 1, 2020, 3);
-            Transaction transaction2 = new Transaction(1, (decimal)200.00, 1, 2020, 3);
+            Transaction transaction1 = new Transaction(1, (decimal)200.00, new Player(), 2020, 3);
+            Transaction transaction2 = new Transaction(1, (decimal)200.00, new Player(), 2020, 3);
             _repo.Add(transaction1);
             _repo.Add(transaction2);
 
@@ -43,7 +43,7 @@ namespace ClubManager.Tests
         [TestMethod]
         public void UpdateTransactionStatus()
         {
-            Transaction transaction1 = new Transaction(1, (decimal)200.00, 1, 2020, 3);
+            Transaction transaction1 = new Transaction(1, (decimal)200.00, new Player(), 2020, 3);
             _repo.Add(transaction1);
             Assert.AreEqual(false, _repo.GetTransactionById(transaction1.Id).Paid);
 
@@ -57,7 +57,7 @@ namespace ClubManager.Tests
         [TestMethod]
         public void DeleteOne()
         {
-            Transaction transaction1 = new Transaction(1, (decimal)200.00, 1, 2020, 3);
+            Transaction transaction1 = new Transaction(1, (decimal)200.00, new Player(), 2020, 3);
             _repo.Add(transaction1);
             Assert.AreEqual(1, _repo.GetAll().Count);
             _repo.Delete(transaction1);

@@ -39,7 +39,7 @@ namespace ClubManager.PresentationLayer
             Age.Text = "Age: " + player.Age.ToString();
             foreach(Team team in teams)
             {
-                if (team.ListPlayerIds.Contains(player.Id))
+                if (team.Players.Contains(player))
                 {
                     CurrentTeam.Text = "Team: " + team.Name;
                     return;
@@ -64,7 +64,7 @@ namespace ClubManager.PresentationLayer
 
             foreach(Transaction transaction in transactions)
             {
-                if(transaction.PlayerId == player.Id)
+                if(transaction.Player == player)
                 {
                     TransactionList.Items.Add(new ListViewItem(new string[] { 
                         transaction.Id.ToString(), 

@@ -26,12 +26,12 @@ namespace ClubManager.PresentationLayer
             StartTimePicker.Format = DateTimePickerFormat.Custom;
             StartTimePicker.ShowUpDown = true;
 
-            var dataTeamCombo = new ComboItem[trainer.TeamIds.Count];
+            var dataTeamCombo = new ComboItem[trainer.Teams.Count];
 
             int i = 0;
             foreach(Team team in teams)
             {
-                if (trainer.TeamIds.Contains(team.Id))
+                if (trainer.Teams.Contains(team))
                     dataTeamCombo[i++] = new ComboItem(team.Name);
             }
             TeamCombo.DataSource = dataTeamCombo;

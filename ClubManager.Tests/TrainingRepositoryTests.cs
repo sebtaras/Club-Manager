@@ -18,7 +18,7 @@ namespace ClubManager.Tests
         {
             Assert.AreEqual(0, _repo.GetAll().Count);
             
-            Training training = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), 1, 1);
+            Training training = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), new Team(), new Trainer());
             _repo.Add(training);
 
             Assert.AreEqual(1, _repo.GetAll().Count);
@@ -30,8 +30,8 @@ namespace ClubManager.Tests
         {
             Assert.AreEqual(0, _repo.GetAll().Count);
             
-            Training training1 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), 1, 1);
-            Training training2 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), 1, 1);
+            Training training1 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), new Team(), new Trainer());
+            Training training2 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), new Team(), new Trainer());
             _repo.Add(training1);
             _repo.Add(training2);
 
@@ -43,10 +43,10 @@ namespace ClubManager.Tests
         [TestMethod]
         public void DeleteOne()
         {
-            Training training1 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), 1, 1);
+            Training training1 = new Training(1, DateTime.Now, new TimeSpan(0, 60, 0), new Team(), new Trainer());
             _repo.Add(training1);
             Assert.AreEqual(1, _repo.GetAll().Count);
-            _repo.Delete(training1.Id);
+            _repo.Delete(training1);
             Assert.AreEqual(0, _repo.GetAll().Count);
         }
     }

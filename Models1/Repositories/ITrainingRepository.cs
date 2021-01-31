@@ -7,7 +7,7 @@ namespace ClubManager.Models.Repositories
     public interface ITrainingRepository
     {
         bool Add(Training training);
-        void Delete(int id);
+        void Delete(Training training);
         IList<Training> GetAll();
         int GetNextID();
         Training GetTrainingById(int trainingId);

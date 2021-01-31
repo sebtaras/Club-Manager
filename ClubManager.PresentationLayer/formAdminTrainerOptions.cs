@@ -46,27 +46,27 @@ namespace ClubManager.PresentationLayer
         {
             List<string> nameList = new List<string>();
 
-            if (trainer.TeamIds.Count > 0)
+            if (trainer.Teams.Count > 0)
             {
                 foreach (Team team in teams)
                 {
-                    if (trainer.TeamIds.Contains(team.Id))
+                    if (trainer.Teams.Contains(team))
                     {
                         nameList.Add(team.Name);
                     }
                 }
             }
 
-            var dataAddCombo = new ComboItem[teams.Count - trainer.TeamIds.Count];
-            var dataRemoveCombo = new ComboItem[trainer.TeamIds.Count];
+            var dataAddCombo = new ComboItem[teams.Count - trainer.Teams.Count];
+            var dataRemoveCombo = new ComboItem[trainer.Teams.Count];
             int i = 0;
             int j = 0;
 
             foreach (Team team in teams)
             {
-                if (!trainer.TeamIds.Contains(team.Id))
+                if (!trainer.Teams.Contains(team))
                     dataAddCombo[i++] = new ComboItem(team.Name);
-                if (trainer.TeamIds.Contains(team.Id))
+                if (trainer.Teams.Contains(team))
                     dataRemoveCombo[j++] = new ComboItem(team.Name);
             }
 

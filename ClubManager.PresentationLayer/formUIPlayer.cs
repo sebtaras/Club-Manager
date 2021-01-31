@@ -47,7 +47,7 @@ namespace ClubManager.PresentationLayer
             TransactionList.Items.Clear();
             foreach (Transaction t in inListTransactions)
             {
-                if (t.PlayerId == player.Id)
+                if (t.Player == player)
                 {
                     TransactionList.Items.Add(new ListViewItem(new string[] { t.Id.ToString(), t.Year.ToString(), t.Month.ToString(), t.Amount.ToString(), t.Paid.ToString() }));
                 }
@@ -59,22 +59,22 @@ namespace ClubManager.PresentationLayer
             TrainingList.Items.Clear();
             foreach(Team team in teams)
             {
-                if (team.ListPlayerIds.Contains(player.Id))
+                if (team.Players.Contains(player))
                 {
-                    foreach(int trainingId in team.ListTrainingIds)
+                    foreach(Training t in team.Trainings)
                     {
                         foreach(Training training in trainings)
                         {
-                            if(training.Id == trainingId)
+                            if(training.Id == t.Id)
                             {
                                 foreach (Trainer trainer in trainers)
                                 {
-                                    if (trainer.Id == training.TrainerId)
+                                    if (trainer == training.Trainer)
                                     {
                                         string trainerName = trainer.FirstName + " " + trainer.LastName;
                                         string startTime = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
                                         string endTime = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
-                                        TrainingList.Items.Add(new ListViewItem(new string[] { trainingId.ToString(), trainerName, startTime, endTime }));
+                                        TrainingList.Items.Add(new ListViewItem(new string[] { training.Id.ToString(), trainerName, startTime, endTime }));
                                     }
                                 }
                             }

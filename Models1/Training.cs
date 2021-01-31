@@ -8,15 +8,15 @@ namespace ClubManager.Models
     {
         public virtual DateTime StartTime { get; set; }
         public virtual DateTime EndTime { get; set; }
-        public virtual int TeamId { get; set; }
-        public virtual int TrainerId { get; set; }
+        public virtual Team Team { get; set; }
+        public virtual Trainer Trainer { get; set; }
 
-        public Training(int id, DateTime startTime, TimeSpan duration, int teamId, int trainerId): base(id)
+        public Training(int id, DateTime startTime, TimeSpan duration, Team team, Trainer trainer): base(id)
         {
             StartTime = startTime;
             EndTime = startTime + duration;
-            TeamId = teamId;
-            TrainerId = trainerId;
+            Team = team;
+            Trainer = trainer;
         }
 
         public Training()

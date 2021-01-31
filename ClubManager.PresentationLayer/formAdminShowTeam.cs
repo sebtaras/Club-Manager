@@ -28,7 +28,7 @@ namespace ClubManager.PresentationLayer
             TeamName.Text = team.Name;
             foreach (Trainer trainer in trainers)
             {
-                if (team.ListTrainerIds.Contains(trainer.Id))
+                if (team.Trainers.Contains(trainer))
                 {
                     TrainerList.Items.Add(new ListViewItem(new string[] {
                     trainer.Id.ToString(),
@@ -38,7 +38,7 @@ namespace ClubManager.PresentationLayer
             }
             foreach (Player player in players)
             {
-                if (team.ListPlayerIds.Contains(player.Id))
+                if (team.Players.Contains(player))
                 {
                     PlayerList.Items.Add(new ListViewItem(new string[] {
                     player.Id.ToString(),

@@ -25,19 +25,18 @@ namespace ClubManager.Contrllers
             {
                 if (form.TeamName() != "" && VerifyTrainingInput(form.Duration) && !Occupied(form.StartTime, trainingRepository))
                 {
-                    int teamID = -1;
+                    Team newTeam = null;
                     foreach (Team t in teamRepository.GetAll())
                     {
-                        if (t.Name == form.TeamName()) teamID = t.Id;
+                        if (t.Name == form.TeamName()) newTeam = t;
                     }
-                    if (teamID == -1) return false;
+                    if (newTeam == null) return false;
                     TimeSpan durationTimeSpan = new TimeSpan(0, int.Parse(form.Duration), 0);
-                    Training training = new Training(trainingRepository.GetNextID(), form.StartTime, durationTimeSpan, teamID, trainer.Id);
+                    Training training = new Training(trainingRepository.GetNextID(), form.StartTime, durationTimeSpan, newTeam, trainer);
                     trainingRepository.Add(training);
-                    int trainingID = trainingRepository.GetNextID() - 1;
                     foreach (Team t in teamRepository.GetAll())
                     {
-                        if (t.Id == teamID) t.ListTrainingIds.Add(trainingID);
+                        if (t == newTeam) t.Trainings.Add(training);
                     }
                     return true;
                 }
@@ -46,17 +45,17 @@ namespace ClubManager.Contrllers
             return true;
         }
 
-        public bool DeleteTraining(ITrainerDeleteTrainingView form, ITrainingRepository trainingRepository, ITeamRepository teamRepository, int trainingId)
+        public bool DeleteTraining(ITrainerDeleteTrainingView form, ITrainingRepository trainingRepository, ITeamRepository teamRepository, Training training)
         {
             var result = form.ShowViewModal();
             if (result == DialogResult.OK)
             {
-                trainingRepository.Delete(trainingId);
+                trainingRepository.Delete(training);
                 foreach (Team t in teamRepository.GetAll())
                 {
-                    if (t.ListTrainingIds.Contains(trainingId))
+                    if (t.Trainings.Contains(training))
                     {
-                        t.ListTrainingIds.Remove(trainingId);
+                        t.Trainings.Remove(training);
                         return true;
                     }
                 }

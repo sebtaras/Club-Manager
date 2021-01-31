@@ -18,58 +18,58 @@ namespace ClubManager.DAL_File
             training.Id = next_ID;
             _trainings.Add(training);
 
-            var mySession = SessionGetter.OpenSession();
+/*            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 mySession.Save(training);
                 trans.Commit();
-            }
+            }*/
             next_ID++;
             return true;
         }
 
         public IList<Training> GetAll()
         {
-            IList<Training> list;
-            var mySession = SessionGetter.OpenSession();
+/*            IList<Training> list;
+            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 list = mySession.CreateQuery("from " + typeof(Training)).List<Training>();
                 trans.Commit();
             }
-            return list;
-            //return _trainings;
+            return list;*/
+            return _trainings;
         }
         public int GetNextID()
         {
             return next_ID;
         }
 
-        public void Delete(int id)
+        public void Delete(Training training)
         {
-            _trainings.RemoveAll(t => t.Id == id);
-            Training toDelete;
-            var mySession = SessionGetter.OpenSession();
+            _trainings.RemoveAll(t => t.Id == training.Id);
+/*            Training toDelete;
+            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
-                toDelete = mySession.Get<Training>(id);
+                toDelete = mySession.Get<Training>(training.Id);
                 mySession.Delete(toDelete);
                 mySession.Flush();
                 trans.Commit();
-            }
+            }*/
         }
 
         public Training GetTrainingById(int trainingId)
         {
-            Training res;
-            var mySession = SessionGetter.OpenSession();
+/*            Training res;
+            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 res = mySession.Get<Training>(trainingId);
                 trans.Commit();
             }
-            return res;
-            //return _trainings.Find(t => t.Id == trainingId);
+            return res;*/
+            return _trainings.Find(t => t.Id == trainingId);
         }
 
     }

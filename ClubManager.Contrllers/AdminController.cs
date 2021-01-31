@@ -124,10 +124,10 @@ namespace ClubManager.Contrllers
                     if (!p.Verified) continue;
 
                     bool addNew = true;
-                    foreach(int id in p.TransactionIds)
+                    foreach(Transaction transaction in p.Transactions)
                     {
                         IList<Transaction> list = transactionRepository.GetAll();
-                        Transaction t = transactionRepository.GetTransactionById(id);
+                        Transaction t = transactionRepository.GetTransactionById(transaction.Id);
                         if ( t!= null && t.Month == month && t.Year == year)
                         {
                             addNew = false;
@@ -136,9 +136,9 @@ namespace ClubManager.Contrllers
                     }
                     if (addNew)
                     {
-                        Transaction newTransaction = new Transaction(transactionRepository.GetNextId(), MEMBERSHIP_FEE, p.Id, year, month);
+                        Transaction newTransaction = new Transaction(transactionRepository.GetNextId(), MEMBERSHIP_FEE, p, year, month);
                         transactionRepository.Add(newTransaction);
-                        p.TransactionIds.Add(transactionRepository.GetNextId() - 1);
+                        p.Transactions.Add(newTransaction);
                     }
                 }
             }

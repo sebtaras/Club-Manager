@@ -65,39 +65,40 @@ namespace ClubManager.Contrllers
             Player player_mp = new Player(1, "Mijo", "Klašić", "mp@mail", "asdasd", 15, true);
             Player player_mz = new Player(1, "Josip", "Janeš", "mz@mail", "asdasd", 6, true);
             Player player_mb = new Player(1, "Hrvoje", "Horvat", "mb@mail", "asdasd", 6, false);
-            Player player_poreg = new Player(1, "Marko", "Lipovac", "poreg@mail", "asdasd", 17, false);
-            Player player_it = new Player(1, "Ivan", "Tarzan", "mb@mail", "asdasd", 7, true);
+            Player player_poreg = new Player(1, "Marko", "Lipovac", "poreg@mail", "asdasd", 17, true);
+            Player player_it = new Player(1, "Ivan", "Tarzan", "mb@mail", "asdasd", 7, false);
             //player_bd.TransactionIds.Add(1);
             //player_bd.TransactionIds.Add(2);
-            player_mz.TeamId = 1;
-            player_it.TeamId = 1;
+            
             _playerRepository.Add(player_bd);
             _playerRepository.Add(player_mp);
-            _playerRepository.Add(player_mz);
             _playerRepository.Add(player_poreg);
             _playerRepository.Add(player_mb);
-            _playerRepository.Add(player_it);
 
 
             Trainer trainer1 = new Trainer(1, "Antonio", "Trener", "gt@mail", "asdasd", true);
             Trainer trainer2 = new Trainer(1, "Siniša", "Bradić", "bb@mail", "asdasd", true);
             Trainer trainer3 = new Trainer(1, "Domagoj", "Penava", "dt@mail", "asdasd", false);
-            trainer1.TeamIds.Add(1);
-            _trainerRepository.Add(trainer1);
             _trainerRepository.Add(trainer2);
             _trainerRepository.Add(trainer3);
 
             Team zagici = new Team(1, "Zagići", 6, 7);
+            trainer1.Teams.Add(zagici);
+            _trainerRepository.Add(trainer1);
             Team limaci = new Team(1, "Limaći", 8, 10);
             Team mladiPioniri = new Team(1, "Mlađi Pioniri", 11, 12);
             Team pioniri = new Team(1, "Stariji Pioniri", 13, 15);
             Team juniori = new Team(1, "Juniori", 16, 18);
             Team seniori = new Team(1, "Seniori", 19, 30);
-            zagici.ListTrainerIds.Add(1);
-            zagici.ListPlayerIds.Add(3);
-            zagici.ListPlayerIds.Add(6);
+            zagici.Trainers.Add(trainer1);
+            zagici.Players.Add(player_mz);
+            zagici.Players.Add(player_it);
             //zagici.ListTrainingIds.Add(1);
             //zagici.ListTrainingIds.Add(2);
+            player_mz.Team = zagici;
+            player_it.Team = zagici;
+            _playerRepository.Add(player_mz);
+            _playerRepository.Add(player_it);
             _teamRepository.Add(zagici);
             _teamRepository.Add(limaci);
             _teamRepository.Add(mladiPioniri);
@@ -250,7 +251,7 @@ namespace ClubManager.Contrllers
         public void DeleteTraining(ITrainerView trainerForm, int trainingId, string teamName, string trainingTime)
         {
             var form = _formsFactory.DeleteTrainingView(teamName, trainingTime);
-            if(_trainerController.DeleteTraining(form, _trainingRepository, _teamRepository, trainingId))
+            if(_trainerController.DeleteTraining(form, _trainingRepository, _teamRepository, _trainingRepository.GetTrainingById(trainingId)))
                 trainerForm.DisplayTrainingList(_trainingRepository.GetAll(), _teamRepository.GetAll());
         }
     }

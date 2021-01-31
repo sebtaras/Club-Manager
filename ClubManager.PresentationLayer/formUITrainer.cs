@@ -44,11 +44,11 @@ namespace ClubManager.PresentationLayer
             PlayerList.Items.Clear();
             foreach(Team team in teams)
             {
-                if (team.ListTrainerIds.Contains(trainer.Id))
+                if (team.Trainers.Contains(trainer))
                 {
                     foreach(Player player in players)
                     {
-                        if (team.ListPlayerIds.Contains(player.Id))
+                        if (team.Players.Contains(player))
                         {
                             PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Age.ToString(), team.Name }));
                         }
@@ -62,12 +62,12 @@ namespace ClubManager.PresentationLayer
             TrainingList.Items.Clear();
             foreach (Team team in teams)
             {
-                if (team.ListTrainerIds.Contains(trainer.Id))
+                if (team.Trainers.Contains(trainer))
                 {
                     foreach (Training training in trainings)
                     {
-                        IList<int> temp = team.ListTrainingIds;
-                        if (team.ListTrainingIds.Contains(training.Id))
+                        IList<Training> temp = team.Trainings;
+                        if (team.Trainings.Contains(training))
                         {
                             string start = training.StartTime.ToLongDateString() + "  " + training.StartTime.ToShortTimeString();
                             string end = training.EndTime.ToLongDateString() + "  " + training.EndTime.ToShortTimeString();

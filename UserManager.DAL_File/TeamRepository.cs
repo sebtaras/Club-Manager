@@ -36,22 +36,22 @@ namespace ClubManager.DAL_File
 
         public void AddPlayerToTeam(Player player, IPlayerRepository playerRepository)
         {
-            int newTeamID = -1;
+            Team newTeam = null;
             foreach (Team t in _teamList)
             {
-                if (t.Ages.IndexOf(player.Age) > -1 && !t.ListPlayerIds.Contains(player.Id))
+                if (!t.Players.Contains(player) && t.LowerAge <= player.Age && t.UpperAge >= player.Age)
                 {
-                    t.ListPlayerIds.Add(player.Id);
-                    newTeamID = t.Id;
+                    t.Players.Add(player);
+                    newTeam = t;
                 }
             }
-            if (newTeamID != -1)
+            if (newTeam != null)
             {
                 foreach (Player p in playerRepository.GetAll())
                 {
                     if (p.Id == player.Id)
                     {
-                        p.TeamId = newTeamID;
+                        p.Team = newTeam;
                     }
                 }
             }
@@ -61,16 +61,16 @@ namespace ClubManager.DAL_File
         {
             foreach (Team t in _teamList)
             {
-                if (t.Ages.IndexOf(player.Age) > -1)
+                if (t.LowerAge <= player.Age && t.UpperAge >= player.Age)
                 {
-                    t.ListPlayerIds.Remove(player.Id);
+                    t.Players.Remove(player);
                 }
             }
             foreach (Player p in playerRepository.GetAll())
             {
                 if (p.Id == player.Id)
                 {
-                    p.TeamId = -1;
+                    p.Team = null;
                 }
             }
         }
@@ -79,9 +79,9 @@ namespace ClubManager.DAL_File
         {
             foreach (Team t in _teamList)
             {
-                if (t.Ages.Contains(player.Age))
+                if (t.LowerAge <= player.Age && t.UpperAge >= player.Age)
                 {
-                    t.ListPlayerIds.Remove(player.Id);
+                    t.Players.Remove(player);
                 }
             }
             playerRepository.Delete(player);
@@ -89,22 +89,22 @@ namespace ClubManager.DAL_File
 
         public void AddTrainerToTeam(Trainer trainer, string teamName, ITrainerRepository trainerRepository)
         {
-            int newTeamID = -1;
+            Team newTeam = null;
             foreach (Team t in _teamList)
             {
-                if (t.Name.ToLower() == teamName.ToLower() && !t.ListTrainerIds.Contains(trainer.Id))
+                if (t.Name.ToLower() == teamName.ToLower() && !t.Trainers.Contains(trainer))
                 {
-                    t.ListTrainerIds.Add(trainer.Id);
-                    newTeamID = t.Id;
+                    t.Trainers.Add(trainer);
+                    newTeam = t;
                 }
             }
-            if (newTeamID != -1)
+            if (newTeam != null)
             {
                 foreach (Trainer t in trainerRepository.GetAll())
                 {
                     if (t.Id == trainer.Id)
                     {
-                        t.TeamIds.Add(newTeamID);
+                        t.Teams.Add(newTeam);
                     }
                 }
             }
@@ -112,26 +112,26 @@ namespace ClubManager.DAL_File
 
         public void RemoveTrainerFromTeam(Trainer trainer, string teamName, ITrainerRepository trainerRepository)
         {
-            if(teamName == "" && trainer.TeamIds.Count == 1)
+            if(teamName == "" && trainer.Teams.Count == 1)
             {
-                teamName = GetTeamById(trainer.TeamIds[0]).Name;
+                teamName = GetTeamById(trainer.Teams[0].Id).Name;
             }
-            int idToRemove = -1;
+            Team toRemove = null;
             foreach(Team t in _teamList)
             {
                 if (t.Name.ToLower() == teamName.ToLower())
                 {
-                    t.ListTrainerIds.Remove(trainer.Id);
-                    idToRemove = t.Id;
+                    t.Trainers.Remove(trainer);
+                    toRemove = t;
                 }
             }
-            if (idToRemove != -1)
+            if (toRemove != null)
             {
                 foreach (Trainer t in trainerRepository.GetAll())
                 {
-                    if (t.TeamIds.Contains(idToRemove) && t.Id == trainer.Id)
+                    if (t.Teams.Contains(toRemove) && t.Id == trainer.Id)
                     {
-                        t.TeamIds.Remove(idToRemove);
+                        t.Teams.Remove(toRemove);
                     }
                 }
             }
@@ -141,7 +141,7 @@ namespace ClubManager.DAL_File
         {
             foreach(Team t in _teamList)
             {
-                t.ListTrainerIds.Remove(trainer.Id);
+                t.Trainers.Remove(trainer);
             }
             trainerRepository.Delete(trainer);
         }

@@ -18,12 +18,12 @@ namespace ClubManager.DAL_File
             transaction.Id = next_ID;
             _listTransactions.Add(transaction);
 
-            var mySession = SessionGetter.OpenSession();
+/*            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 mySession.Save(transaction);
                 trans.Commit();
-            }
+            }*/
 
             next_ID++;
             return true;
@@ -31,15 +31,15 @@ namespace ClubManager.DAL_File
 
         public IList<Transaction> GetAll()
         {
-            IList<Transaction> list;
-            var mySession = SessionGetter.OpenSession();
+/*            IList<Transaction> list;
+            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 list = mySession.CreateQuery("from " + typeof(Transaction)).List<Transaction>();
                 trans.Commit();
             }
-            return list;
-            //return _listTransactions;
+            return list;*/
+            return _listTransactions;
         }
 
         public int GetNextId()
@@ -51,26 +51,26 @@ namespace ClubManager.DAL_File
         {
             _listTransactions.Remove(transaction);
 
-            var mySession = SessionGetter.OpenSession();
+/*            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 mySession.Delete(transaction);
                 mySession.Flush();
                 trans.Commit();
-            }
+            }*/
         }
 
         public Transaction GetTransactionById(int id)
         {
-            Transaction res; 
-            var mySession = SessionGetter.OpenSession();
+/*            Transaction res;
+            var mySession = NHibernateHelper.OpenSession();
             using (ITransaction trans = mySession.BeginTransaction())
             {
                 res = mySession.Get<Transaction>(id);
                 trans.Commit();
             }
-            return res;
-            //return _listTransactions.Find(t => t.Id == id);
+            return res;*/
+            return _listTransactions.Find(t => t.Id == id);
         }
 
         public void ChangeTransactionStatus(Transaction transaction)
@@ -80,12 +80,12 @@ namespace ClubManager.DAL_File
                 if(t.Id == transaction.Id)
                 {
                     t.Paid = !t.Paid;
-                    var mySession = SessionGetter.OpenSession();
+/*                    var mySession = NHibernateHelper.OpenSession();
                     using (ITransaction trans = mySession.BeginTransaction())
                     {
                         mySession.SaveOrUpdate(t);
                         trans.Commit();
-                    }
+                    }*/
                     return;
                 }
             }

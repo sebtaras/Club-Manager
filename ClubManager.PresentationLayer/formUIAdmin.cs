@@ -42,9 +42,9 @@ namespace ClubManager.PresentationLayer
             {
                 TeamList.Items.Add(new ListViewItem(new string[] { 
                     team.Id.ToString(), 
-                    team.Name, team.Ages[0] + " - " + team.Ages[team.Ages.Count - 1], 
-                    team.ListPlayerIds.Count.ToString(), 
-                    team.ListTrainerIds.Count.ToString() }));
+                    team.Name, team.LowerAge + " - " + team.UpperAge, 
+                    team.Players.Count.ToString(), 
+                    team.Trainers.Count.ToString() }));
             }
         }
 
@@ -71,10 +71,10 @@ namespace ClubManager.PresentationLayer
             {
                 if (player.Verified)
                 {
-                    string teamName = player.TeamId == -1 ? "" : "placeholder";
+                    string teamName = player.Team == null ? "" : "placeholder";
                     foreach (Team team in teams)
                     {
-                        if (team.ListPlayerIds.Contains(player.Id)) teamName = team.Name;
+                        if (team.Players.Contains(player)) teamName = team.Name;
                     }
                     PlayerList.Items.Add(new ListViewItem(new string[] { player.Id.ToString(), player.FirstName + " " + player.LastName, player.Email, teamName, player.Age.ToString() }));
                 }
@@ -91,7 +91,7 @@ namespace ClubManager.PresentationLayer
                     List<string> teamNames = new List<string>();
                     foreach(Team team in teams)
                     {
-                        if (team.ListTrainerIds.Contains(trainer.Id))
+                        if (team.Trainers.Contains(trainer))
                         {
                             teamNames.Add(team.Name);
                         }

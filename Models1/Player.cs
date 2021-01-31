@@ -6,17 +6,20 @@ namespace ClubManager.Models
 {
     public class Player : Person
     {
-        public int Age { get; set; }
-        public bool Verified { get; set; }
-        public int TeamId { get; set; }
-        public IList<int> TransactionIds { get; set; }
+        public virtual int? Age { get; set; }
+        public virtual Team Team { get; set; }
+        public virtual IList<Transaction> Transactions { get; set; }
 
-        public Player(int id, string firstName, string lastName, string email, string password, int age, bool verified = true) 
-            : base(id, firstName, lastName, email, password) { 
+        public Player(int id, string firstName, string lastName, string email, string password, int age, bool verified) 
+            : base(id, firstName, lastName, email, password, verified) { 
             Age = age;
-            Verified = verified;
-            TransactionIds = new List<int>();
-            TeamId = -1;
+            Transactions = new List<Transaction>();
+            Team = null;
+        }
+
+        public Player()
+        {
+
         }
     }
 }
