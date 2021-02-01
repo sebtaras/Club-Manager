@@ -12,10 +12,11 @@
     </id>
 
     <property name="Amount" type="Decimal" not-null="true" />
-    <property name="PlayerId" type="Int32" not-null="true"/>
     <property name="Year" type="Int32" not-null="true"/>
     <property name="Month" type="Int32" not-null="true"/>
     <property name="Paid" type="Boolean" not-null="true"/>
+    <one-to-many class="Player" />
+    
   </class>
 
 </hibernate-mapping>

@@ -27,27 +27,6 @@ namespace ClubManager
         [STAThread]
         static void Main()
         {
-            /* var config = new Configuration();
-
-             IDictionary<string, string> props = new Dictionary<string, string>();
-             props.Add("connection.connection_string", "Data Source=DESKTOP-ES2R24K\\SQLEXPRESS;Initial Catalog=ClubManager;Integrated Security=True");
-             props.Add("dialect", "NHibernate.Dialect.MsSql2012Dialect");
-             props.Add("connection.provider", "NHibernate.Connection.DriverConnectionProvider");
-             props.Add("", "");
-             config.
-             config.AddAssembly(typeof(Person).Assembly);
-             config.AddAssembly(typeof(Admin).Assembly);
-             config.AddAssembly(typeof(Trainer).Assembly);
-             config.AddAssembly(typeof(Player).Assembly);
-             config.AddAssembly(typeof(Team).Assembly);
-             config.AddAssembly(typeof(Transaction).Assembly);
-             config.AddAssembly(typeof(Training).Assembly);
-
-             var sessions = config.BuildSessionFactory();
-             ISession sess = sessions.OpenSession();
-
-             var schemaExport = new SchemaExport(config);
-             schemaExport.Create(false, true);*/
 
             ISessionFactory _sessionFactory = NhibernateService.OpenSessionFactory();
             
